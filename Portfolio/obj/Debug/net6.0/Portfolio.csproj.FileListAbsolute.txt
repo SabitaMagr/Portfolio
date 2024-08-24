@@ -10,6 +10,7 @@ E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net6.0\Microsoft.OpenApi.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Desktop\Dot Net\Portfolio\Portfolio\obj\Debug\net6.0\Portfolio.csproj.AssemblyReference.cache
 E:\Desktop\Dot Net\Portfolio\Portfolio\obj\Debug\net6.0\Portfolio.GeneratedMSBuildEditorConfig.editorconfig
 E:\Desktop\Dot Net\Portfolio\Portfolio\obj\Debug\net6.0\Portfolio.AssemblyInfoInputs.cache
 E:\Desktop\Dot Net\Portfolio\Portfolio\obj\Debug\net6.0\Portfolio.AssemblyInfo.cs

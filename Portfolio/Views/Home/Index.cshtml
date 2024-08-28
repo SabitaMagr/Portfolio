@@ -1,71 +1,7 @@
 ﻿@{
-    var workingCOntent = EngineContext.Current.Resolve<IWorkContext>();
-    Layout = null;
+	ViewBag.Title="Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pawan Gupta</title>
-    <link href="Content/Css/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/Css/style.css" rel="stylesheet" />
-    <link href="Fontawesome/css/all.css" rel="stylesheet" />
-</head>
-<body>
-    <script src="Content/Js/bootstrap.bundle.min.js"></script>
-
-    <nav class="navbar navbar-expand-lg py-4 px-5" style="background-color:white">
-        <a class="navbar-brand" href="AboutMe.html" style="color:black;">
-            <p><b><big>Pawan Gupta</big></b> / Web Developer</p>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto"></ul>
-            <ul class="navbar-nav px-5">
-                <li class="nav-item active px-4">
-                    <a class="nav-link" href="AboutMe.html" style="color:black;">ABOUT ME</a>
-                </li>
-                <li class="nav-item active px-4">
-                    <a class="nav-link" href="Resume.html" style="color:black;">RESUME</a>
-                </li>
-                <li class="nav-item active px-4">
-                    <a class="nav-link" href="Projects.html" style="color:black;">PROJECTS</a>
-                </li>
-                <li class="nav-item active px-4">
-                    <a class="nav-link" href="Contact.html" style="color:black;">CONTACT</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div id="content">
-        <!-- Your content goes here -->
-    </div>
-
-    <footer class="container-fluid py-4 px-5" style="background-color:white;">
-        <div class="row">
-            <div class="col-6 my-2">
-                <p>© 2022 - by Pawan Gupta</p>
-            </div>
-            <div class="col-2 text-center">
-                <h6>Call</h6>
-                <a href="tel:+917977215555" style="color:black; text-decoration:none;">+(91) 7977215555</a>
-            </div>
-            <div class="col-2 text-center">
-                <h6>Write</h6>
-                <a href="mailto:pawanrocks5050@gmail.com" style="color:black; text-decoration:none;">pawanrocks5050@gmail.com</a>
-            </div>
-            <div class="col-2 text-center">
-                <h6>Follow</h6>
-                <a style="color: black;" class="p-1" href="https://www.instagram.com/__.mr._.stud.__/"><i class="fab fa-2x fa-instagram"></i></a>
-                <a style="color: black;" class="p-1" href="https://twitter.com/Pawangupta5050"><i class="fab fa-2x fa-twitter"></i></a>
-                <a style="color: black;" class="p-1" href="https://www.linkedin.com/in/pawangupta20/"><i class="fab fa-2x fa-linkedin"></i></a>
-                <a style="color: black;" class="p-1" href="https://github.com/pawangupta5050"><i class="fab fa-2x fa-github"></i></a>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+<div class="page-sidebar-wrapper">
+	<div ng-view></div>
+</div>

@@ -1,135 +1,113 @@
-﻿
-@{
-	Layout=null;
+﻿@{
+	Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-    <title>Portfolio</title>
-     <link href="Content/Css/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/Css/style.css" rel="stylesheet" />
-    <link href="Fontawesome/css/all.css" rel="stylesheet" />
-</head>
-<body class="page-header-fixed  page-sidebar-closed-hide-logo page-content-white">
-    <div class="busy-loader">
-        <div id="preloader" class="loader"></div>
-        <span style="color:white">Loading.....Please Wait.....</span>
-    </div>
-        <div ng-app="DTModule">
-        <!-- BEGIN HEADER -->
-        <div class="page-header -i navbar navbar-fixed-top">
-            <!-- BEGIN HEADER INNER -->
-            <div class="page-header-inner" style="width:100%;">
-                <!-- BEGIN LOGO -->
-                <div class="page-logo">
-                    <a class="navbar-brand" href="/main/GlobalDashboard">
-                        <img src="/Images/logo.png" alt="neo erp" title="neo erp" class="logo-default">
-                    </a>
-                    <div class="menu-toggler sidebar-toggler">
-                        <span></span>
-                    </div>
-                    <div class="menu-toggler sidebar-toggler hide"></div>
-                </div>
-                <!-- END LOGO -->
-                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-                </a>
-                <!-- END RESPONSIVE MENU TOGGLER -->
-                <!-- BEGIN TOP NAVIGATION MENU -->
-                <div class="top-menu">
-                    <ul class="nav navbar-nav pull-right">
-                        <!-- BEGIN NOTIFICATION DROPDOWN -->
-                        <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar_document">
-                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <i class="icon-cursor-move"></i>
-                            </a>
-                            <!-- END TODO DROPDOWN -->
-                            <!-- BEGIN USER LOGIN DROPDOWN -->
-                        </li>
-                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                        <li class="dropdown dropdown-user">
-                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <i class="icon-user"></i>
-                                <span class="username username-hide-on-mobile">
-                    @*                @if (Request.IsAuthenticated)
-                                    {
-                                        <span>Welcome : @workingContent.CurrentUserinformation.login_code</span>
-                                    }*@
-                                </span>
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-default custom-drop">
-                                <li>
-@*                                    <i class="icon-user-follow"></i><span>@workingContent.CurrentUserinformation.company_name</span><span class="k-company-k-branch"></span>
-*@                                </li>
-                                <li>
-@*                                    <i class="icon-social-dropbox"></i><span>@workingContent.CurrentUserinformation.branch_name</span><span class="k-branch-k-company"></span>
-*@                                </li>
-                                <li class="logout-user">
-                                    <a href="@Url.Action("LogOut","Home",new { Area=""})">Log Out</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- END USER LOGIN DROPDOWN -->
-                        <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-                        <li class="dropdown dropdown-quick-sidebar-toggler">
-                            <a href="javascript:;" class="dropdown-toggle">
-                                <i class="icon-logout"></i>
-                            </a>
-                        </li>
-                        <!-- END QUICK SIDEBAR TOGGLER -->
-                    </ul>
-                </div>
-                <!-- END TOP NAVIGATION MENU -->
-            </div>
-            <!-- END HEADER INNER -->
-        </div>
-        <!-- END HEADER -->
-        <div class="clearfix"></div>
-        <div class="page-container">
-            <div class="page-sidebar-wrapper">
-@*                @Html.Partial("_DocumentTemplateMenu")
+<html lang="en">
 
-*@  
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto"></ul>
-            <ul class="navbar-nav px-5">
-                <li class="nav-item active px-4">
-                    <a class="nav-link" href="AboutMe.html" style="color:black;">ABOUT ME</a>
-                </li>
-                <li class="nav-item active px-4">
-                    <a class="nav-link" href="Resume.html" style="color:black;">RESUME</a>
-                </li>
-                <li class="nav-item active px-4">
-                    <a class="nav-link" href="Projects.html" style="color:black;">PROJECTS</a>
-                </li>
-                <li class="nav-item active px-4">
-                    <a class="nav-link" href="Contact.html" style="color:black;">CONTACT</a>
-                </li>
-            </ul>
-        </div>
-</div>
-            <div class="page-content-wrapper" id="operationContent">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Portfolio</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+<link href="@Url.Content("~/assets/vendor/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/assets/vendor/bootstrap-icons/bootstrap-icons.css")" rel="stylesheet" />
+<link href="@Url.Content("~/assets/vendor/aos/aos.css")" rel="stylesheet" />
+<link href="@Url.Content("~/assets/vendor/glightbox/css/glightbox.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/assets/vendor/swiper/swiper-bundle.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/assets/css/main.css")" rel="stylesheet" />
+
+
+  <!-- Main CSS File -->
+<link href="@Url.Content("~/assets/css/main.css")" rel="stylesheet" />
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Portfolio</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home<br></a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+         <li><a href="#contact">Log In</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+     <!-- Main Content -->
+        <div class="page-container">
+            <div class="page-content-wrapper">
                 <div class="page-content">
+                    <!-- Placeholder for dynamic content -->
                     @RenderBody()
                 </div>
             </div>
-            <!-- BEGIN QUICK SIDEBAR -->
-            <a href="javascript:;" class="page-quick-sidebar-toggler">
-                <i class="icon-close"></i>
-            </a>
-@*            @Html.Partial("_RightPanel")
-*@            <!-- END QUICK SIDEBAR -->
         </div>
-        <div class="page-footer">
-            <div class="scroll-to-top">
-                <i class="icon-arrow-up"></i>
-            </div>
-        </div>
+  <footer id="footer" class="footer accent-background">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Portfolio</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href=""><i class="bi bi-twitter-x"></i></a>
+        <a href=""><i class="bi bi-facebook"></i></a>
+        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href=""><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="credits">
+        Designed by Sabita Thapa Magar
+      </div>
     </div>
-    </body>
-    </html>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+<script src="@Url.Content("~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js")"></script>
+<script src="@Url.Content("~/assets/vendor/php-email-form/validate.js")"></script>
+<script src="@Url.Content("~/assets/vendor/aos/aos.js")"></script>
+<script src="@Url.Content("~/assets/vendor/typed.js/typed.umd.js")"></script>
+<script src="@Url.Content("~/assets/vendor/waypoints/noframework.waypoints.js")"></script>
+<script src="@Url.Content("~/assets/vendor/purecounter/purecounter_vanilla.js")"></script>
+<script src="@Url.Content("~/assets/vendor/glightbox/js/glightbox.min.js")"></script>
+<script src="@Url.Content("~/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js")"></script>
+<script src="@Url.Content("~/assets/vendor/isotope-layout/isotope.pkgd.min.js")"></script>
+<script src="@Url.Content("~/assets/vendor/swiper/swiper-bundle.min.js")"></script>
+
+<!-- Main JS File -->
+<script src="@Url.Content("~/assets/js/main.js")"></script>
+
+
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net6.0\appsettings.Development.json
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net6.0\appsettings.json
+E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net6.0\Portfolio.staticwebassets.runtime.json
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net6.0\Portfolio.exe
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net6.0\Portfolio.deps.json
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net6.0\Portfolio.runtimeconfig.json
@@ -26,4 +27,3 @@ E:\Desktop\Dot Net\Portfolio\Portfolio\obj\Debug\net6.0\Portfolio.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio\obj\Debug\net6.0\ref\Portfolio.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio\obj\Debug\net6.0\Portfolio.pdb
 E:\Desktop\Dot Net\Portfolio\Portfolio\obj\Debug\net6.0\Portfolio.genruntimeconfig.cache
-E:\Desktop\Dot Net\Portfolio\Portfolio\obj\Debug\net6.0\Portfolio.csproj.AssemblyReference.cache

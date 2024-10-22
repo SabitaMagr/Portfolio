@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using AspNetCore.ReCaptcha;
 
 namespace Portfolio.Controllers
 {
@@ -9,6 +10,10 @@ namespace Portfolio.Controllers
             return View();
         }
         public IActionResult Home()
+        {
+            return View();
+        }
+        public IActionResult LogIn()
         {
             return View();
         }

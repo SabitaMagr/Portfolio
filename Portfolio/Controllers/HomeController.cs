@@ -1,8 +1,11 @@
+using AspNetCore.ReCaptcha;
 using Microsoft.AspNetCore.Mvc;
+using Portfolio.Domain.Domain;
 using Portfolio.Domain.Entities.User;
 using Portfolio.Domain.Interfaces;
 using Portfolio.Models;
 using System.Diagnostics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Portfolio.Controllers
 {
@@ -31,9 +34,26 @@ namespace Portfolio.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult LogIn(SignUpModel model)
+        [ValidateAntiForgeryToken]
+        [ValidateReCaptcha]
+        public IActionResult LogIn(LoginModel model)
         {
-            return View();
+            try
+            { if(ModelState.IsValid)
+                {
+                    var data=_user.ValidateUser(model);
+                    return View();
+                }
+                else
+                {
+                    return View();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
         }
         public IActionResult SignUp()
         {
@@ -42,25 +62,28 @@ namespace Portfolio.Controllers
         [HttpPost]
         public IActionResult SignUp(SignUpModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                bool result = _user.AddUser(model);
-                if (result)
+                if (ModelState.IsValid)
                 {
-                    return RedirectToAction("LogIn");
+                    bool result = _user.AddUser(model);
+                    if (result)
+                    {
+                        return RedirectToAction("LogIn");
+                    }
+                    else
+                    {
+                        return View(model);
+                    }
                 }
-                else
-                {
-                    return View(model);
-                }
+                ViewData["Response"] = new BaseResponseModel() { ErrorCode = 400, Message = "errors" };
+                return View(model);
             }
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            catch (Exception ex)
+            {
+                ViewData["Response"] = new BaseResponseModel() { ErrorCode = 500, Message = ex.Message };
+                return View(model);
+            }
         }
     }
 }

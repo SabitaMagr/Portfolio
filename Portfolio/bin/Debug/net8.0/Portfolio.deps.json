@@ -511,8 +511,7 @@
       "Portfolio.Application/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",
-          "Portfolio.Domain": "1.0.0",
-          "Portfolio.Infrastructure": "1.0.0"
+          "Portfolio.Domain": "1.0.0"
         },
         "runtime": {
           "Portfolio.Application.dll": {
@@ -538,6 +537,7 @@
       "Portfolio.Infrastructure/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",
+          "Portfolio.Application": "1.0.0",
           "Portfolio.Domain": "1.0.0"
         },
         "runtime": {

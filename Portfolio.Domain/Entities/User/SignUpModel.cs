@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portfolio.Domain.Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -29,7 +30,6 @@ namespace Portfolio.Domain.Entities.User
 
         [MustBeTrue(ErrorMessage = "You must accept the terms and conditions.")]
         public bool AcceptTerms { get; set; }
-
     }
     public class MustBeTrueAttribute : ValidationAttribute
     {

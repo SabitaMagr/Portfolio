@@ -2,7 +2,7 @@ using AspNetCore.ReCaptcha;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Portfolio.Domain.Domain;
+using Portfolio.Infrastructure.Entity;
 using Portfolio.Infrastructure.Extensions;
 using System.Text;
 

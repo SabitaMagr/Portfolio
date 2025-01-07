@@ -31,9 +31,6 @@
             "projectReferences": {
               "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj": {
                 "projectPath": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj"
-              },
-              "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Infrastructure\\Portfolio.Infrastructure.csproj": {
-                "projectPath": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Infrastructure\\Portfolio.Infrastructure.csproj"
               }
             }
           }
@@ -182,6 +179,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Application\\Portfolio.Application.csproj": {
+                "projectPath": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Application\\Portfolio.Application.csproj"
+              },
               "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj": {
                 "projectPath": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj"
               }

@@ -950,8 +950,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",
-          "Portfolio.Domain": "1.0.0",
-          "Portfolio.Infrastructure": "1.0.0"
+          "Portfolio.Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Portfolio.Application.dll": {}
@@ -981,6 +980,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",
+          "Portfolio.Application": "1.0.0",
           "Portfolio.Domain": "1.0.0"
         },
         "compile": {

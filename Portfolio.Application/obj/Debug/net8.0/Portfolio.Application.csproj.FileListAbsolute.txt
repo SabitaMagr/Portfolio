@@ -2,9 +2,7 @@ E:\Desktop\Dot Net\Portfolio\Portfolio.Application\bin\Debug\net8.0\Portfolio.Ap
 E:\Desktop\Dot Net\Portfolio\Portfolio.Application\bin\Debug\net8.0\Portfolio.Application.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio.Application\bin\Debug\net8.0\Portfolio.Application.pdb
 E:\Desktop\Dot Net\Portfolio\Portfolio.Application\bin\Debug\net8.0\Portfolio.Domain.dll
-E:\Desktop\Dot Net\Portfolio\Portfolio.Application\bin\Debug\net8.0\Portfolio.Infrastructure.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio.Application\bin\Debug\net8.0\Portfolio.Domain.pdb
-E:\Desktop\Dot Net\Portfolio\Portfolio.Application\bin\Debug\net8.0\Portfolio.Infrastructure.pdb
 E:\Desktop\Dot Net\Portfolio\Portfolio.Application\obj\Debug\net8.0\Portfolio.Application.csproj.AssemblyReference.cache
 E:\Desktop\Dot Net\Portfolio\Portfolio.Application\obj\Debug\net8.0\Portfolio.Application.GeneratedMSBuildEditorConfig.editorconfig
 E:\Desktop\Dot Net\Portfolio\Portfolio.Application\obj\Debug\net8.0\Portfolio.Application.AssemblyInfoInputs.cache

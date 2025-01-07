@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Domain.Interfaces
 {
-    public interface Iuser
+    public interface IUserRepo
     {
         bool AddUser(SignUpModel model);
         UserTbl ValidateUser(LoginModel model);

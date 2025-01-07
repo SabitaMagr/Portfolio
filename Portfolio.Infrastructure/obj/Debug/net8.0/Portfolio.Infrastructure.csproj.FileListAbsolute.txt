@@ -1,7 +1,9 @@
 E:\Desktop\Dot Net\Portfolio\Portfolio.Infrastructure\bin\Debug\net8.0\Portfolio.Infrastructure.deps.json
 E:\Desktop\Dot Net\Portfolio\Portfolio.Infrastructure\bin\Debug\net8.0\Portfolio.Infrastructure.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio.Infrastructure\bin\Debug\net8.0\Portfolio.Infrastructure.pdb
+E:\Desktop\Dot Net\Portfolio\Portfolio.Infrastructure\bin\Debug\net8.0\Portfolio.Application.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio.Infrastructure\bin\Debug\net8.0\Portfolio.Domain.dll
+E:\Desktop\Dot Net\Portfolio\Portfolio.Infrastructure\bin\Debug\net8.0\Portfolio.Application.pdb
 E:\Desktop\Dot Net\Portfolio\Portfolio.Infrastructure\bin\Debug\net8.0\Portfolio.Domain.pdb
 E:\Desktop\Dot Net\Portfolio\Portfolio.Infrastructure\obj\Debug\net8.0\Portfolio.Infrastructure.csproj.AssemblyReference.cache
 E:\Desktop\Dot Net\Portfolio\Portfolio.Infrastructure\obj\Debug\net8.0\Portfolio.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig

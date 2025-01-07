@@ -960,20 +960,6 @@
         "runtime": {
           "bin/placeholder/Portfolio.Domain.dll": {}
         }
-      },
-      "Portfolio.Infrastructure/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",
-          "Portfolio.Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Portfolio.Infrastructure.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Portfolio.Infrastructure.dll": {}
-        }
       }
     }
   },
@@ -2456,18 +2442,12 @@
       "type": "project",
       "path": "../Portfolio.Domain/Portfolio.Domain.csproj",
       "msbuildProject": "../Portfolio.Domain/Portfolio.Domain.csproj"
-    },
-    "Portfolio.Infrastructure/1.0.0": {
-      "type": "project",
-      "path": "../Portfolio.Infrastructure/Portfolio.Infrastructure.csproj",
-      "msbuildProject": "../Portfolio.Infrastructure/Portfolio.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.0",
-      "Portfolio.Domain >= 1.0.0",
-      "Portfolio.Infrastructure >= 1.0.0"
+      "Portfolio.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2500,9 +2480,6 @@
           "projectReferences": {
             "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj": {
               "projectPath": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj"
-            },
-            "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Infrastructure\\Portfolio.Infrastructure.csproj": {
-              "projectPath": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Infrastructure\\Portfolio.Infrastructure.csproj"
             }
           }
         }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Portfolio.Application.Business;
 using Portfolio.Domain.Interfaces;
 using Portfolio.Infrastructure.Repository;
 using System;
@@ -13,7 +14,10 @@ namespace Portfolio.Infrastructure.Extensions
     {
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddScoped<Iuser,UserRepository>();
+            #region User
+            services.AddTransient<Iuser, UserBusiness>();
+            services.AddTransient<IUserRepo, UserRepository>();
+            #endregion
             return services;
         }
     }

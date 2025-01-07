@@ -945,6 +945,20 @@
           }
         }
       },
+      "Portfolio.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",
+          "Portfolio.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Portfolio.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Portfolio.Application.dll": {}
+        }
+      },
       "Portfolio.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -2438,6 +2452,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Portfolio.Application/1.0.0": {
+      "type": "project",
+      "path": "../Portfolio.Application/Portfolio.Application.csproj",
+      "msbuildProject": "../Portfolio.Application/Portfolio.Application.csproj"
+    },
     "Portfolio.Domain/1.0.0": {
       "type": "project",
       "path": "../Portfolio.Domain/Portfolio.Domain.csproj",
@@ -2447,6 +2466,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.0",
+      "Portfolio.Application >= 1.0.0",
       "Portfolio.Domain >= 1.0.0"
     ]
   },
@@ -2478,6 +2498,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Application\\Portfolio.Application.csproj": {
+              "projectPath": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Application\\Portfolio.Application.csproj"
+            },
             "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj": {
               "projectPath": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj"
             }

@@ -6,15 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Portfolio.Domain.Domain
+namespace Portfolio.Infrastructure.Entity
 {
-    public partial class PortfolioDbContext:DbContext
+    public partial class PortfolioDbContext : DbContext
     {
         public PortfolioDbContext(DbContextOptions<PortfolioDbContext> options)
         : base(options)
         {
         }
 
-        public virtual DbSet<UserTbl> UserTbls { get; set; } = null!;
+        public virtual DbSet<UserTbl> UserTbl { get; set; } = null!;
     }
 }

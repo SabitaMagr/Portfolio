@@ -1,0 +1,103 @@
+﻿@model Portfolio.Domain.Entities.User.SignUpModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Reference the layout file
+}
+<div class="col-lg-6 d-none d-lg-flex flex-column justify-content-center align-items-center right-section">
+    <div class="background-image">
+        <img src="/Images/girlImg.png" alt="Background" class="centered-image" />
+    </div>
+</div>
+<div class="col-lg-6 bg-white sign-card">
+    <img src="/Images/logo.png" alt="Logo" class="logo-image" />
+
+    @using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+    {
+        <div class="custom-floating-label mb-3">
+            <div class="input-group">
+                <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
+                <input asp-for="FullName" name="FullName" class="form-control name-field" id="FullName" placeholder=" " />
+                <label for="FullName" style="left:3.1rem;">Full Name</label>
+            </div>
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+        <div class="custom-floating-label mb-3">
+            <div class="input-group">
+                <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                <input asp-for="Email" class="form-control name-field" id="Email" placeholder=" " />
+                <label for="Email" style="left:3.1rem;">Email</label>
+            </div>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="custom-floating-label mb-3">
+            <div class="input-group">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                <input asp-for="Username" class="form-control name-field" id="Username" placeholder=" " />
+                <label for="Username" style="left:3.1rem;">User Name</label>
+            </div>
+           <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="custom-floating-label mb-3">
+            <div class="input-group">
+                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                <input asp-for="Password" class="form-control password-field" type="password" id="Password" placeholder=" " />
+                <label for="Password" style="left: 3.1rem;">Password</label>
+                <span class="password-group-text" onclick="togglePassword()">
+                    <i class="fa fa-eye"></i>
+                </span>
+            </div>
+           <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="custom-floating-label mb-3">
+            <div class="input-group">
+                <span class="input-group-text"><i class="fa-solid fa-unlock-keyhole"></i></span>
+                <input asp-for="ConfirmPassword" class="form-control password-field" type="password" id="ConfirmPassword" placeholder=" " />
+                <label for="ConfirmPassword" style="left: 3.1rem;">Re-enter Password</label>
+                <span class="password-group-text" onclick="toggleRePassword()">
+                    <i class="fa fa-eye"></i>
+                </span>
+            </div>
+           <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-1">
+            <!-- Remember Me Checkbox -->
+            <div class="form-check">
+                <input asp-for="AcceptTerms" type="checkbox" class="form-check-input" id="AcceptTerms" />
+                <label for="AcceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+            </div>
+        </div>
+        <span asp-validation-for="AcceptTerms" class="text-danger"></span>
+        <div class="container">
+            <button type="submit" class="btn btn-primary w-50">Register</button>
+        </div>
+        <div class="text-center form-check p-2">
+            <span>Already have an account?</span>
+            <a href="/Home/LogIn" class="text-decoration-none fw-bold">Login</a>
+        </div>
+    }
+</div>
+
+<script>
+        function togglePassword() {
+        const passwordInput = document.getElementById("Password");
+        const toggleIcon = document.querySelector(".toggle-password i");
+
+        if (passwordInput.type === "password") {
+            // Change input type to text to show password
+            passwordInput.type = "text";
+        } else {
+            passwordInput.type = "password";
+        }
+    }
+    function toggleRePassword() {
+        const passwordInput = document.getElementById("ConfirmPassword");
+        const toggleIcon = document.querySelector(".toggle-password i");
+
+        if (passwordInput.type === "password") {
+            // Change input type to text to show password
+            passwordInput.type = "text";
+        } else {
+            passwordInput.type = "password";
+        }
+    }
+
+</script>

@@ -1,0 +1,15 @@
+﻿using Portfolio.Domain.Entities.User;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Portfolio.Domain.Interfaces
+{
+    public interface Iuser
+    {
+        bool AddUser(SignUpModel model);
+
+    }
+}

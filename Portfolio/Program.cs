@@ -35,6 +35,15 @@ builder.Services.AddAuthentication(options =>
             ValidAudience = jwtSettings["Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]))
         };
+        // Use the cookie to extract the token
+        options.Events = new JwtBearerEvents
+        {
+            OnMessageReceived = context =>
+            {
+                context.Token = context.Request.Cookies["AuthToken"];
+                return Task.CompletedTask;
+            }
+        };
     });
 builder.Services.AddServices();
 builder.Services.AddSession(options =>

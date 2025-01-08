@@ -47,12 +47,15 @@ namespace Portfolio.Infrastructure.Repository
 
         public UserTbl ValidateUser(LoginModel model)
         {
-            var hashPassord = "";
-            if (!string.IsNullOrEmpty(model.Password))
+            var user = _dbContext.UserTbl.FirstOrDefault(u => u.User_name == model.UserName && u.Status == "E");
+            if(user!=null)
             {
-                hashPassord = StaticHelper.decryptString(model.Password);
+                var decryptedPassword = StaticHelper.DecryptString(user.Password);
+                if (decryptedPassword == model.Password)
+                {
+                    return user; 
+                }
             }
-            var user = _dbContext.UserTbl.FirstOrDefault(u => u.User_name == model.UserName && u.Password == hashPassord && u.Status == "E");
             return user;
         }
         public int GetMaxId<T>(string columnName) where T : class

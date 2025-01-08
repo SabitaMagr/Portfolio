@@ -9,6 +9,7 @@ E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net8.0\Portfolio.pdb
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net8.0\AspNetCore.ReCaptcha.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net8.0\Azure.Core.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net8.0\Azure.Identity.dll
+E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net8.0\BCrypt.Net.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 E:\Desktop\Dot Net\Portfolio\Portfolio\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll

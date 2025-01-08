@@ -2,9 +2,18 @@
 
 @using AspNetCore.ReCaptcha
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml"; // Reference the layout file
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
+@if (ViewData["Message"] != null)
+{
+    var messageType = ViewData["MessageType"]?.ToString(); 
+    var backgroundColor = messageType == "Success" ? "#28a745" : "#dc3545"; 
+    var textColor = "white";
 
+    <div id="alertMessage" style="position: fixed; top: 10px; left: 10px;font-size:13px; background-color: @backgroundColor; color: @textColor; padding: 8px;width:18%; border-radius: 5px; z-index: 9999;">
+        @ViewData["Message"]
+    </div>
+}
 <div class="col-lg-6 bg-white login-card">
     <img src="/Images/logo.png" alt="Logo" class="logo-image" />
 
@@ -70,5 +79,16 @@
             passwordInput.type = "password";
         }
     }
+    setTimeout(function () {
+        var alertMessage = document.getElementById("alertMessage");
+        if (alertMessage) {
+            // Add the fade-out class which will trigger the CSS transition
+            alertMessage.classList.add('fade-out');
+            // After the fade-out effect is complete (200ms), hide the element
+            setTimeout(function () {
+                alertMessage.style.display = 'none'; // Hide the message completely after fade-out
+            }, 500); // Matches the duration of the fade-out
+        }
+    }, 2000);
 
 </script>

@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
@@ -12,7 +14,7 @@ namespace Portfolio.Domain.HelperClass
 {
     public static class StaticHelper
     {
-        static string key = GenerateKey();
+        static string key = "D1604F87789443BCA89A1F7776ED16D7";
         public static string EncryptString(string plainText)
         {
             byte[] iv = new byte[16];
@@ -37,36 +39,28 @@ namespace Portfolio.Domain.HelperClass
             return Convert.ToBase64String(array);
         }
 
-        public static string decryptString(string cipherText)
+        public static string DecryptString(string cipherText)
         {
             byte[] iv = new byte[16];
-            byte[] buffer=Convert.FromBase64String(cipherText);
+            byte[] buffer = Convert.FromBase64String(cipherText);
+
             using (Aes aes = Aes.Create())
             {
-                aes.Key=Encoding.UTF8.GetBytes(key);
+                aes.Key = Encoding.UTF8.GetBytes(key);
                 aes.IV = iv;
-                ICryptoTransform decryptor=aes.CreateDecryptor(aes.Key,aes.IV);
-                using (MemoryStream memoryStream = new MemoryStream())
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream(buffer))
                 {
-                    using (CryptoStream cryptostream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Write))
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
                     {
-                        using (StreamReader streamReader = new StreamReader((Stream)cryptostream))
+                        using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
                         {
                             return streamReader.ReadToEnd();
                         }
                     }
                 }
             }
-        }
-
-        public static string GenerateKey(int size=32)
-        {
-            byte[] keyBytes=new byte[size];
-            using(var randomNo=RandomNumberGenerator.Create())
-            {
-                randomNo.GetBytes(keyBytes);
-            }
-            return Convert.ToBase64String(keyBytes);    
         }
 
     }

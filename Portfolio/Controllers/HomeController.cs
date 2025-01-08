@@ -1,9 +1,11 @@
 using AspNetCore.ReCaptcha;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Portfolio.Domain.Entities.User;
 using Portfolio.Domain.Interfaces;
-using Portfolio.Models;
-using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Portfolio.Controllers
@@ -12,19 +14,15 @@ namespace Portfolio.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         Iuser _user;
-        public HomeController(ILogger<HomeController> logger, Iuser user)
+        IConfiguration _configuration;
+        public HomeController(ILogger<HomeController> logger, Iuser user, IConfiguration configuration)
         {
             _logger = logger;
             _user = user;
-
+            _configuration = configuration; 
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }
@@ -44,10 +42,22 @@ namespace Portfolio.Controllers
                     var data=_user.ValidateUser(model);
                     if (data!=null)
                     {
-                        return View();
+                        TempData["Message"] = "Login successfully!";
+                        var token=GenerateToken(data);
+                        //Storing token in cookies
+                        HttpContext.Response.Cookies.Append("AuthToken", token, new CookieOptions
+                        {
+                            HttpOnly = true,
+                            Secure = true,
+                            SameSite = SameSiteMode.Strict,
+                            Expires = DateTime.UtcNow.AddHours(1)
+                        });
+
+                        return RedirectToAction("Dashboard");
                     }
                     else
                     {
+                        ViewData["MessageType"] = "Failure";
                         ViewData["Message"] = "Incorecct User name or Password.";
                         return View();
                     }
@@ -60,6 +70,8 @@ namespace Portfolio.Controllers
             }
             catch (Exception ex)
             {
+                ViewData["MessageType"] = "Failure";
+                ViewData["Message"] = "Incorecct User name or Password.";
                 return View();
             }
         }
@@ -81,6 +93,7 @@ namespace Portfolio.Controllers
                     }
                     else
                     {
+                        ViewData["Response"] = "Failed to register user.";
                         return View(model);
                     }
                 }
@@ -91,6 +104,34 @@ namespace Portfolio.Controllers
                 ViewData["Response"] = "Failed to register user.";
                 return View(model);
             }
+        }
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+        public  string GenerateToken(UserTbl data)
+        {
+            var jwtSettings = _configuration.GetSection("JwtSettings");
+            var key=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]));
+            var creds=new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
+            var claims = new[]
+            {
+                new Claim("Id", data.Id.ToString()),                     
+                new Claim("Full_name", data.Full_name),                
+                new Claim("User_name", data.User_name),                 
+                new Claim("Status", data.Status ?? string.Empty),
+                new Claim(JwtRegisteredClaimNames.Sub,data.User_name),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+            var token = new JwtSecurityToken(
+                issuer: jwtSettings["Issuer"],
+                audience: jwtSettings["Audience"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(1),
+                signingCredentials: creds
+             );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

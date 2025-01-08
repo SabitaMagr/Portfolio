@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Portfolio.Domain.Domain;
 using Portfolio.Domain.Entities.User;
+using Portfolio.Domain.HelperClass;
 using Portfolio.Domain.Interfaces;
 using Portfolio.Infrastructure.Entity;
 using System;
@@ -25,12 +25,13 @@ namespace Portfolio.Infrastructure.Repository
             {
                 int maxId = GetMaxId<UserTbl>("Id");
                 string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                string hashPassword = StaticHelper.EncryptString(model.Password);
                 var newUser = new UserTbl
                 {
                     Id  =maxId,
                     Full_name = model.FullName,
                     User_name = model.Username,
-                    Password = model.Password,
+                    Password = hashPassword,
                     Created_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture),
                     Status = "E"
                 };
@@ -46,11 +47,12 @@ namespace Portfolio.Infrastructure.Repository
 
         public UserTbl ValidateUser(LoginModel model)
         {
-            if (string.IsNullOrEmpty(model.Password) || string.IsNullOrEmpty(model.Password))
+            var hashPassord = "";
+            if (!string.IsNullOrEmpty(model.Password))
             {
-                return null;
+                hashPassord = StaticHelper.decryptString(model.Password);
             }
-            var user = _dbContext.UserTbl.FirstOrDefault(u => u.User_name == model.UserName && u.Password == model.Password && u.Status == "E");
+            var user = _dbContext.UserTbl.FirstOrDefault(u => u.User_name == model.UserName && u.Password == hashPassord && u.Status == "E");
             return user;
         }
         public int GetMaxId<T>(string columnName) where T : class

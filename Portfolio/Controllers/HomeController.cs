@@ -1,6 +1,5 @@
 using AspNetCore.ReCaptcha;
 using Microsoft.AspNetCore.Mvc;
-using Portfolio.Domain.Domain;
 using Portfolio.Domain.Entities.User;
 using Portfolio.Domain.Interfaces;
 using Portfolio.Models;
@@ -37,12 +36,21 @@ namespace Portfolio.Controllers
         [ValidateAntiForgeryToken]
         [ValidateReCaptcha]
         public IActionResult LogIn(LoginModel model)
+         
         {
             try
             { if(ModelState.IsValid)
                 {
                     var data=_user.ValidateUser(model);
-                    return View();
+                    if (data!=null)
+                    {
+                        return View();
+                    }
+                    else
+                    {
+                        ViewData["Message"] = "Incorecct User name or Password.";
+                        return View();
+                    }
                 }
                 else
                 {
@@ -76,12 +84,11 @@ namespace Portfolio.Controllers
                         return View(model);
                     }
                 }
-                ViewData["Response"] = new BaseResponseModel() { ErrorCode = 400, Message = "errors" };
                 return View(model);
             }
             catch (Exception ex)
             {
-                ViewData["Response"] = new BaseResponseModel() { ErrorCode = 500, Message = ex.Message };
+                ViewData["Response"] = "Failed to register user.";
                 return View(model);
             }
         }

@@ -56,7 +56,7 @@ namespace Portfolio.Infrastructure.Repository
                     return user; 
                 }
             }
-            return user;
+            return null;
         }
         public int GetMaxId<T>(string columnName) where T : class
         {

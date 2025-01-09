@@ -4,15 +4,28 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
+@if (TempData["Message"] != null)
+{
+    <div id="alertMessage" class="positiveAlert">
+        @TempData["Message"]
+    </div>
+}
+
 @if (ViewData["Message"] != null)
 {
     var messageType = ViewData["MessageType"]?.ToString(); 
-    var backgroundColor = messageType == "Success" ? "#28a745" : "#dc3545"; 
-    var textColor = "white";
-
-    <div id="alertMessage" style="position: fixed; top: 10px; left: 10px;font-size:13px; background-color: @backgroundColor; color: @textColor; padding: 8px;width:18%; border-radius: 5px; z-index: 9999;">
-        @ViewData["Message"]
-    </div>
+    if (messageType == "Success")
+    {
+        <div id="alertMessage" class="positiveAlert">
+            @ViewData["Message"]
+        </div>
+    }
+    else
+    {
+        <div id="alertMessage" class="negativeAlert">
+            @ViewData["Message"]
+        </div>
+    }
 }
 <div class="col-lg-6 bg-white login-card">
     <img src="/Images/logo.png" alt="Logo" class="logo-image" />
@@ -33,7 +46,7 @@
                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
                 <input asp-for="Password" class="form-control password-field" type="password" id="Password" placeholder=""/>
                 <label for="Password" style="left: 3.1rem;">Password</label>
-                <span class="password-group-text" onclick="togglePassword()">
+                <span class="password-group-text" id="PasswordClick" onclick="togglePassword()">
                     <i class="fa fa-eye"></i> <!-- Default: Eye icon -->
                 </span>
             </div>
@@ -52,7 +65,6 @@
             </div>
             <a href="/Account/ForgotPassword" class="text-decoration-none formTxt">Forgot Password?</a>
         </div>
-        <span class="text-danger">@ViewData["Message"]</span>
         <div class="container">
             <button type="submit" class="btn btn-primary w-45">Login</button>
         </div>
@@ -67,28 +79,8 @@
         <img src="/Images/girl.png" alt="Background" class="centered-image" />
     </div>
 </div>
-<script>
-        function togglePassword() {
-        const passwordInput = document.getElementById("Password");
-        const toggleIcon = document.querySelector(".toggle-password i");
+@section Scripts {
+    <script src="/js/Alert.js"></script>
+    <script src="/js/LoginSign.js"></script>
+}
 
-        if (passwordInput.type === "password") {
-            // Change input type to text to show password
-            passwordInput.type = "text";
-        } else {
-            passwordInput.type = "password";
-        }
-    }
-    setTimeout(function () {
-        var alertMessage = document.getElementById("alertMessage");
-        if (alertMessage) {
-            // Add the fade-out class which will trigger the CSS transition
-            alertMessage.classList.add('fade-out');
-            // After the fade-out effect is complete (200ms), hide the element
-            setTimeout(function () {
-                alertMessage.style.display = 'none'; // Hide the message completely after fade-out
-            }, 500); // Matches the duration of the fade-out
-        }
-    }, 2000);
-
-</script>

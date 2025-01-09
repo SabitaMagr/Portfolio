@@ -26,13 +26,22 @@ body {
 .logo-image {
     display: block; /* Makes the image a block element */
     margin: 0 auto; /* Centers the image horizontally */
+    margin-bottom:1rem!important;
     width: 200px; /* Set a specific width */
-    height: 90px; /* Set a specific height */
+    height: 52px; /* Set a specific height */
     object-fit: contain; /* Ensures the image fits within the width/height without distortion */
     z-index: 2; /* Ensures it stays above the background */
     position: relative;
 }
-
+.logo-image {
+    display: block; /* Makes the image a block element */
+    margin: 0 auto; /* Centers the image horizontally */
+    width: 200px; /* Set a specific width */
+    height: 52px; /* Set a specific height */
+    object-fit: contain; /* Ensures the image fits within the width/height without distortion */
+    z-index: 2; /* Ensures it stays above the background */
+    position: relative;
+}
 .sign-card {
     border: none;
     padding-top: 1.5rem;
@@ -263,4 +272,24 @@ input:-webkit-autofill {
 
 .alert {
     margin-top: 10px;
+}
+.positiveAlert, .negativeAlert {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.9rem;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 9999;
+    width:17.5% !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for better visibility */
+}
+
+.positiveAlert {
+    background-color: #0aa10f;
+}
+
+.negativeAlert {
+    background-color: #c90c16;
 }

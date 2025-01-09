@@ -50,10 +50,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "BCrypt.Net": {
-              "target": "Package",
-              "version": "[0.1.0, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -124,10 +120,6 @@
             "AspNetCore.ReCaptcha": {
               "target": "Package",
               "version": "[1.8.2, )"
-            },
-            "BCrypt.Net": {
-              "target": "Package",
-              "version": "[0.1.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -211,10 +203,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "BCrypt.Net": {
-              "target": "Package",
-              "version": "[0.1.0, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -296,10 +284,6 @@
               "target": "Package",
               "version": "[1.8.2, )"
             },
-            "BCrypt.Net": {
-              "target": "Package",
-              "version": "[0.1.0, )"
-            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -311,6 +295,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.7, )"
             }
           },
           "imports": [

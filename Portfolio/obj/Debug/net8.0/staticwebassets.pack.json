@@ -21,8 +21,20 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
       "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\Alert.js",
+      "PackagePath": "staticwebassets\\js\\Alert.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\LoginSign.js",
+      "PackagePath": "staticwebassets\\js\\LoginSign.js"
     },
     {
       "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\site.js",

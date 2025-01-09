@@ -42,7 +42,6 @@ namespace Portfolio.Controllers
                     var data=_user.ValidateUser(model);
                     if (data!=null)
                     {
-                        TempData["Message"] = "Login successfully!";
                         var token=GenerateToken(data);
                         //Storing token in cookies
                         HttpContext.Response.Cookies.Append("AuthToken", token, new CookieOptions
@@ -52,13 +51,14 @@ namespace Portfolio.Controllers
                             SameSite = SameSiteMode.Strict,
                             Expires = DateTime.UtcNow.AddHours(1)
                         });
-
+                        TempData["Message"] = "Login successfully !";
+                        TempData["UserName"] =data.User_name;
                         return RedirectToAction("Dashboard");
                     }
                     else
                     {
                         ViewData["MessageType"] = "Failure";
-                        ViewData["Message"] = "Incorecct User name or Password.";
+                        ViewData["Message"] = "Incorrect User name or Password.";
                         return View();
                     }
                 }
@@ -71,7 +71,7 @@ namespace Portfolio.Controllers
             catch (Exception ex)
             {
                 ViewData["MessageType"] = "Failure";
-                ViewData["Message"] = "Incorecct User name or Password.";
+                ViewData["Message"] = "Incorrect User name or Password.";
                 return View();
             }
         }
@@ -89,11 +89,12 @@ namespace Portfolio.Controllers
                     bool result = _user.AddUser(model);
                     if (result)
                     {
+                        TempData["Message"] = "User registered successfully.";
                         return RedirectToAction("LogIn");
                     }
                     else
                     {
-                        ViewData["Response"] = "Failed to register user.";
+                        ViewData["Message"] = "Failed to register user.";
                         return View(model);
                     }
                 }
@@ -101,13 +102,30 @@ namespace Portfolio.Controllers
             }
             catch (Exception ex)
             {
-                ViewData["Response"] = "Failed to register user.";
+                ViewData["MessageType"] = "Failure";
+                ViewData["Message"] = "Failed to register user.";
                 return View(model);
             }
         }
         public IActionResult Dashboard()
         {
-            return View();
+            try
+            {
+                var token = HttpContext.Request.Cookies["AuthToken"];
+                if(string.IsNullOrEmpty(token))
+                {
+                    return RedirectToAction("LogIn");
+                }
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var jwtToken = tokenHandler.ReadJwtToken(token);
+                var userName = jwtToken?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+                ViewData["UserName"] = userName;
+                return View();
+            }catch(Exception ex)
+            {
+                ViewData["Message"] = "An error occured !";
+                return View();
+            }
         }
         public  string GenerateToken(UserTbl data)
         {

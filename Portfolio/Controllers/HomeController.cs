@@ -127,6 +127,11 @@ namespace Portfolio.Controllers
                 return View();
             }
         }
+
+        public IActionResult Skills()
+        {
+            return View();
+        }
         public  string GenerateToken(UserTbl data)
         {
             var jwtSettings = _configuration.GetSection("JwtSettings");

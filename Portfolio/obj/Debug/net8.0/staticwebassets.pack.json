@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\js\\LoginSign.js"
     },
     {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\Skills.js",
+      "PackagePath": "staticwebassets\\js\\Skills.js"
+    },
+    {
       "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -65,10 +65,11 @@
     padding-left: 1.5rem !important;
 }
 .AddBtn {
-    padding: 6px 12px; /* Adjust spacing */
+    padding: 3px 12px; /* Adjust spacing */
     font-size: 16px; /* Set font size */
     font-weight: 400; /* Normal weight */
-    -webkit-appearance: none!important; /* Remove default focus styles */
+    -webkit-appearance: none !important;
+    -moz-appearance: none;
     line-height: 1.5; /* Text height */
     border: 1px solid #ccc; /* Light border */
     background-color: #007bff; /* Primary blue background */
@@ -196,4 +197,7 @@ td {
 .section{
     height:10%;
 }
-
+.btn:hover {
+    visibility: visible !important; /* Ensure the button is always visible on hover */
+    opacity: 1 !important; /* Ensure full opacity on hover */
+}

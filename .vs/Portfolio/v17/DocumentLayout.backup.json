@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\wwwroot\\js\\skills.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\wwwroot\\js\\skills.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\views\\home\\skills.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\views\\home\\skills.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\wwwroot\\js\\skills.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\wwwroot\\js\\skills.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\wwwroot\\js\\loginsign.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -74,13 +74,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Skills.js",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\Skills.js",
               "RelativeDocumentMoniker": "Portfolio\\wwwroot\\js\\Skills.js",
               "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\Skills.js",
               "RelativeToolTip": "Portfolio\\wwwroot\\js\\Skills.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-01-10T18:32:06.599Z",
               "EditorCaption": ""
@@ -93,20 +93,20 @@
               "RelativeDocumentMoniker": "Portfolio\\Views\\Shared\\_AdminLayout.cshtml",
               "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Shared\\_AdminLayout.cshtml",
               "RelativeToolTip": "Portfolio\\Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AgIAAGEAAAAAAAAAAADwv2gAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-10T17:03:43.08Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Skills.cshtml",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\Skills.cshtml",
               "RelativeDocumentMoniker": "Portfolio\\Views\\Home\\Skills.cshtml",
               "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\Skills.cshtml",
               "RelativeToolTip": "Portfolio\\Views\\Home\\Skills.cshtml",
-              "ViewState": "AgIAABoAAAAAAAAAAADgvyoAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-10T17:02:08.888Z",
               "EditorCaption": ""
@@ -121,8 +121,7 @@
               "RelativeToolTip": "Portfolio\\Views\\Home\\SignUp.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAADgvxoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-07T15:54:00.699Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T15:54:00.699Z"
             },
             {
               "$type": "Document",
@@ -134,8 +133,7 @@
               "RelativeToolTip": "Portfolio\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAHQAAAAAAAAAAAAAAIQAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T15:58:53.116Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T15:58:53.116Z"
             },
             {
               "$type": "Document",
@@ -147,8 +145,7 @@
               "RelativeToolTip": "Portfolio\\wwwroot\\js\\LoginSign.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-01-09T14:37:08.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-09T14:37:08.898Z"
             },
             {
               "$type": "Document",
@@ -160,8 +157,7 @@
               "RelativeToolTip": "Portfolio.Application\\Business\\UserBusiness.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAawBkAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T16:22:01.445Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T16:22:01.445Z"
             },
             {
               "$type": "Document",
@@ -185,8 +181,7 @@
               "RelativeToolTip": "Portfolio\\Views\\Home\\Dashboard.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAWwAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-08T17:31:34.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-08T17:31:34.052Z"
             },
             {
               "$type": "Document",

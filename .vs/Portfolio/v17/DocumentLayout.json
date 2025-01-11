@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "E:\\Desktop\\Dot Net\\Portfolio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\views\\home\\skills.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\views\\home\\skills.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\wwwroot\\js\\skills.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\wwwroot\\js\\skills.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\views\\home\\skills.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\views\\home\\skills.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\wwwroot\\js\\loginsign.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -62,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,46 +82,72 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "style.css",
+              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\css\\style.css",
+              "RelativeDocumentMoniker": "Portfolio\\wwwroot\\css\\style.css",
+              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\css\\style.css",
+              "RelativeToolTip": "Portfolio\\wwwroot\\css\\style.css",
+              "ViewState": "AgIAALgAAAAAAAAAAAAAAMQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-01-11T16:17:10.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "site.css",
+              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Portfolio\\wwwroot\\css\\site.css",
+              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Portfolio\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAewIoAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-01-11T16:16:28.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Skills.js",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\Skills.js",
               "RelativeDocumentMoniker": "Portfolio\\wwwroot\\js\\Skills.js",
               "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\Skills.js",
               "RelativeToolTip": "Portfolio\\wwwroot\\js\\Skills.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-01-10T18:32:06.599Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "_AdminLayout.cshtml",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Shared\\_AdminLayout.cshtml",
               "RelativeDocumentMoniker": "Portfolio\\Views\\Shared\\_AdminLayout.cshtml",
               "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Shared\\_AdminLayout.cshtml",
               "RelativeToolTip": "Portfolio\\Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AgIAAGEAAAAAAAAAAADwv2gAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAG4AAAAAAAAAAADgv4MAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-10T17:03:43.08Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Skills.cshtml",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\Skills.cshtml",
               "RelativeDocumentMoniker": "Portfolio\\Views\\Home\\Skills.cshtml",
               "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\Skills.cshtml",
               "RelativeToolTip": "Portfolio\\Views\\Home\\Skills.cshtml",
-              "ViewState": "AgIAABoAAAAAAAAAAADgvyoAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAADgvyYAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-10T17:02:08.888Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "SignUp.cshtml",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\SignUp.cshtml",
               "RelativeDocumentMoniker": "Portfolio\\Views\\Home\\SignUp.cshtml",
@@ -121,12 +155,11 @@
               "RelativeToolTip": "Portfolio\\Views\\Home\\SignUp.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAADgvxoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-07T15:54:00.699Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T15:54:00.699Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "HomeController.cs",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Portfolio\\Controllers\\HomeController.cs",
@@ -134,12 +167,11 @@
               "RelativeToolTip": "Portfolio\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAHQAAAAAAAAAAAAAAIQAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T15:58:53.116Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T15:58:53.116Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "LoginSign.js",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\LoginSign.js",
               "RelativeDocumentMoniker": "Portfolio\\wwwroot\\js\\LoginSign.js",
@@ -147,12 +179,11 @@
               "RelativeToolTip": "Portfolio\\wwwroot\\js\\LoginSign.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-01-09T14:37:08.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-09T14:37:08.898Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "UserBusiness.cs",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Application\\Business\\UserBusiness.cs",
               "RelativeDocumentMoniker": "Portfolio.Application\\Business\\UserBusiness.cs",
@@ -160,12 +191,11 @@
               "RelativeToolTip": "Portfolio.Application\\Business\\UserBusiness.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAawBkAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T16:22:01.445Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T16:22:01.445Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Infrastructure\\Repository\\UserRepository.cs",
               "RelativeDocumentMoniker": "Portfolio.Infrastructure\\Repository\\UserRepository.cs",
@@ -177,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "Portfolio\\Views\\Home\\Dashboard.cshtml",
@@ -185,12 +215,11 @@
               "RelativeToolTip": "Portfolio\\Views\\Home\\Dashboard.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAWwAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-08T17:31:34.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-08T17:31:34.052Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "LogIn.cshtml",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\LogIn.cshtml",
               "RelativeDocumentMoniker": "Portfolio\\Views\\Home\\LogIn.cshtml",
@@ -202,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "IUserRepo.cs",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Interfaces\\IUserRepo.cs",
               "RelativeDocumentMoniker": "Portfolio.Domain\\Interfaces\\IUserRepo.cs",
@@ -214,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "PortfolioDbContext.cs",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Infrastructure\\Entity\\PortfolioDbContext.cs",
               "RelativeDocumentMoniker": "Portfolio.Infrastructure\\Entity\\PortfolioDbContext.cs",
@@ -226,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "Portfolio.csproj",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Portfolio.csproj",
               "RelativeDocumentMoniker": "Portfolio\\Portfolio.csproj",

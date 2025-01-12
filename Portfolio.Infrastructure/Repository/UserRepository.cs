@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Portfolio.Domain.Entities;
 using Portfolio.Domain.Entities.User;
 using Portfolio.Domain.HelperClass;
 using Portfolio.Domain.Interfaces;
@@ -57,6 +60,63 @@ namespace Portfolio.Infrastructure.Repository
                 }
             }
             return null;
+        }
+        public bool AddSkills(List<string> skills,string token)
+        {
+            using (var transaction = _dbContext.Database.BeginTransaction())
+            {
+                try
+                {
+                    string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                    int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                    foreach (var data in skills)
+                    {
+                        int maxId = GetMaxId<Skills>("ID");
+                        var skillData = new Skills
+                        {
+                            ID = maxId,
+                            Skill = data,
+                            Created_by =userId,
+                            Created_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                        };
+                        _dbContext.Skills.Add(skillData);
+                        _dbContext.SaveChanges();
+                    }
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+            }
+        }
+        public List<SkillDetail> getSkills( string token)
+        {
+            try
+            {
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                var skills=_dbContext.Skills
+                    .Where(s=>s.Created_by==userId)
+                    .Join(_dbContext.UserTbl,
+                    s=>s.ID,u=>u.Id,
+                    (s,u)=>new SkillDetail
+                    {
+                        Id=s.ID,
+                        Skill=s.Skill,
+                        Created_by=u.Full_name,
+                        Created_dt = s.Created_dt.HasValue ? s.Created_dt.Value.ToString("dd-MMM-yyyy") : "N/A"
+                    })
+                    .OrderByDescending(s => s.Id)
+                    .ToList();
+                    return skills;
+            }
+            catch(Exception ex)
+            {
+                return new List<SkillDetail>();
+            }
+
         }
         public int GetMaxId<T>(string columnName) where T : class
         {

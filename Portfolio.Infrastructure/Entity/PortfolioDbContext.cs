@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Portfolio.Domain.Entities;
 using Portfolio.Domain.Entities.User;
 using System;
 using System.Collections.Generic;
@@ -16,5 +17,6 @@ namespace Portfolio.Infrastructure.Entity
         }
 
         public virtual DbSet<UserTbl> UserTbl { get; set; } = null!;
+        public virtual DbSet<Skills> Skills { get; set; } = null!;
     }
 }

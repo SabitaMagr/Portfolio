@@ -52,7 +52,11 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", builder =>
+        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
 var app = builder.Build();
 
 
@@ -68,6 +72,8 @@ app.UseAuthorization();
 app.UseRouting();
 app.UseAuthentication();
 app.MapControllers();
+
+app.UseCors("AllowAllOrigins");
 
 app.MapControllerRoute(
     name: "default",

@@ -3,6 +3,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
@@ -63,5 +64,18 @@ namespace Portfolio.Domain.HelperClass
             }
         }
 
+        public static string? GetDetail(string token, string claimType)
+        {
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var jwtToken=tokenHandler.ReadJwtToken(token);
+                return jwtToken?.Claims.FirstOrDefault(c => c.Type == claimType)?.Value;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }

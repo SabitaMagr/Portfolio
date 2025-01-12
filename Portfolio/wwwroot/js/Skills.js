@@ -1,6 +1,29 @@
 ﻿$(document).ready(function () {
     // Initialize DataTable
-    $('#skillTbl').DataTable();
+    $('#skillTbl').DataTable({
+        ajax: {
+            url: '/Home/GetSkills',
+            type: 'GET',
+            dataSrc: '',
+            success: function (data) {
+                console.log(data);  // Log the data to check the format
+            }
+        },
+        columns: [
+            { data: 'id'},
+            { data: 'skill'},
+            { data: 'created_by'},
+            { data: 'created_dt' },
+            {
+                data: 'id', title: 'Action',
+                render: function (data, type, row) {
+                    return `
+                      <button class="btn btn-warning btn-sm edit-btn" data-id="${data}">Edit</button>
+                        <button class="btn btn-danger btn-sm delete-btn" data-id="${data}">Delete</button>
+             `}
+            }
+        ]
+    });
 
     // Add new input field
     $(document).on('click', '.add-field', function () {

@@ -2,6 +2,7 @@ using AspNetCore.ReCaptcha;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Portfolio.Domain.Entities.User;
+using Portfolio.Domain.HelperClass;
 using Portfolio.Domain.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -116,9 +117,7 @@ namespace Portfolio.Controllers
                 {
                     return RedirectToAction("LogIn");
                 }
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var jwtToken = tokenHandler.ReadJwtToken(token);
-                var userName = jwtToken?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+                var userName = StaticHelper.GetDetail(token, ClaimTypes.Name);
                 ViewData["UserName"] = userName;
                 return View();
             }catch(Exception ex)
@@ -131,6 +130,51 @@ namespace Portfolio.Controllers
         public IActionResult Skills()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Skills(List<string> Skills)
+        {
+
+            if(Skills==null || !Skills.Any())
+            {
+                ViewData["MessageType"] = "Failure";
+                ViewData["Message"] = "No skills were provided !";
+                return View();
+            }
+            try
+            {
+                var token = HttpContext.Request.Cookies["AuthToken"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return View();
+                }
+                bool result = _user.AddSkills(Skills,token);
+                return View();
+            }
+            catch (Exception ex)
+            {
+                ViewData["MessageType"] = "Failure";
+                ViewData["Message"] = "Failed to save data !";
+                return View();
+            }
+        }
+        [HttpGet]
+        public JsonResult GetSkills()
+        {
+            try
+            {
+                var token = HttpContext.Request.Cookies["AuthToken"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return null;
+                }
+                var data = _user.getSkills(token);
+                return Json(new { data });
+            }
+            catch (Exception ex)
+            {
+        return Json(new { data = new List<object>() });
+            }
         }
         public  string GenerateToken(UserTbl data)
         {

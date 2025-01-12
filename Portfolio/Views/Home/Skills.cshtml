@@ -14,31 +14,33 @@
             <i class="fa-solid fa-square-plus"></i>   New
     </button>
     <!-- Modal -->
-    <div class="modal fade" id="skillModal" tabindex="-1" aria-labelledby="skillModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="skillModalLabel">My Skills</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="inputFieldsContainer">
-                        <!-- Initial input field -->
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Enter Skill" name="skills[]" />
-                                <button class="btn btn-success add-field" type="button"><i class="fa-solid fa-plus"></i></button>
-                                <button class="btn btn-danger remove-field" type="button"><i class="fa-solid fa-trash"></i></button>
-                        </div>
-                        </div>
-                     </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="modal fade" id="skillModal" tabindex="-1" aria-labelledby="skillModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="skillModalLabel">My Skills</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Form with action pointing to the controller -->
+                        <form action="/Home/Skills" method="post">
+                            <div id="inputFieldsContainer">
+                                <!-- Input fields for skills -->
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Enter Skill" name="skills[]" />
+                                    <button class="btn btn-success add-field" type="button"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="btn btn-danger remove-field" type="button"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
     </div>
     <div class="table-responsive">
         <table id="skillTbl" class="table table-bordered">
@@ -46,6 +48,8 @@
                 <tr>
                     <th>Id</th>
                     <th>Skill</th>
+                    <th>Created By</th>
+                    <th>Created Date</th>
                     <th>Action</th>
                 </tr>
             </thead>

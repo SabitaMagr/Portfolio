@@ -1,4 +1,5 @@
-﻿using Portfolio.Domain.Entities.User;
+﻿using Portfolio.Domain.Entities;
+using Portfolio.Domain.Entities.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,8 @@ namespace Portfolio.Domain.Interfaces
     {
         bool AddUser(SignUpModel model);
         UserTbl ValidateUser(LoginModel model);
+        bool AddSkills(List<string> skills,string token);
+        List<SkillDetail> getSkills(string token);
+
     }
 }

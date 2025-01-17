@@ -14,6 +14,9 @@ namespace Portfolio.Domain.Interfaces
         UserTbl ValidateUser(LoginModel model);
         bool AddSkills(List<string> skills,string token);
         List<SkillDetail> getSkills(string token);
+        bool UpdateSkills(int id, string token);
+        Skills GetSkillById(int id);
+        bool UpdateSkillbyId(List<string> skills, string token, int id);
 
     }
 }

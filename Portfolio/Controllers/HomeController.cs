@@ -1,6 +1,7 @@
 using AspNetCore.ReCaptcha;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Portfolio.Domain.Entities;
 using Portfolio.Domain.Entities.User;
 using Portfolio.Domain.HelperClass;
 using Portfolio.Domain.Interfaces;
@@ -132,7 +133,7 @@ namespace Portfolio.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Skills(List<string> Skills)
+        public IActionResult Skills(List<string> Skills,int id)
         {
 
             if(Skills==null || !Skills.Any())
@@ -148,8 +149,17 @@ namespace Portfolio.Controllers
                 {
                     return View();
                 }
-                bool result = _user.AddSkills(Skills,token);
-                return View();
+                if (id==0)
+                {
+                    bool result = _user.AddSkills(Skills, token);
+                    return View();
+                }
+                else
+                {
+                    bool result = _user.UpdateSkillbyId(Skills,token,id);
+                    return View();
+                }
+
             }
             catch (Exception ex)
             {
@@ -166,15 +176,57 @@ namespace Portfolio.Controllers
                 var token = HttpContext.Request.Cookies["AuthToken"];
                 if (string.IsNullOrEmpty(token))
                 {
-                    return null;
+                    return Json(new { data = new List<object>() });
                 }
                 var data = _user.getSkills(token);
                 return Json(new { data });
             }
             catch (Exception ex)
             {
-        return Json(new { data = new List<object>() });
+                return Json(new { data = new List<object>() });
             }
+        }
+        [HttpDelete]
+        public IActionResult DeleteSkill(int id)
+        {
+            try
+            {
+                var token = HttpContext.Request.Cookies["AuthToken"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return RedirectToAction("Skills","Home");
+                }
+                bool data = _user.UpdateSkills(id,token);
+                if (data)
+                {
+                    TempData["MessageType"] = "Success";
+                    TempData["Message"] = "Skill updated successfully !";
+                    return RedirectToAction("Skills", "Home");
+                }
+                else
+                {
+                    TempData["MessageType"] = "Failure";
+                    TempData["Message"] = "Failed to delete skill !";
+                    return RedirectToAction("Skills", "Home");
+                }
+            }
+            catch(Exception ex) 
+            {
+                TempData["MessageType"] = "Failure";
+                TempData["Message"] = "Failed to delete skill !";
+                return RedirectToAction("Skills", "Home");
+            }
+        }
+        [HttpGet]
+        public IActionResult GetSkillById(int id)
+        {
+            var skill = _user.GetSkillById(id);
+            if (skill != null)
+            {
+                return Json(new { success = true, data = skill });
+            }
+
+            return Json(new { success = false, message = "Skill not found." });
         }
         public  string GenerateToken(UserTbl data)
         {

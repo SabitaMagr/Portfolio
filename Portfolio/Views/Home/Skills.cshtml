@@ -22,19 +22,23 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- Form with action pointing to the controller -->
                         <form action="/Home/Skills" method="post">
+                            <input type="hidden" id="skillId" name="id" />
                             <div id="inputFieldsContainer">
-                                <!-- Input fields for skills -->
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" placeholder="Enter Skill" name="skills[]" />
                                     <button class="btn btn-success add-field" type="button"><i class="fa-solid fa-plus"></i></button>
                                     <button class="btn btn-danger remove-field" type="button"><i class="fa-solid fa-trash"></i></button>
                                 </div>
                             </div>
+                            <div id="editSkillForm" style="display:none">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="skillName" name="skills[]" placeholder="Enter Skill" />
+                                </div>
+                            </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </form>
                     </div>

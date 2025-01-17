@@ -34,5 +34,17 @@ namespace Portfolio.Application.Business
         {
             return _repo.getSkills(token);
         }
+        public bool UpdateSkills(int id, string token)
+        {
+            return _repo.UpdateSkills(id, token);
+        }
+        public Skills GetSkillById(int id)
+        {
+            return _repo.GetSkillById(id);
+        }
+        public bool UpdateSkillbyId(List<string> skills, string token,int id)
+        {
+            return _repo.UpdateSkillbyId(skills, token,id);
+        }
     }
 }

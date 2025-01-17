@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Portfolio.Domain.Entities;
@@ -78,6 +79,7 @@ namespace Portfolio.Infrastructure.Repository
                             Skill = data,
                             Created_by =userId,
                             Created_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                            Status="E"
                         };
                         _dbContext.Skills.Add(skillData);
                         _dbContext.SaveChanges();
@@ -100,7 +102,7 @@ namespace Portfolio.Infrastructure.Repository
                 var skills=_dbContext.Skills
                     .Where(s=>s.Created_by==userId)
                     .Join(_dbContext.UserTbl,
-                    s=>s.ID,u=>u.Id,
+                    s=>s.Created_by,u=>u.Id,
                     (s,u)=>new SkillDetail
                     {
                         Id=s.ID,
@@ -118,6 +120,68 @@ namespace Portfolio.Infrastructure.Repository
             }
 
         }
+        public bool UpdateSkills(int id,string token)
+        {
+            try
+            {
+                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                var skill = _dbContext.Skills.Find(id);
+                if (skill == null)
+                {
+                    return false;
+                }
+                skill.Status = "D";
+                skill.Modified_by = userId;
+                skill.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool UpdateSkillbyId(List<string> skills, string token,int id)
+        {
+            try
+            {
+                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                var skill = _dbContext.Skills.Find(id);
+                if (skill == null)
+                {
+                    return false;
+                }
+                skill.Skill = skills[0];
+                skill.Modified_by = userId;
+                skill.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public Skills GetSkillById(int id)
+        {
+            try
+            {
+                var skill = _dbContext.Skills
+                    .Where(s => s.ID == id)
+                    .Select(s => new Skills { ID = s.ID, Skill = s.Skill })
+                    .FirstOrDefault();
+
+                return skill;
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions appropriately (logging, error handling, etc.)
+                throw new Exception("Error fetching skill by ID", ex);
+            }
+        }
+
         public int GetMaxId<T>(string columnName) where T : class
         {
             try

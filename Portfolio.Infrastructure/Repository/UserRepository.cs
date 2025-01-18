@@ -48,7 +48,6 @@ namespace Portfolio.Infrastructure.Repository
                  return false;
             }
         }
-
         public UserTbl ValidateUser(LoginModel model)
         {
             var user = _dbContext.UserTbl.FirstOrDefault(u => u.User_name == model.UserName && u.Status == "E");
@@ -62,6 +61,7 @@ namespace Portfolio.Infrastructure.Repository
             }
             return null;
         }
+        #region Skills
         public bool AddSkills(List<string> skills,string token)
         {
             using (var transaction = _dbContext.Database.BeginTransaction())
@@ -72,17 +72,20 @@ namespace Portfolio.Infrastructure.Repository
                     int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
                     foreach (var data in skills)
                     {
-                        int maxId = GetMaxId<Skills>("ID");
-                        var skillData = new Skills
+                        if (!string.IsNullOrEmpty(data))
                         {
-                            ID = maxId,
-                            Skill = data,
-                            Created_by =userId,
-                            Created_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                            Status="E"
-                        };
-                        _dbContext.Skills.Add(skillData);
-                        _dbContext.SaveChanges();
+                            int maxId = GetMaxId<Skills>("ID");
+                            var skillData = new Skills
+                            {
+                                ID = maxId,
+                                Skill = data,
+                                Created_by = userId,
+                                Created_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                                Status = "E"
+                            };
+                            _dbContext.Skills.Add(skillData);
+                            _dbContext.SaveChanges();
+                        }
                     }
                     transaction.Commit();
                     return true;
@@ -100,7 +103,7 @@ namespace Portfolio.Infrastructure.Repository
             {
                 int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
                 var skills=_dbContext.Skills
-                    .Where(s=>s.Created_by==userId)
+                    .Where(s=>s.Created_by==userId && s.Status=="E")
                     .Join(_dbContext.UserTbl,
                     s=>s.Created_by,u=>u.Id,
                     (s,u)=>new SkillDetail
@@ -149,14 +152,16 @@ namespace Portfolio.Infrastructure.Repository
                 string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
                 int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
                 var skill = _dbContext.Skills.Find(id);
-                if (skill == null)
+                foreach (var data in skills)
                 {
-                    return false;
+                    if (!string.IsNullOrEmpty(data))
+                    {
+                        skill.Skill = data;
+                        skill.Modified_by = userId;
+                        skill.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                        _dbContext.SaveChanges();
+                    }
                 }
-                skill.Skill = skills[0];
-                skill.Modified_by = userId;
-                skill.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                _dbContext.SaveChanges();
                 return true;
             }
             catch (Exception ex)
@@ -181,7 +186,7 @@ namespace Portfolio.Infrastructure.Repository
                 throw new Exception("Error fetching skill by ID", ex);
             }
         }
-
+        #endregion Skills
         public int GetMaxId<T>(string columnName) where T : class
         {
             try

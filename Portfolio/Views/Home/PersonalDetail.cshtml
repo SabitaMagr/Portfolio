@@ -1,0 +1,68 @@
+﻿@model Portfolio.Domain.Entities.PersonalDetails
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<nav class="custom-breadcrumb" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("ProfileDetails","Home")">Personal Details</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add</li>
+    </ol>
+</nav>
+<div class="custom-container mt-2" style="height:82vh!important;">
+    <div class="heading-left border-bottom mb-2">
+        <i class="fa-solid fa-person-circle-check fa-lg me-2"></i>
+        Personal Details
+    </div>
+    <form asp-action="TransferMoney" method="post" class="container px-3">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="FullName" class="form-label">Name</label>
+                <input asp-for="FullName" class="form-control" id="FullName" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label for="MobileNo" class="form-label">Mobile No.</label>
+                <input asp-for="MobileNo" class="form-control" id="MobileNo" />
+                <span asp-validation-for="MobileNo" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" id="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="Address" class="form-label">Address</label>
+                <input asp-for="Address" class="form-control" id="Address" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label for="Profile" class="form-label">Profile</label>
+                <textarea asp-for="Profile" class="form-control" id="Profile" rows="1"></textarea>
+                <span asp-validation-for="Profile" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="About" class="form-label">About</label>
+                <textarea asp-for="About" class="form-control" id="About" rows="2"></textarea>
+                <span asp-validation-for="About" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="Summary" class="form-label">Summary</label>
+                <textarea asp-for="Summary" class="form-control" id="Summary" rows="2"></textarea>
+                <span asp-validation-for="Summary" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12 text-end">
+                <button type="submit" class="btn btn-primary submit">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

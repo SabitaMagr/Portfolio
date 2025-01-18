@@ -42,8 +42,8 @@
     });
 
     $(document).on('click', '.delete-btn', function () {
-        constid = $(this).data('id');
-        if (confirm('Are you sure you wantto delete?')) {
+        const id = $(this).data('id');
+        if (confirm('Are you sure you want to delete?')) {
             $.ajax({
                 url: `/Home/DeleteSkill/${id}`,
                 type: 'DELETE',
@@ -63,29 +63,10 @@
             type: 'GET',
             success: function (response) {
                 if (response) {
-                    $('#editSkillId').val(response.id); 
-                    $('#editSkillName').val(response.skill); // Skill name field
-
-                    $('#skillModal').modal('show');
-                } else {
-                    console.error('No data found for the provided ID.');
-                }
-            },
-            error: function () {
-                console.error('An error occurred while fetching the skill details.');
-            },
-        });
-    });
-    $(document).on('click', '.edit-btn', function () {
-        const id = $(this).data('id'); 
-        $.ajax({
-            url: `/Home/GetSkillById/${id}`, 
-            type: 'GET',
-            success: function (response) {
-                if (response) {
                     $('#inputFieldsContainer').hide();
-                    $('#skillId').val(response.id); 
-                    $('#skillName').val(response.skill); 
+                    $('#editSkillForm').show();
+                    $('#skillId').val(response.data.id); 
+                    $('#skillName').val(response.data.skill); 
                     $('#skillModal').modal('show');
                 } else {
                     console.error('Failed to fetch skill data.');

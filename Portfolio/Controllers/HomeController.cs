@@ -127,7 +127,17 @@ namespace Portfolio.Controllers
                 return View();
             }
         }
-
+        #region Profile Details
+        public IActionResult ProfileDetails()
+        {
+            return View();
+        }
+        public IActionResult PersonalDetail()
+        {
+            return View();
+        }
+        #endregion Profile Details
+        #region Skills
         public IActionResult Skills()
         {
             return View();
@@ -152,11 +162,15 @@ namespace Portfolio.Controllers
                 if (id==0)
                 {
                     bool result = _user.AddSkills(Skills, token);
+                    ViewData["MessageType"] = "Success";
+                    ViewData["Message"] = "Skill added successfully!";
                     return View();
                 }
                 else
                 {
                     bool result = _user.UpdateSkillbyId(Skills,token,id);
+                    ViewData["MessageType"] = "Success";
+                    ViewData["Message"] = "Skill updated successfully!";
                     return View();
                 }
 
@@ -228,7 +242,8 @@ namespace Portfolio.Controllers
 
             return Json(new { success = false, message = "Skill not found." });
         }
-        public  string GenerateToken(UserTbl data)
+        #endregion Skills
+        public string GenerateToken(UserTbl data)
         {
             var jwtSettings = _configuration.GetSection("JwtSettings");
             var key=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]));

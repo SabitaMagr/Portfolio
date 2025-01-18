@@ -12,8 +12,8 @@ namespace Portfolio.Domain.Entities
         [Key]
         public int ID { get; set; }
         public string Skill  { get; set; }
-        public int? Created_by {  get; set; }
-        public int? Modified_by { get; set; }
+        public long? Created_by {  get; set; }
+        public long? Modified_by { get; set; }
         public DateTime? Created_dt { get; set; }
         public DateTime? Modified_dt { get; set; }
         public string Status { get; set; }

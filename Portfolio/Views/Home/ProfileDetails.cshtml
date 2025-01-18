@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<nav class="custom-breadcrumb" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("ProfileDetails","Home")">Personal Details</a></li>
+        <li class="breadcrumb-item active" aria-current="page">List</li>
+    </ol>
+</nav>
+<div class="custom-container mt-2" style="height:82vh!important;">
+    <div class="heading-left border-bottom mb-2">
+        <i class="fa-solid fa-person-circle-check fa-lg me-2"></i>
+        Personal Details
+    </div>
+    <div class="section px-3">
+        <a href="/Home/PersonalDetail" class="btn btn-primary float-end AddBtn" target="_blank">
+            <i class="fa-solid fa-square-plus"></i> New
+        </a>
+    </div>
+    <div class="table-responsive px-3">
+        <table id="skillTbl" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Skill</th>
+                    <th>Created By</th>
+                    <th>Created Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        </table>
+
+    </div>
+</div>

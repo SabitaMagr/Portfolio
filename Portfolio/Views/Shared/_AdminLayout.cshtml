@@ -51,7 +51,7 @@
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item border-bottom">
-                            <a class="nav-link" asp-controller="Home" asp-action="PersonalDetail" onclick="setActive(this)">
+                            <a class="nav-link" asp-controller="Home" asp-action="ProfileDetails" onclick="setActive(this)">
                                 <i class="fa-solid fa-person-circle-check fa-lg"></i>
                                 <span>Personal Detail</span>
                             </a>
@@ -89,9 +89,19 @@
 @*                 <div class="container custom-container mt-2">
  *@                    @if (TempData["Message"] != null)
                     {
+                    var messageType = TempData["MessageType"]?.ToString();
+                    if (messageType == "Success")
+                    {
                         <div id="alertMessage" class="positiveAlert">
                             @TempData["Message"]
                         </div>
+                    }
+                    else
+                    {
+                        <div id="alertMessage" class="negativeAlert">
+                            @TempData["Message"]
+                        </div>
+                    }
                     }
 
                     @if (ViewData["Message"] != null)

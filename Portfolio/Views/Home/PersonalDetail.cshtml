@@ -1,4 +1,4 @@
-﻿@model Portfolio.Domain.Entities.PersonalDetails
+﻿@model Portfolio.Domain.Entities.PersonalDtl
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
@@ -13,7 +13,8 @@
         <i class="fa-solid fa-person-circle-check fa-lg me-2"></i>
         Personal Details
     </div>
-    <form asp-action="TransferMoney" method="post" class="container px-3">
+    <form asp-action="PersonalDetail" method="post" class="container px-3">
+        <input asp-for="UserId" type="hidden" id="UserId" />
         <div class="row mb-3">
             <div class="col-md-4">
                 <label for="FullName" class="form-label">Name</label>

@@ -17,6 +17,10 @@ namespace Portfolio.Domain.Interfaces
         bool UpdateSkills(int id, string token);
         Skills GetSkillById(int id);
         bool UpdateSkillbyId(List<string> skills, string token, int id);
+        bool AddData(PersonalDtl data, string token);
+        List<PersonalDtl> GetPersonalDtl(string token);
+        bool DeletePersonalData(int id, string token);
+        PersonalDtl GetPersonalDtById(int id);
 
     }
 }

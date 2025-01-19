@@ -46,5 +46,21 @@ namespace Portfolio.Application.Business
         {
             return _repo.UpdateSkillbyId(skills, token,id);
         }
+        public bool AddData(PersonalDtl data, string token)
+        {
+            return _repo.AddData(data,token);
+        }
+        public List<PersonalDtl> GetPersonalDtl(string token)
+        {
+            return _repo.GetPersonalDtl(token);
+        }
+        public bool DeletePersonalData(int id, string token)
+        {
+            return _repo.DeletePersonalData(id, token);
+        }
+        public PersonalDtl GetPersonalDtById(int id)
+        {
+            return _repo.GetPersonalDtById(id);
+        }
     }
 }

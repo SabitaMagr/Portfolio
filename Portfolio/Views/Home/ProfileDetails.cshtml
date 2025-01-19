@@ -14,22 +14,27 @@
         Personal Details
     </div>
     <div class="section px-3">
-        <a href="/Home/PersonalDetail" class="btn btn-primary float-end AddBtn" target="_blank">
+        <a href="/Home/PersonalDetail" class="btn btn-primary float-end AddBtn">
             <i class="fa-solid fa-square-plus"></i> New
         </a>
     </div>
     <div class="table-responsive px-3">
-        <table id="skillTbl" class="table table-bordered">
+        <table id="PersonalDtl" class="table table-bordered">
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Skill</th>
-                    <th>Created By</th>
-                    <th>Created Date</th>
+                    <th>Name</th>
+                    <th>Mobile No</th>
+                    <th>Email</th>
+                    <th>Profile</th>
+                    <th>About</th>
+                    <th>Summary</th>
                     <th>Action</th>
                 </tr>
             </thead>
         </table>
-
     </div>
 </div>
+@section Scripts {
+    <script src="/js/ProfileDetails.js" asp-append-version="true"></script>
+}

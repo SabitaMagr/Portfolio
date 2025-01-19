@@ -5,7 +5,7 @@
         if (alertMessage.length) {
                 setTimeout(function () {
                     alertMessage.hide(); // Hide the message completely after fade-out
-                }, 200); // Matches the duration of the fade-out
+                }, 800); // Matches the duration of the fade-out
         }
     }
 

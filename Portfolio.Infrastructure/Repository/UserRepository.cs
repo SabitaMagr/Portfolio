@@ -43,7 +43,7 @@ namespace Portfolio.Infrastructure.Repository
                 _dbContext.SaveChanges();
                 return true;
 
-            }catch(Exception ex)
+            }catch(Exception )
             {
                  return false;
             }
@@ -90,7 +90,7 @@ namespace Portfolio.Infrastructure.Repository
                     transaction.Commit();
                     return true;
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                     transaction.Rollback();
                     return false;
@@ -117,7 +117,7 @@ namespace Portfolio.Infrastructure.Repository
                     .ToList();
                     return skills;
             }
-            catch(Exception ex)
+            catch(Exception )
             {
                 return new List<SkillDetail>();
             }
@@ -140,31 +140,7 @@ namespace Portfolio.Infrastructure.Repository
                 _dbContext.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
-        public bool UpdateSkillbyId(List<string> skills, string token,int id)
-        {
-            try
-            {
-                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
-                var skill = _dbContext.Skills.Find(id);
-                foreach (var data in skills)
-                {
-                    if (!string.IsNullOrEmpty(data))
-                    {
-                        skill.Skill = data;
-                        skill.Modified_by = userId;
-                        skill.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                        _dbContext.SaveChanges();
-                    }
-                }
-                return true;
-            }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return false;
             }
@@ -186,7 +162,157 @@ namespace Portfolio.Infrastructure.Repository
                 throw new Exception("Error fetching skill by ID", ex);
             }
         }
+
+        public bool UpdateSkillbyId(List<string> skills, string token,int id)
+        {
+            try
+            {
+                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                var skill = _dbContext.Skills.Find(id);
+                foreach (var data in skills)
+                {
+                    if (!string.IsNullOrEmpty(data))
+                    {
+                        skill.Skill = data;
+                        skill.Modified_by = userId;
+                        skill.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                        _dbContext.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception )
+            {
+                return false;
+            }
+        }
         #endregion Skills
+        #region Personal Details
+        public bool AddData(PersonalDtl data,string token)
+        {
+            try
+            {
+                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                if (data.UserId== 0)
+                {
+                    int maxId = GetMaxId<PersonalDetails>("UserId");
+                    var newData = new PersonalDetails()
+                    {
+                        UserId= maxId,
+                        FullName = data.FullName,
+                        MobileNo = data.MobileNo,
+                        Address= data.Address,
+                        Email = data.Email,
+                        Profile = data.Profile,
+                        About  = data.About,
+                        Summary= data.Summary,
+                        Status = "E",
+                        Created_by = userId,
+                        Created_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture)
+                    };
+                    _dbContext.PersonalDetails.Add(newData);
+                    _dbContext.SaveChanges();
+                }
+                else
+                {
+                    var personalData = _dbContext.PersonalDetails.Find(data.UserId);
+                    if (personalData == null)
+                    {
+                        return false;
+                    }
+                    personalData.Status = "D";
+                    personalData.Modified_by = userId;
+                    personalData.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                    _dbContext.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception )
+            {
+                return false;
+            }
+        }
+        public List<PersonalDtl> GetPersonalDtl(string token)
+        {
+            try
+            {
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                var data = _dbContext.PersonalDetails
+                    .Where(s => s.Created_by == userId && s.Status == "E")
+                    .Join(_dbContext.UserTbl,
+                    s => s.Created_by, u => u.Id,
+                    (s, u) => new PersonalDtl
+                    {
+                        UserId = s.UserId,
+                        FullName = s.FullName,
+                        MobileNo = s.MobileNo,
+                        Email= s.Email,
+                        Profile= s.Profile,
+                        About=s.About,
+                        Address=s.Address,
+                        Summary=s.Summary,
+                    })
+                    .OrderByDescending(s => s.UserId)
+                    .ToList();
+                return data;
+            }
+            catch (Exception)
+            {
+                return new List<PersonalDtl>();
+            }
+
+        }
+        public bool DeletePersonalData(int id, string token)
+        {
+            try
+            {
+                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                var data = _dbContext.PersonalDetails.Find(id);
+                if (data == null)
+                {
+                    return false;
+                }
+                data.Status = "D";
+                data.Modified_by = userId;
+                data.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public PersonalDtl GetPersonalDtById(int id)
+        {
+            try
+            {
+                var data = _dbContext.PersonalDetails
+                    .Where(s => s.UserId == id)
+                    .Select(s => new PersonalDtl 
+                    { UserId = s.UserId,
+                      FullName = s.FullName,
+                        MobileNo=s.MobileNo,
+                        Email=s.Email,
+                        About=s.About,
+                        Summary=s.Summary,
+                        Profile=s.Profile,
+                        Address=s.Address })
+                    .FirstOrDefault();
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions appropriately (logging, error handling, etc.)
+                throw new Exception("Error fetching data by ID", ex);
+            }
+        }
+        #endregion Personal Details
+
         public int GetMaxId<T>(string columnName) where T : class
         {
             try

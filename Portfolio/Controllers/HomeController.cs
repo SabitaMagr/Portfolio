@@ -70,7 +70,7 @@ namespace Portfolio.Controllers
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 ViewData["MessageType"] = "Failure";
                 ViewData["Message"] = "Incorrect User name or Password.";
@@ -102,7 +102,7 @@ namespace Portfolio.Controllers
                 }
                 return View(model);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 ViewData["MessageType"] = "Failure";
                 ViewData["Message"] = "Failed to register user.";
@@ -121,7 +121,7 @@ namespace Portfolio.Controllers
                 var userName = StaticHelper.GetDetail(token, ClaimTypes.Name);
                 ViewData["UserName"] = userName;
                 return View();
-            }catch(Exception ex)
+            }catch(Exception )
             {
                 ViewData["Message"] = "An error occured !";
                 return View();
@@ -135,6 +135,102 @@ namespace Portfolio.Controllers
         public IActionResult PersonalDetail()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult PersonalDetail(PersonalDtl data)
+        {
+            try
+            {
+                if (data.UserId == 0)
+                {
+                    ModelState.Remove(nameof(data.UserId));
+                }
+                if (ModelState.IsValid)
+                {
+                    var token = HttpContext.Request.Cookies["AuthToken"];
+                    if (string.IsNullOrEmpty(token))
+                    {
+                        return View();
+                    }
+                    bool result=_user.AddData(data,token);
+                    if(result)
+                    {
+                        ViewData["MessageType"] = "Success";
+                        ViewData["Message"] = "Save data successfully!";
+                    }
+                    else
+                    {
+                        ViewData["MessageType"] = "Failure";
+                        ViewData["Message"] = "Failed to save data !";
+                    }
+                }
+                return View("~/Views/Home/ProfileDetails.cshtml");
+            }
+            catch (Exception )
+            {
+                ViewData["MessageType"] = "Failure";
+                ViewData["Message"] = "Failed to save data !";
+                return View();
+            }
+        }
+        [HttpGet]
+        public JsonResult GetPersonalDtl()
+        {
+            try
+            {
+                var token = HttpContext.Request.Cookies["AuthToken"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new { data = new List<object>() });
+                }
+                var data = _user.GetPersonalDtl(token);
+                return Json(new { data });
+            }
+            catch (Exception)
+            {
+                return Json(new { data = new List<object>() });
+            }
+        }
+        [HttpDelete]
+        public IActionResult DeletePersonalData(int id)
+        {
+            try
+            {
+                var token = HttpContext.Request.Cookies["AuthToken"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return RedirectToAction("Skills", "Home");
+                }
+                bool data = _user.DeletePersonalData(id, token);
+                if (data)
+                {
+                    ViewData["MessageType"] = "Success";
+                    ViewData["Message"] = "Skill updated successfully !";
+                }
+                else
+                {
+                    ViewData["MessageType"] = "Failure";
+                    ViewData["Message"] = "Failed to delete skill !";
+                }
+                return View("~/Views/Home/Skills.cshtml");
+            }
+            catch (Exception)
+            {
+                TempData["MessageType"] = "Failure";
+                TempData["Message"] = "Failed to delete skill !";
+                return RedirectToAction("Skills", "Home");
+            }
+        }
+        [HttpGet]
+        public IActionResult GetSkilGetPersonalDtByIdlById(int id)
+        {
+            var data = _user.GetPersonalDtById(id);
+            if (data != null)
+            {
+                return Json(new { success = true, data = data });
+            }
+
+            return Json(new { success = false, message = "Data not found." });
         }
         #endregion Profile Details
         #region Skills
@@ -164,18 +260,17 @@ namespace Portfolio.Controllers
                     bool result = _user.AddSkills(Skills, token);
                     ViewData["MessageType"] = "Success";
                     ViewData["Message"] = "Skill added successfully!";
-                    return View();
                 }
                 else
                 {
                     bool result = _user.UpdateSkillbyId(Skills,token,id);
                     ViewData["MessageType"] = "Success";
                     ViewData["Message"] = "Skill updated successfully!";
-                    return View();
                 }
+                return View();
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 ViewData["MessageType"] = "Failure";
                 ViewData["Message"] = "Failed to save data !";
@@ -195,7 +290,7 @@ namespace Portfolio.Controllers
                 var data = _user.getSkills(token);
                 return Json(new { data });
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return Json(new { data = new List<object>() });
             }
@@ -213,18 +308,17 @@ namespace Portfolio.Controllers
                 bool data = _user.UpdateSkills(id,token);
                 if (data)
                 {
-                    TempData["MessageType"] = "Success";
-                    TempData["Message"] = "Skill updated successfully !";
-                    return RedirectToAction("Skills", "Home");
+                    ViewData["MessageType"] = "Success";
+                    ViewData["Message"] = "Skill updated successfully !";
                 }
                 else
                 {
-                    TempData["MessageType"] = "Failure";
-                    TempData["Message"] = "Failed to delete skill !";
-                    return RedirectToAction("Skills", "Home");
+                    ViewData["MessageType"] = "Failure";
+                    ViewData["Message"] = "Failed to delete skill !";
                 }
+                return View("~/Views/Home/Skills.cshtml");
             }
-            catch(Exception ex) 
+            catch (Exception ) 
             {
                 TempData["MessageType"] = "Failure";
                 TempData["Message"] = "Failed to delete skill !";

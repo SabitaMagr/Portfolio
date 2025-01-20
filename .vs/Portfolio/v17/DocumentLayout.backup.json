@@ -11,6 +11,10 @@
       "RelativeMoniker": "D:0:0:{03539FB7-C59E-4D74-90A6-7EB4CED25186}|Portfolio.Application\\Portfolio.Application.csproj|solutionrelative:portfolio.application\\business\\userbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{BA5B4FC3-BED7-4273-A350-FA1DD42BA440}|Portfolio.Domain\\Portfolio.Domain.csproj|e:\\desktop\\dot net\\portfolio\\portfolio.domain\\interfaces\\iuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA5B4FC3-BED7-4273-A350-FA1DD42BA440}|Portfolio.Domain\\Portfolio.Domain.csproj|solutionrelative:portfolio.domain\\interfaces\\iuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,20 +23,16 @@
       "RelativeMoniker": "D:0:0:{BA5B4FC3-BED7-4273-A350-FA1DD42BA440}|Portfolio.Domain\\Portfolio.Domain.csproj|solutionrelative:portfolio.domain\\interfaces\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA5B4FC3-BED7-4273-A350-FA1DD42BA440}|Portfolio.Domain\\Portfolio.Domain.csproj|e:\\desktop\\dot net\\portfolio\\portfolio.domain\\interfaces\\iuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA5B4FC3-BED7-4273-A350-FA1DD42BA440}|Portfolio.Domain\\Portfolio.Domain.csproj|solutionrelative:portfolio.domain\\interfaces\\iuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\views\\home\\profiledetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\views\\home\\profiledetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\wwwroot\\js\\skills.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\wwwroot\\js\\skills.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\views\\home\\personaldetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\views\\home\\personaldetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA5B4FC3-BED7-4273-A350-FA1DD42BA440}|Portfolio.Domain\\Portfolio.Domain.csproj|e:\\desktop\\dot net\\portfolio\\portfolio.domain\\entities\\personaldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA5B4FC3-BED7-4273-A350-FA1DD42BA440}|Portfolio.Domain\\Portfolio.Domain.csproj|solutionrelative:portfolio.domain\\entities\\personaldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|e:\\desktop\\dot net\\portfolio\\portfolio\\views\\home\\skills.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8589ADB-EAE9-4751-B460-5D1735C19B34}|Portfolio\\Portfolio.csproj|solutionrelative:portfolio\\views\\home\\skills.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,21 +42,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IUserRepo.cs",
-              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Interfaces\\IUserRepo.cs",
-              "RelativeDocumentMoniker": "Portfolio.Domain\\Interfaces\\IUserRepo.cs",
-              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Interfaces\\IUserRepo.cs",
-              "RelativeToolTip": "Portfolio.Domain\\Interfaces\\IUserRepo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T16:36:59.506Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -67,54 +54,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProfileDetails.cshtml",
-              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\ProfileDetails.cshtml",
-              "RelativeDocumentMoniker": "Portfolio\\Views\\Home\\ProfileDetails.cshtml",
-              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\ProfileDetails.cshtml",
-              "RelativeToolTip": "Portfolio\\Views\\Home\\ProfileDetails.cshtml",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAWwBkAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-19T16:30:24.397Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PersonalDetails.cs",
-              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Entities\\PersonalDetails.cs",
-              "RelativeDocumentMoniker": "Portfolio.Domain\\Entities\\PersonalDetails.cs",
-              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Entities\\PersonalDetails.cs",
-              "RelativeToolTip": "Portfolio.Domain\\Entities\\PersonalDetails.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T15:57:04.574Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Portfolio\\Controllers\\HomeController.cs",
-              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Portfolio\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAnwLkAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T15:58:53.116Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Infrastructure\\Repository\\UserRepository.cs",
               "RelativeDocumentMoniker": "Portfolio.Infrastructure\\Repository\\UserRepository.cs",
               "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Infrastructure\\Repository\\UserRepository.cs",
               "RelativeToolTip": "Portfolio.Infrastructure\\Repository\\UserRepository.cs",
-              "ViewState": "AgIAALsAAAAAAAAAAAAiwPkAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAB0BAAAAAAAAAAAAACABAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-09T15:54:13.42Z",
+              "WhenOpened": "2025-01-20T14:53:20.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Iuser.cs",
+              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Interfaces\\Iuser.cs",
+              "RelativeDocumentMoniker": "Portfolio.Domain\\Interfaces\\Iuser.cs",
+              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Interfaces\\Iuser.cs",
+              "RelativeToolTip": "Portfolio.Domain\\Interfaces\\Iuser.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T14:52:59.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Skills.cshtml",
+              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\Skills.cshtml",
+              "RelativeDocumentMoniker": "Portfolio\\Views\\Home\\Skills.cshtml",
+              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\Skills.cshtml",
+              "RelativeToolTip": "Portfolio\\Views\\Home\\Skills.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-20T14:26:42.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PersonalDetail.cshtml",
+              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\PersonalDetail.cshtml",
+              "RelativeDocumentMoniker": "Portfolio\\Views\\Home\\PersonalDetail.cshtml",
+              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\PersonalDetail.cshtml",
+              "RelativeToolTip": "Portfolio\\Views\\Home\\PersonalDetail.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAADgvzQAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-20T14:24:03.817Z",
               "EditorCaption": ""
             },
             {
@@ -125,35 +112,48 @@
               "RelativeDocumentMoniker": "Portfolio.Application\\Business\\UserBusiness.cs",
               "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Application\\Business\\UserBusiness.cs",
               "RelativeToolTip": "Portfolio.Application\\Business\\UserBusiness.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAAADYAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAADoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T16:22:01.445Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Skills.js",
-              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\Skills.js",
-              "RelativeDocumentMoniker": "Portfolio\\wwwroot\\js\\Skills.js",
-              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\Skills.js",
-              "RelativeToolTip": "Portfolio\\wwwroot\\js\\Skills.js",
-              "ViewState": "AgIAADcAAAAAAAAAAADwv1IAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-01-18T10:27:32.891Z",
+              "WhenOpened": "2025-01-19T16:52:11.195Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Iuser.cs",
-              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Interfaces\\Iuser.cs",
-              "RelativeDocumentMoniker": "Portfolio.Domain\\Interfaces\\Iuser.cs",
-              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Interfaces\\Iuser.cs",
-              "RelativeToolTip": "Portfolio.Domain\\Interfaces\\Iuser.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAMwBYAAAAAAAAAAAAAAA==",
+              "Title": "IUserRepo.cs",
+              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Interfaces\\IUserRepo.cs",
+              "RelativeDocumentMoniker": "Portfolio.Domain\\Interfaces\\IUserRepo.cs",
+              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio.Domain\\Interfaces\\IUserRepo.cs",
+              "RelativeToolTip": "Portfolio.Domain\\Interfaces\\IUserRepo.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T16:00:51.891Z",
+              "WhenOpened": "2025-01-19T16:51:47.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProfileDetails.cshtml",
+              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\ProfileDetails.cshtml",
+              "RelativeDocumentMoniker": "Portfolio\\Views\\Home\\ProfileDetails.cshtml",
+              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Views\\Home\\ProfileDetails.cshtml",
+              "RelativeToolTip": "Portfolio\\Views\\Home\\ProfileDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-19T16:30:24.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Portfolio\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Portfolio\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T15:58:53.116Z",
               "EditorCaption": ""
             }
           ]

@@ -4,18 +4,21 @@
         ajax: {
             url: '/Home/GetPersonalDtl',
             type: 'GET',
-            dataSrc: 'data', // Specify the array location in the response
+            dataSrc: 'data', 
         },
+        scrollY: '280px', 
+        deferRender: true, 
+        scroller: true,   
         columns: [
-            { data: 'UserId' },
-            { data: 'FullName' },
-            { data: 'MobileNo' },
-            { data: 'Email' },
-            { data: 'Profile' },
-            { data: 'About' },
-            { data: 'Summary' },
+            { data: 'userId' },
+            { data: 'fullName' },
+            { data: 'mobileNo' },
+            { data: 'email' },
+            { data: 'profile' },
+            { data: 'about' },
+            { data: 'summary' },
             {
-                data: 'UserId',
+                data: 'userId',
                 title: 'Action',
                 render: function (data, type, row) {
                     return `
@@ -45,19 +48,6 @@
     });
     $(document).on('click', '.edit-btn', function () {
         const id = $(this).data('id');
-        $.ajax({
-            url: `/Home/GetPersonalDtById/${id}`,
-            type: 'GET',
-            success: function (response) {
-                if (response) {
-                    window.location.href = `/Home/PersonalDetails?id=${response.id}`;
-                } else {
-                    console.error('Failed to fetch skill data.');
-                }
-            },
-            error: function () {
-                console.error('An error occurred while fetching the skill data.');
-            },
-        });
+        window.location.href = `/Home/PersonalDetail?id=${id}`;
     });
 });

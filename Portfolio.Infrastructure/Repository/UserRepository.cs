@@ -10,8 +10,10 @@ using Portfolio.Infrastructure.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Portfolio.Infrastructure.Repository
 {
@@ -222,7 +224,13 @@ namespace Portfolio.Infrastructure.Repository
                     {
                         return false;
                     }
-                    personalData.Status = "D";
+                    personalData.FullName = data.FullName;
+                    personalData.MobileNo = data.MobileNo;
+                    personalData.Address = data.Address;
+                    personalData.Email = data.Email;
+                    personalData.Profile = data.Profile;
+                    personalData.About = data.About;
+                    personalData.Summary = data.Summary;
                     personalData.Modified_by = userId;
                     personalData.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
                     _dbContext.SaveChanges();
@@ -286,7 +294,7 @@ namespace Portfolio.Infrastructure.Repository
                 return false;
             }
         }
-        public PersonalDtl GetPersonalDtById(int id)
+        public PersonalDtl GetPersonalDtById(int? id)
         {
             try
             {

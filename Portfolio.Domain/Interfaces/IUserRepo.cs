@@ -20,7 +20,7 @@ namespace Portfolio.Domain.Interfaces
         bool AddData(PersonalDtl data, string token);
         List<PersonalDtl> GetPersonalDtl(string token);
         bool DeletePersonalData(int id, string token);
-        PersonalDtl GetPersonalDtById(int id);
+        PersonalDtl GetPersonalDtById(int? id);
 
     }
 }

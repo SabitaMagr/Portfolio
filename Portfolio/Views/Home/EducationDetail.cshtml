@@ -1,0 +1,88 @@
+﻿@model Portfolio.Domain.Entities.EducationDtl
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<nav class="custom-breadcrumb" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("EducationDetail","Home")">Education Details</a></li>
+        <li class="breadcrumb-item active" aria-current="page">List</li>
+    </ol>
+</nav>
+<div class="custom-container mt-2" style="height:82vh!important;">
+    <div class="heading-left border-bottom mb-2">
+        <i class="fa-solid fa-person-circle-check fa-lg me-2"></i>
+        Education Details
+    </div>
+    <form asp-action="EducationDetail" method="post" class="container px-3">
+        <input asp-for="Id" type="hidden" id="Id" />
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="Institution" class="form-label">Institution</label>
+                <input asp-for="Institution" class="form-control" id="Institution" />
+                <span asp-validation-for="Institution" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label for="Location" class="form-label">Location</label>
+                <input asp-for="Location" class="form-control" id="Location" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label for="Degree" class="form-label">Degree</label>
+                <input asp-for="Degree" class="form-control" id="Degree" />
+                <span asp-validation-for="Degree" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="FieldStudy" class="form-label">Field of Study</label>
+                <input asp-for="FieldStudy" class="form-control" id="FieldStudy" />
+                <span asp-validation-for="FieldStudy" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label for="StartDt" class="form-label">Start Date</label>
+                <input asp-for="StartDt" class="form-control" type="date" id="StartDt">
+                <span asp-validation-for="StartDt" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="EndDt" class="form-label">End Date</label>
+                <input asp-for="EndDt" class="form-control" type="date" id="EndDt">
+                <span asp-validation-for="EndDt" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="Grade" class="form-label">Grade</label>
+                <input asp-for="Grade" class="form-control" id="Grade">
+                <span asp-validation-for="Grade" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="Specialization" class="form-label">Specialization</label>
+                <input asp-for="Specialization" class="form-control" id="Specialization">
+                <span asp-validation-for="Specialization" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="Summary" class="form-label">Summary</label>
+                <textarea asp-for="Summary" class="form-control" id="Summary" rows="2"></textarea>
+                <span asp-validation-for="Summary" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12 text-end">
+                <button type="submit" class="btn btn-primary submit">
+                    @if (Model.Id > 0)
+                    {
+                        <span>Update</span>
+                    }
+                    else
+                    {
+                        <span>Save</span>
+                    }
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,5 +1,6 @@
 using AspNetCore.ReCaptcha;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Portfolio.Domain.Entities;
 using Portfolio.Domain.Entities.User;
@@ -132,8 +133,21 @@ namespace Portfolio.Controllers
         {
             return View();
         }
-        public IActionResult PersonalDetail()
+        [HttpGet]
+        public IActionResult PersonalDetail(int? id)
         {
+            if (id.HasValue)
+            {
+                var data = _user.GetPersonalDtById(id);
+
+                if (data == null)
+                {
+                    ViewData["MessageType"] = "Failure";
+                    ViewData["Message"] = "Error fetching data!";
+                }
+
+                return View(data); // Pass the model to the view for editing
+            }
             return View();
         }
         [HttpPost]
@@ -222,17 +236,30 @@ namespace Portfolio.Controllers
             }
         }
         [HttpGet]
-        public IActionResult GetSkilGetPersonalDtByIdlById(int id)
-        {
-            var data = _user.GetPersonalDtById(id);
-            if (data != null)
-            {
-                return Json(new { success = true, data = data });
-            }
-
-            return Json(new { success = false, message = "Data not found." });
-        }
         #endregion Profile Details
+        #region Education
+        public IActionResult Education()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult EducationDetail(int? id)
+        {
+            if (id.HasValue)
+            {
+                var data = _user.GetEducationDtById(id);
+
+                if (data == null)
+                {
+                    ViewData["MessageType"] = "Failure";
+                    ViewData["Message"] = "Error fetching data!";
+                }
+
+                return View(data); // Pass the model to the view for editing
+            }
+            return View();
+        }
+        #endregion Education
         #region Skills
         public IActionResult Skills()
         {
@@ -337,6 +364,34 @@ namespace Portfolio.Controllers
             return Json(new { success = false, message = "Skill not found." });
         }
         #endregion Skills
+        #region Experience
+        public IActionResult Experience()
+        {
+            return View();
+        }
+        public IActionResult ExperienceDetail(int? id)
+        {
+            if (id.HasValue)
+            {
+                var data = _user.GetExperienceDetailById(id);
+
+                if (data == null)
+                {
+                    ViewData["MessageType"] = "Failure";
+                    ViewData["Message"] = "Error fetching data!";
+                }
+
+                return View(data); // Pass the model to the view for editing
+            }
+            return View();
+        }
+        #endregion Experience
+        #region Project
+        public IActionResult Project()
+        {
+            return View();
+        }
+        #endregion Project
         public string GenerateToken(UserTbl data)
         {
             var jwtSettings = _configuration.GetSection("JwtSettings");

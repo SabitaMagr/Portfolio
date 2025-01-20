@@ -32,11 +32,14 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li class="logoutBtn">
                                     <i class="fas fa-key mt-1" style="padding:0.5rem;"></i>
-                                    <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
-                                        <button type="submit" class="dropdown-item" style="">
-                                            Logout
-                                        </button>
-                                    </form>
+                                    <a href="@Url.Action("ChangePassword", "Home")" id="forget-password" class="forget-password">Change Password</a>
+
+                                </li>
+                            </ul>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li class="logoutBtn">
+                                    <i class="fas fa-key mt-1" style="padding:0.5rem;"></i>
+                                    <a href="@Url.Action("LogOut", "Home")" id="forget-password" class="forget-password">LogOut</a>
                                 </li>
                             </ul>
                         </div>

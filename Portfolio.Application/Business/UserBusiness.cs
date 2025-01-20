@@ -58,7 +58,7 @@ namespace Portfolio.Application.Business
         {
             return _repo.DeletePersonalData(id, token);
         }
-        public PersonalDtl GetPersonalDtById(int id)
+        public PersonalDtl GetPersonalDtById(int? id)
         {
             return _repo.GetPersonalDtById(id);
         }

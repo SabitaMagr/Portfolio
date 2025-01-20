@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<nav class="custom-breadcrumb" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("ExperienceDetail","Home")">Experience Details</a></li>
+        <li class="breadcrumb-item active" aria-current="page">List</li>
+    </ol>
+</nav>
+<div class="custom-container mt-2" style="height:82vh!important;">
+    <div class="heading-left border-bottom mb-2">
+        <i class="fa-solid fa-person-circle-check fa-lg me-2"></i>
+        Experience Details
+    </div>
+    <div class="section px-3">
+        <a href="/Home/ExperienceDetail" class="btn btn-primary float-end AddBtn">
+            <i class="fa-solid fa-square-plus"></i> New
+        </a>
+    </div>
+    <div class="table-responsive px-3">
+        <table id="ExperienceDtl" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Mobile No</th>
+                    <th>Email</th>
+                    <th>Profile</th>
+                    <th>About</th>
+                    <th>Summary</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    <script src="/js/ExperiencDetails.js" asp-append-version="true"></script>
+}

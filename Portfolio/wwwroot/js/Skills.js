@@ -6,6 +6,9 @@
             type: 'GET',
             dataSrc: 'data', // Specify the array location in the response
         },
+        scrollY: '280px',
+        deferRender: true,
+        scroller: true, 
         columns: [
             { data: 'id' },
             { data: 'skill' },

@@ -33,6 +33,14 @@
       "PackagePath": "staticwebassets\\js\\Alert.js"
     },
     {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\EducationDetails.js",
+      "PackagePath": "staticwebassets\\js\\EducationDetails.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\ExperiencDetails.js",
+      "PackagePath": "staticwebassets\\js\\ExperiencDetails.js"
+    },
+    {
       "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\LoginSign.js",
       "PackagePath": "staticwebassets\\js\\LoginSign.js"
     },

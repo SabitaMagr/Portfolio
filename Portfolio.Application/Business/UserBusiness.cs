@@ -26,6 +26,7 @@ namespace Portfolio.Application.Business
         {
             return _repo.ValidateUser(model);
         }
+        #region Skills
         public bool AddSkills(List<string> skills,string token)
         {
             return _repo.AddSkills(skills,token);
@@ -46,6 +47,8 @@ namespace Portfolio.Application.Business
         {
             return _repo.UpdateSkillbyId(skills, token,id);
         }
+        #endregion
+        #region Personal Details
         public bool AddData(PersonalDtl data, string token)
         {
             return _repo.AddData(data,token);
@@ -62,5 +65,42 @@ namespace Portfolio.Application.Business
         {
             return _repo.GetPersonalDtById(id);
         }
+        #endregion
+        #region Education
+        public bool AddEducationData(EducationDtl data, string token)
+        {
+            return _repo.AddEducationData(data, token);
+        }
+        public List<EducationDtl> GetEducationDtl(string token)
+        {
+            return _repo.GetEducationDtl(token);
+        }
+        public bool DeleteEducationData(int id, string token)
+        {
+            return _repo.DeleteEducationData(id, token);
+        }
+        public EducationDtl GetEducationDtById(int? id)
+        {
+            return _repo.GetEducationDtById(id);
+        }
+        #endregion
+        #region Experience
+        public bool AddExperienceData(ExperienceDtl data, string token)
+        {
+            return _repo.AddExperienceData(data, token);
+        }
+        public List<ExperienceDtl> GetExperienceDtl(string token)
+        {
+            return _repo.GetExperienceDtl(token);
+        }
+        public bool DeleteExperienceData(int id, string token)
+        {
+            return _repo.DeleteExperienceData(id, token);
+        }
+        public ExperienceDtl GetExperienceDtById(int? id)
+        {
+            return _repo.GetExperienceDtById(id);
+        }
+        #endregion
     }
 }

@@ -3,34 +3,33 @@
 }
 <nav class="custom-breadcrumb" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="@Url.Action("EducationDetail","Home")">Education Details</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("ProjectDetail","Home")">Project Details</a></li>
         <li class="breadcrumb-item active" aria-current="page">List</li>
     </ol>
 </nav>
 <div class="custom-container mt-2" style="height:82vh!important;">
     <div class="heading-left border-bottom mb-2">
         <i class="fa-solid fa-person-circle-check fa-lg me-2"></i>
-        Education Details
+        Project Details
     </div>
     <div class="section px-3">
-        <a href="/Home/EducationDetail" class="btn btn-primary float-end AddBtn">
+        <a href="/Home/ProjectDetail" class="btn btn-primary float-end AddBtn">
             <i class="fa-solid fa-square-plus"></i> New
         </a>
     </div>
     <div class="table-responsive px-3">
-        <table id="EducationDtl" class="table table-bordered">
+        <table id="projectDtl" class="table table-bordered">
             <thead>
-                <tr>``
+                <tr>
                     <th>Id</th>
-                    <th>Institution</th>
+                    <th>Position</th>
+                    <th>Company</th>
                     <th>Location</th>
-                    <th>Degree</th>
-                    <th>Grade</th>
-                    <th>FieldStudy</th>
-                    <th>Specialization</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th>Summary</th>
+                    <th>Skills</th>
+                    <th>Achievement</th>
+                    <th>Job Description</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -38,5 +37,5 @@
     </div>
 </div>
 @section Scripts {
-    <script src="/js/EducationDetails.js" asp-append-version="true"></script>
+    <script src="/js/ProjectDetails.js" asp-append-version="true"></script>
 }

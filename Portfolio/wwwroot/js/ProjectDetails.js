@@ -1,8 +1,8 @@
 ﻿$(document).ready(function () {
     // Initialize DataTable
-    new DataTable('#ExperienceDtl', {
+    new DataTable('#projectDtl', {
         ajax: {
-            url: '/Home/GetExperienceDtl',
+            url: '/Home/GetProjectDtl',
             type: 'GET',
             dataSrc: 'data',
         },
@@ -11,14 +11,15 @@
         scroller: true,
         columns: [
             { data: 'id' },
-            { data: 'position' },
-            { data: 'company' },
+            { data: 'institution' },
             { data: 'location' },
+            { data: 'degree' },
+            { data: 'grade' },
+            { data: 'fieldStudy' },
+            { data: 'specialization' },
             { data: 'startDt' },
             { data: 'endDt' },
-            { data: 'skills' },
-            { data: 'achievement' },
-            { data: 'jobDescription' },
+            { data: 'summary' },
             {
                 data: 'id',
                 title: 'Action',
@@ -35,11 +36,11 @@
         const id = $(this).data('id');
         if (confirm('Are you sure you want to delete?')) {
             $.ajax({
-                url: `/Home/DeleteExperienceData/${id}`,
+                url: `/Home/DeleteProjectData/${id}`,
                 type: 'POST',
                 success: function (response) {
                     if (response) {
-                        $('#ExperienceDtl').DataTable().ajax.reload();
+                        $('#projectDtl').DataTable().ajax.reload();
 
                     } else {
                         console.error('Failed to fetch skill data.');
@@ -50,6 +51,6 @@
     });
     $(document).on('click', '.edit-btn', function () {
         const id = $(this).data('id');
-        window.location.href = `/Home/ExperienceDetail?id=${id}`;
+        window.location.href = `/Home/ProjectDetail?id=${id}`;
     });
 });

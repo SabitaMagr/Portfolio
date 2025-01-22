@@ -67,7 +67,7 @@
         <div class="row mb-3">
             <div class="col-md-12 text-end">
                 <button type="submit" class="btn btn-primary submit">
-                    @if (Model.UserId > 0)
+                    @if ((Model?.Id ?? 0) > 0)
                     {
                         <span>Update</span>
                     }

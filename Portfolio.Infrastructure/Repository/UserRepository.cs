@@ -9,10 +9,12 @@ using Portfolio.Domain.Interfaces;
 using Portfolio.Infrastructure.Entity;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Portfolio.Infrastructure.Repository
@@ -320,7 +322,315 @@ namespace Portfolio.Infrastructure.Repository
             }
         }
         #endregion Personal Details
+        #region Education
+        public bool AddEducationData(EducationDtl data, string token)
+        {
+            try
+            {
+                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                if (data.Id == 0)
+                {
+                    int maxId = GetMaxId<EducationDetail>("Id");
+                    var newData = new EducationDetail()
+                    {
+                        Id = maxId,
+                        Institution = data.Institution,
+                        Location = data.Location,
+                        Degree = data.Degree,
+                        Grade = data.Grade,
+                        FieldStudy = data.FieldStudy,
+                        Specialization = data.Specialization,
+                        StartDt = data.StartDt.HasValue
+                          ? DateTime.ParseExact(data.StartDt.Value.ToString("dd-MMM-yyyy"),
+                                                "dd-MMM-yyyy",
+                                                System.Globalization.CultureInfo.InvariantCulture)
+                          : (DateTime?)null,
+                        EndDt = data.EndDt.HasValue
+                        ? DateTime.ParseExact(data.EndDt.Value.ToString("dd-MMM-yyyy"),
+                                              "dd-MMM-yyyy",
+                                              System.Globalization.CultureInfo.InvariantCulture)
+                        : (DateTime?)null,
+                        Summary = data.Summary,
+                        Status = "E",
+                        Created_by = userId,
+                        Created_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture)
+                    };
+                    _dbContext.EducationDetail.Add(newData);
+                    _dbContext.SaveChanges();
+                }
+                else
+                {
+                    var educationDtl = _dbContext.EducationDetail.Find(data.Id);
+                    if (educationDtl == null)
+                    {
+                        return false;
+                    }
+                    educationDtl.Institution = data.Institution;
+                    educationDtl.Location = data.Location;
+                    educationDtl.Degree = data.Degree;
+                    educationDtl.Grade = data.Grade;
+                    educationDtl.FieldStudy = data.FieldStudy;
+                    educationDtl.Specialization = data.Specialization;
+                    educationDtl.StartDt = data.StartDt.HasValue
+                                          ? DateTime.ParseExact(data.StartDt.Value.ToString("dd-MMM-yyyy"),
+                                                                "dd-MMM-yyyy",
+                                                                System.Globalization.CultureInfo.InvariantCulture)
+                                          : (DateTime?)null;
+                    educationDtl.EndDt = data.EndDt.HasValue
+                        ? DateTime.ParseExact(data.EndDt.Value.ToString("dd-MMM-yyyy"),
+                                              "dd-MMM-yyyy",
+                                              System.Globalization.CultureInfo.InvariantCulture)
+                        : (DateTime?)null;
+                    educationDtl.Summary = data.Summary;
+                    educationDtl.Summary = data.Summary;
+                    educationDtl.Modified_by = userId;
+                    educationDtl.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                    _dbContext.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public List<EducationDtl> GetEducationDtl(string token)
+        {
+            try
+            {
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                var data = _dbContext.EducationDetail
+                    .Where(s => s.Created_by == userId && s.Status == "E")
+                    .Join(_dbContext.UserTbl,
+                    s => s.Created_by, u => u.Id,
+                    (s, u) => new EducationDtl
+                    {
+                        Id = s.Id,
+                        Institution = s.Institution,
+                        Degree = s.Degree,
+                        Location = s.Location,
+                        Grade = s.Grade,
+                        FieldStudy = s.FieldStudy,
+                        Specialization = s.Specialization,
+                        Summary = s.Summary,
+                        StartDt=s.StartDt,
+                        EndDt=s.EndDt,
+                    })
+                    .OrderByDescending(s => s.Id)
+                    .ToList();
+                return data;
+            }
+            catch (Exception)
+            {
+                return new List<EducationDtl>();
+            }
 
+        }
+        public bool DeleteEducationData(int id, string token)
+        {
+            try
+            {
+                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                var data = _dbContext.EducationDetail.Find(id);
+                if (data == null)
+                {
+                    return false;
+                }
+                data.Status = "D";
+                data.Modified_by = userId;
+                data.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public EducationDtl GetEducationDtById(int? id)
+        {
+            try
+            {
+                var data = _dbContext.EducationDetail
+                    .Where(s => s.Id == id)
+                    .Select(s => new EducationDtl
+                    {
+                        Id = s.Id,
+                        Institution = s.Institution,
+                        Degree = s.Degree,
+                        Location = s.Location,
+                        Grade = s.Grade,
+                        FieldStudy = s.FieldStudy,
+                        Specialization = s.Specialization,
+                        Summary = s.Summary,
+                        StartDt = s.StartDt,
+                        EndDt = s.EndDt,
+                    })
+                    .FirstOrDefault();
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions appropriately (logging, error handling, etc.)
+                throw new Exception("Error fetching data by ID", ex);
+            }
+        }
+        #endregion
+        #region Experience
+        public bool AddExperienceData(ExperienceDtl data, string token)
+        {
+            try
+            {
+                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                if (data.Id == 0)
+                {
+                    int maxId = GetMaxId<ExperienceDetail>("Id");
+                    var newData = new ExperienceDetail()
+                    {
+                        Id = maxId,
+                        Position = data.Position,
+                        Location = data.Location,
+                        Company = data.Company,
+                        Skills = data.Skills,
+                        Achievement = data.Achievement,
+                        JobDescription = data.JobDescription,
+                        StartDt = data.StartDt.HasValue
+                          ? DateTime.ParseExact(data.StartDt.Value.ToString("dd-MMM-yyyy"),
+                                                "dd-MMM-yyyy",
+                                                System.Globalization.CultureInfo.InvariantCulture)
+                          : (DateTime?)null,
+                        EndDt = data.EndDt.HasValue
+                        ? DateTime.ParseExact(data.EndDt.Value.ToString("dd-MMM-yyyy"),
+                                              "dd-MMM-yyyy",
+                                              System.Globalization.CultureInfo.InvariantCulture)
+                        : (DateTime?)null,
+                        Status = "E",
+                        Created_by = userId,
+                        Created_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture)
+                    };
+                    _dbContext.ExperienceDetail.Add(newData);
+                    _dbContext.SaveChanges();
+                }
+                else
+                {
+                    var Dtl = _dbContext.ExperienceDetail.Find(data.Id);
+                    if (Dtl == null)
+                    {
+                        return false;
+                    }
+                    Dtl.Position = data.Position;
+                    Dtl.Location = data.Location;
+                    Dtl.Company = data.Company;
+                    Dtl.Skills = data.Skills;
+                    Dtl.Achievement = data.Achievement;
+                    Dtl.JobDescription = data.JobDescription;
+                    Dtl.StartDt = data.StartDt.HasValue
+                      ? DateTime.ParseExact(data.StartDt.Value.ToString("dd-MMM-yyyy"),
+                                            "dd-MMM-yyyy",
+                                            System.Globalization.CultureInfo.InvariantCulture)
+                      : (DateTime?)null;
+                    Dtl.EndDt = data.EndDt.HasValue
+                    ? DateTime.ParseExact(data.EndDt.Value.ToString("dd-MMM-yyyy"),
+                                          "dd-MMM-yyyy",
+                                          System.Globalization.CultureInfo.InvariantCulture)
+                    : (DateTime?)null;
+                    Dtl.Modified_by = userId;
+                    Dtl.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                    _dbContext.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public List<ExperienceDtl> GetExperienceDtl(string token)
+        {
+            try
+            {
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                var data = _dbContext.ExperienceDetail
+                    .Where(s => s.Created_by == userId && s.Status == "E")
+                    .Join(_dbContext.UserTbl,
+                    s => s.Created_by, u => u.Id,
+                    (s, u) => new ExperienceDtl
+                    {
+                        Id = s.Id,
+                        Company = s.Company,
+                        Position = s.Position,
+                        Location = s.Location,
+                        Skills = s.Skills,
+                        JobDescription = s.JobDescription,
+                        Achievement = s.Achievement,
+                        StartDt = s.StartDt,
+                        EndDt = s.EndDt,
+                    })
+                    .OrderByDescending(s => s.Id)
+                    .ToList();
+                return data;
+            }
+            catch (Exception)
+            {
+                return new List<ExperienceDtl>();
+            }
+
+        }
+        public bool DeleteExperienceData(int id, string token)
+        {
+            try
+            {
+                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                var data = _dbContext.ExperienceDetail.Find(id);
+                if (data == null)
+                {
+                    return false;
+                }
+                data.Status = "D";
+                data.Modified_by = userId;
+                data.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public ExperienceDtl GetExperienceDtById(int? id)
+        {
+            try
+            {
+                var data = _dbContext.ExperienceDetail
+                    .Where(s => s.Id == id)
+                    .Select(s => new ExperienceDtl
+                    {
+                        Id = s.Id,
+                        Company = s.Company,
+                        Position = s.Position,
+                        Location = s.Location,
+                        Skills = s.Skills,
+                        JobDescription = s.JobDescription,
+                        Achievement = s.Achievement,
+                        StartDt = s.StartDt,
+                        EndDt = s.EndDt,
+                    })
+                    .FirstOrDefault();
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions appropriately (logging, error handling, etc.)
+                throw new Exception("Error fetching data by ID", ex);
+            }
+        }
+        #endregion
         public int GetMaxId<T>(string columnName) where T : class
         {
             try

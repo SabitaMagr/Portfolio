@@ -10,15 +10,18 @@
         deferRender: true,
         scroller: true,
         columns: [
-            { data: 'userId' },
-            { data: 'fullName' },
-            { data: 'mobileNo' },
-            { data: 'email' },
-            { data: 'profile' },
-            { data: 'about' },
+            { data: 'id' },
+            { data: 'institution' },
+            { data: 'location' },
+            { data: 'degree' },
+            { data: 'grade' },
+            { data: 'fieldStudy' },
+            { data: 'specialization' },
+            { data: 'startDt' },
+            { data: 'endDt' },
             { data: 'summary' },
             {
-                data: 'userId',
+                data: 'id',
                 title: 'Action',
                 render: function (data, type, row) {
                     return `
@@ -33,8 +36,8 @@
         const id = $(this).data('id');
         if (confirm('Are you sure you want to delete?')) {
             $.ajax({
-                url: `/Home/DeleteEducationDtl/${id}`,
-                type: 'DELETE',
+                url: `/Home/DeleteEducationData/${id}`,
+                type: 'POST',
                 success: function (response) {
                     if (response) {
                         $('#EducationDtl').DataTable().ajax.reload();

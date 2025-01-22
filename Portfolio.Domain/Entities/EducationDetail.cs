@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Domain.Entities
 {
-    [Table("Education_Details")]
+    [Table("EducationDetails")]
     public class EducationDetail
     {
         [Key]

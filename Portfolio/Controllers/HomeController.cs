@@ -235,9 +235,9 @@ namespace Portfolio.Controllers
                 return RedirectToAction("Skills", "Home");
             }
         }
-        [HttpGet]
         #endregion Profile Details
         #region Education
+        [HttpGet]
         public IActionResult Education()
         {
             return View();
@@ -258,6 +258,91 @@ namespace Portfolio.Controllers
                 return View(data); // Pass the model to the view for editing
             }
             return View();
+        }
+        [HttpPost]
+        public IActionResult EducationDetail(EducationDtl data)
+        {
+            try
+            {
+                if (data.Id == 0)
+                {
+                    ModelState.Remove(nameof(data.Id));
+                }
+                if (ModelState.IsValid)
+                {
+                    var token = HttpContext.Request.Cookies["AuthToken"];
+                    if (string.IsNullOrEmpty(token))
+                    {
+                        return View();
+                    }
+                    bool result = _user.AddEducationData(data, token);
+                    if (result)
+                    {
+                        ViewData["MessageType"] = "Success";
+                        ViewData["Message"] = "Save data successfully!";
+                    }
+                    else
+                    {
+                        ViewData["MessageType"] = "Failure";
+                        ViewData["Message"] = "Failed to save data !";
+                    }
+                }
+                return View("~/Views/Home/Education.cshtml");
+            }
+            catch (Exception)
+            {
+                ViewData["MessageType"] = "Failure";
+                ViewData["Message"] = "Failed to save data !";
+                return View();
+            }
+        }
+        [HttpGet]
+        public JsonResult GetEducationDtl()
+        {
+            try
+            {
+                var token = HttpContext.Request.Cookies["AuthToken"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new { data = new List<object>() });
+                }
+                var data = _user.GetEducationDtl(token);
+                return Json(new { data });
+            }
+            catch (Exception)
+            {
+                return Json(new { data = new List<object>() });
+            }
+        }
+        [HttpPost]
+        public IActionResult DeleteEducationData(int id)
+        {
+            try
+            {
+                var token = HttpContext.Request.Cookies["AuthToken"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return RedirectToAction("Education", "Home");
+                }
+                bool data = _user.DeleteEducationData(id, token);
+                if (data)
+                {
+                    ViewData["MessageType"] = "Success";
+                    ViewData["Message"] = "Data updated successfully !";
+                }
+                else
+                {
+                    ViewData["MessageType"] = "Failure";
+                    ViewData["Message"] = "Failed to delete data !";
+                }
+                return View("~/Views/Home/Skills.cshtml");
+            }
+            catch (Exception)
+            {
+                TempData["MessageType"] = "Failure";
+                TempData["Message"] = "Failed to delete data !";
+                return RedirectToAction("Skills", "Home");
+            }
         }
         #endregion Education
         #region Skills
@@ -369,11 +454,12 @@ namespace Portfolio.Controllers
         {
             return View();
         }
+        [HttpGet]
         public IActionResult ExperienceDetail(int? id)
         {
             if (id.HasValue)
             {
-                var data = _user.GetExperienceDetailById(id);
+                var data = _user.GetExperienceDtById(id);
 
                 if (data == null)
                 {
@@ -385,7 +471,99 @@ namespace Portfolio.Controllers
             }
             return View();
         }
+        [HttpPost]
+        public IActionResult ExperienceDetail(ExperienceDtl data)
+        {
+            try
+            {
+                if (data.Id == 0)
+                {
+                    ModelState.Remove(nameof(data.Id));
+                }
+                if (ModelState.IsValid)
+                {
+                    var token = HttpContext.Request.Cookies["AuthToken"];
+                    if (string.IsNullOrEmpty(token))
+                    {
+                        return View();
+                    }
+                    bool result = _user.AddExperienceData(data, token);
+                    if (result)
+                    {
+                        ViewData["MessageType"] = "Success";
+                        ViewData["Message"] = "Save data successfully!";
+                    }
+                    else
+                    {
+                        ViewData["MessageType"] = "Failure";
+                        ViewData["Message"] = "Failed to save data !";
+                    }
+                }
+                return View("~/Views/Home/Experience.cshtml");
+            }
+            catch (Exception)
+            {
+                ViewData["MessageType"] = "Failure";
+                ViewData["Message"] = "Failed to save data !";
+                return View();
+            }
+        }
+        [HttpGet]
+        public JsonResult GetExperienceDtl()
+        {
+            try
+            {
+                var token = HttpContext.Request.Cookies["AuthToken"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new { data = new List<object>() });
+                }
+                var data = _user.GetExperienceDtl(token);
+                return Json(new { data });
+            }
+            catch (Exception)
+            {
+                return Json(new { data = new List<object>() });
+            }
+        }
+        [HttpPost]
+        public IActionResult DeleteExperienceData(int id)
+        {
+            try
+            {
+                var token = HttpContext.Request.Cookies["AuthToken"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return RedirectToAction("Education", "Home");
+                }
+                bool data = _user.DeleteExperienceData(id, token);
+                if (data)
+                {
+                    ViewData["MessageType"] = "Success";
+                    ViewData["Message"] = "Data updated successfully !";
+                }
+                else
+                {
+                    ViewData["MessageType"] = "Failure";
+                    ViewData["Message"] = "Failed to delete data !";
+                }
+                return View("~/Views/Home/Skills.cshtml");
+            }
+            catch (Exception)
+            {
+                TempData["MessageType"] = "Failure";
+                TempData["Message"] = "Failed to delete data !";
+                return RedirectToAction("Skills", "Home");
+            }
+        }
         #endregion Experience
+        #region Project 
+        public IActionResult Project()
+        {
+            return View();
+        }
+
+        #endregion
         #region Project
         public IActionResult Project()
         {

@@ -19,6 +19,8 @@ namespace Portfolio.Infrastructure.Entity
         public virtual DbSet<UserTbl> UserTbl { get; set; } = null!;
         public virtual DbSet<Skills> Skills { get; set; } = null!;
         public virtual DbSet<PersonalDetails> PersonalDetails { get; set; } = null!;
+        public virtual DbSet<EducationDetail> EducationDetail { get; set; } = null!;
+        public virtual DbSet<ExperienceDetail> ExperienceDetail { get; set; } = null!;
 
     }
 }

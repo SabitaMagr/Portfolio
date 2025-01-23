@@ -631,6 +631,130 @@ namespace Portfolio.Infrastructure.Repository
             }
         }
         #endregion
+        #region Project
+        public bool AddProjectData(ProjectDtl data, string token)
+        {
+            try
+            {
+                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                if (data.Id == 0)
+                {
+                    int maxId = GetMaxId<ProjectDetails>("Id");
+                    var newData = new ProjectDetails()
+                    {
+                        Id = maxId,
+                        Name = data.Name,
+                        Description = data.Description,
+                        GitLink = data.GitLink,
+                        DeployLink = data.DeployLink,
+                        ImageName = data.ImageName,
+                        Status = "E",
+                        Created_by = userId,
+                        Created_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture)
+                    };
+                    _dbContext.ProjectDetails.Add(newData);
+                    _dbContext.SaveChanges();
+                }
+                else
+                {
+                    var Dtl = _dbContext.ProjectDetails.Find(data.Id);
+                    if (Dtl == null)
+                    {
+                        return false;
+                    }
+                    Dtl.Name = data.Name;
+                    Dtl.Description = data.Description;
+                    Dtl.GitLink = data.GitLink;
+                    Dtl.DeployLink = data.DeployLink;
+                    Dtl.ImageName = data.ImageName;
+                    Dtl.Modified_by = userId;
+                    Dtl.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                    _dbContext.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public List<ProjectDtl> GetProjectDtl(string token)
+        {
+            try
+            {
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                var data = _dbContext.ProjectDetails
+                    .Where(s => s.Created_by == userId && s.Status == "E")
+                    .Join(_dbContext.UserTbl,
+                    s => s.Created_by, u => u.Id,
+                    (s, u) => new ProjectDtl
+                    {
+                        Id = s.Id,
+                        Name = s.Name,
+                        Description = s.Description,
+                        GitLink = s.GitLink,
+                        DeployLink = s.DeployLink,
+                        ImageName = s.ImageName,
+                    })
+                    .OrderByDescending(s => s.Id)
+                    .ToList();
+                return data;
+            }
+            catch (Exception)
+            {
+                return new List<ProjectDtl>();
+            }
+
+        }
+        public bool DeleteProjectData(int id, string token)
+        {
+            try
+            {
+                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                var data = _dbContext.ProjectDetails.Find(id);
+                if (data == null)
+                {
+                    return false;
+                }
+                data.Status = "D";
+                data.Modified_by = userId;
+                data.Modified_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public ProjectDtl GetProjectDetailById(int? id)
+        {
+            try
+            {
+                var data = _dbContext.ProjectDetails
+                    .Where(s => s.Id == id)
+                    .Select(s => new ProjectDtl
+                    {
+                        Id = s.Id,
+                        Name = s.Name,
+                        Description = s.Description,
+                        GitLink = s.GitLink,
+                        DeployLink = s.DeployLink,
+                        ImageName = s.ImageName,
+                    })
+                    .FirstOrDefault();
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions appropriately (logging, error handling, etc.)
+                throw new Exception("Error fetching data by ID", ex);
+            }
+        }
+        #endregion
         public int GetMaxId<T>(string columnName) where T : class
         {
             try

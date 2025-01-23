@@ -102,5 +102,23 @@ namespace Portfolio.Application.Business
             return _repo.GetExperienceDtById(id);
         }
         #endregion
+        #region Project
+        public bool AddProjectData(ProjectDtl data, string token)
+        {
+            return _repo.AddProjectData(data, token);
+        }
+        public List<ProjectDtl> GetProjectDtl(string token)
+        {
+            return _repo.GetProjectDtl(token);
+        }
+        public bool DeleteProjectData(int id, string token)
+        {
+            return _repo.DeleteProjectData(id, token);
+        }
+        public ProjectDtl GetProjectDetailById(int? id)
+        {
+            return _repo.GetProjectDetailById(id);
+        }
+        #endregion
     }
 }

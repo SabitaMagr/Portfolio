@@ -335,13 +335,13 @@ namespace Portfolio.Controllers
                     ViewData["MessageType"] = "Failure";
                     ViewData["Message"] = "Failed to delete data !";
                 }
-                return View("~/Views/Home/Skills.cshtml");
+                return View("~/Views/Home/Education.cshtml");
             }
             catch (Exception)
             {
                 TempData["MessageType"] = "Failure";
                 TempData["Message"] = "Failed to delete data !";
-                return RedirectToAction("Skills", "Home");
+                return RedirectToAction("Education", "Home");
             }
         }
         #endregion Education
@@ -547,13 +547,13 @@ namespace Portfolio.Controllers
                     ViewData["MessageType"] = "Failure";
                     ViewData["Message"] = "Failed to delete data !";
                 }
-                return View("~/Views/Home/Skills.cshtml");
+                return View("~/Views/Home/Experience.cshtml");
             }
             catch (Exception)
             {
                 TempData["MessageType"] = "Failure";
                 TempData["Message"] = "Failed to delete data !";
-                return RedirectToAction("Skills", "Home");
+                return RedirectToAction("Experience", "Home");
             }
         }
         #endregion Experience
@@ -562,14 +562,131 @@ namespace Portfolio.Controllers
         {
             return View();
         }
-
-        #endregion
-        #region Project
-        public IActionResult Project()
+        [HttpGet]
+        public IActionResult ProjectDetail(int? id)
         {
+            if (id.HasValue)
+            {
+                var data = _user.GetProjectDetailById(id);
+
+                if (data == null)
+                {
+                    ViewData["MessageType"] = "Failure";
+                    ViewData["Message"] = "Error fetching data!";
+                }
+
+                return View(data); // Pass the model to the view for editing
+            }
             return View();
         }
-        #endregion Project
+        [HttpPost]
+        public IActionResult ProjectDetail(ProjectDtl data)
+        {
+            try
+            {
+                if (data.Id == 0)
+                {
+                    ModelState.Remove(nameof(data.Id));
+                }
+
+                if (ModelState.IsValid)
+                {
+                    var token = HttpContext.Request.Cookies["AuthToken"];
+                    if (string.IsNullOrEmpty(token))
+                    {
+                        return View(data);
+                    }
+
+                    // Handle file upload
+                    if (data.ImageFile != null)
+                    {
+                        string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images","Project");
+                        if (!Directory.Exists(uploadsFolder))
+                        {
+                            Directory.CreateDirectory(uploadsFolder);
+                        }
+                        string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                        string uniqueFileName = $"{timestamp}_{Guid.NewGuid()}_{data.ImageFile.FileName}"; string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            data.ImageFile.CopyTo(fileStream);
+                        }
+
+                        data.ImageName = uniqueFileName; // Save the relative path
+                    }
+
+                    bool result = _user.AddProjectData(data, token);
+                    if (result)
+                    {
+                        ViewData["MessageType"] = "Success";
+                        ViewData["Message"] = "Save data successfully!";
+                    }
+                    else
+                    {
+                        ViewData["MessageType"] = "Failure";
+                        ViewData["Message"] = "Failed to save data!";
+                    }
+                }
+
+                return View("~/Views/Home/Project.cshtml");
+            }
+            catch (Exception)
+            {
+                ViewData["MessageType"] = "Failure";
+                ViewData["Message"] = "Failed to save data!";
+                return View(data);
+            }
+        }
+
+        [HttpGet]
+        public JsonResult GetProjectDtl()
+        {
+            try
+            {
+                var token = HttpContext.Request.Cookies["AuthToken"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new { data = new List<object>() });
+                }
+                var data = _user.GetProjectDtl(token);
+                return Json(new { data });
+            }
+            catch (Exception)
+            {
+                return Json(new { data = new List<object>() });
+            }
+        }
+        [HttpPost]
+        public IActionResult DeleteProjectData(int id)
+        {
+            try
+            {
+                var token = HttpContext.Request.Cookies["AuthToken"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return RedirectToAction("Project", "Home");
+                }
+                bool data = _user.DeleteProjectData(id, token);
+                if (data)
+                {
+                    ViewData["MessageType"] = "Success";
+                    ViewData["Message"] = "Data updated successfully !";
+                }
+                else
+                {
+                    ViewData["MessageType"] = "Failure";
+                    ViewData["Message"] = "Failed to delete data !";
+                }
+                return View("~/Views/Home/Project.cshtml");
+            }
+            catch (Exception)
+            {
+                TempData["MessageType"] = "Failure";
+                TempData["Message"] = "Failed to delete data !";
+                return RedirectToAction("Project", "Home");
+            }
+        }
+        #endregion
         public string GenerateToken(UserTbl data)
         {
             var jwtSettings = _configuration.GetSection("JwtSettings");
@@ -594,5 +711,14 @@ namespace Portfolio.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+        public IActionResult logOut()
+        {
+            HttpContext.Response.Cookies.Append("AuthToken", "", new CookieOptions
+            {
+                Expires = DateTimeOffset.UtcNow.AddDays(-1)
+            });
+            return RedirectToAction("LogIn", "Home");
+        }
+
     }
 }

@@ -207,3 +207,34 @@ td {
     #alertMessage.fade-out {
         opacity: 0;
     }
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    background: none;
+    padding: 5px;
+}
+
+    .dropdown-toggle img {
+        border: 2px solid #ddd;
+        padding: 2px;
+    }
+
+.dropdown-menu {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .dropdown-item i {
+        font-size: 16px;
+        color: #6c757d;
+    }

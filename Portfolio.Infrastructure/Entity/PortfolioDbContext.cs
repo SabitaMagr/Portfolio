@@ -21,6 +21,8 @@ namespace Portfolio.Infrastructure.Entity
         public virtual DbSet<PersonalDetails> PersonalDetails { get; set; } = null!;
         public virtual DbSet<EducationDetail> EducationDetail { get; set; } = null!;
         public virtual DbSet<ExperienceDetail> ExperienceDetail { get; set; } = null!;
+        public virtual DbSet<ProjectDetails> ProjectDetails { get; set; } = null!;
+
 
     }
 }

@@ -1,0 +1,67 @@
+﻿@model Portfolio.Domain.Entities.ProjectDtl
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<nav class="custom-breadcrumb" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("ProjectDetail","Home")">Project Details</a></li>
+        <li class="breadcrumb-item active" aria-current="page">List</li>
+    </ol>
+</nav>
+<div class="custom-container mt-2" style="height:82vh!important;">
+    <div class="heading-left border-bottom mb-2">
+        <i class="fa-solid fa-person-circle-check fa-lg me-2"></i>
+        Project Details
+    </div>
+    <form asp-action="ProjectDetail" method="post" class="container px-3" enctype="multipart/form-data">
+        <input asp-for="Id" type="hidden" id="Id" />
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="Name" class="form-label">Project Name</label>
+                <input asp-for="Name" class="form-control" id="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label for="Description" class="form-label">Description</label>
+                <input asp-for="Description" class="form-control" id="Description" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label for="GitLink" class="form-label">GitHub Link</label>
+                <input asp-for="GitLink" class="form-control" id="GitLink" />
+                <span asp-validation-for="GitLink" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="DeployLink" class="form-label">Deploy Link</label>
+                <input asp-for="DeployLink" class="form-control" id="DeployLink" />
+                <span asp-validation-for="DeployLink" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="ImageUpload" class="form-label">Upload Image</label>
+                <input asp-for="ImageFile" class="form-control" type="file" id="ImageUpload" accept="image/*">
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-12 text-end">
+                <button type="submit" class="btn btn-primary submit">
+                    @if ((Model?.Id ?? 0) > 0)
+                    {
+                        <span>Update</span>
+                    }
+                    else
+                    {
+                        <span>Save</span>
+                    }
+                </button>
+            </div>
+        </div>
+    </form>
+
+</div>

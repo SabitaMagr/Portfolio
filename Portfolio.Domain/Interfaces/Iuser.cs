@@ -38,6 +38,11 @@ namespace Portfolio.Domain.Interfaces
         List<ExperienceDtl> GetExperienceDtl(string token);
         bool DeleteExperienceData(int id, string token);
         #endregion
-
+        #region Project
+        bool AddProjectData(ProjectDtl data, string token);
+        ProjectDtl GetProjectDetailById(int? id);
+        List<ProjectDtl> GetProjectDtl(string token);
+        bool DeleteProjectData(int id, string token);
+        #endregion
     }
 }

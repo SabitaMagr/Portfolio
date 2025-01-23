@@ -26,20 +26,19 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <div class="ms-auto">
                         <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user"></i> @TempData["UserName"]
+                            <button class="btn btn dropdown-toggle" type="button" id="profileDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                @TempData["UserName"]
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li class="logoutBtn">
-                                    <i class="fas fa-key mt-1" style="padding:0.5rem;"></i>
-                                    <a href="@Url.Action("ChangePassword", "Home")" id="forget-password" class="forget-password">Change Password</a>
-
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdownButton">
+                                <li class="border-bottom">
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+                                        <i class="fas fa-lock me-2"></i><span style="font-size: 0.85rem;">Change Password</span>
+                                    </a>
                                 </li>
-                            </ul>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li class="logoutBtn">
-                                    <i class="fas fa-key mt-1" style="padding:0.5rem;"></i>
-                                    <a href="@Url.Action("LogOut", "Home")" id="forget-password" class="forget-password">LogOut</a>
+                                <li>
+                                    <a class="dropdown-item" href="/logOut">
+                                        <i class="fas fa-sign-out-alt me-2"></i><span style="font-size: 0.85rem;">Log Out</span>
+                                    </a>
                                 </li>
                             </ul>
                         </div>

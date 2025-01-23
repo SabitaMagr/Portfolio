@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\js\\ProfileDetails.js"
     },
     {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\ProjectDetails.js",
+      "PackagePath": "staticwebassets\\js\\ProjectDetails.js"
+    },
+    {
       "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\Skills.js",
       "PackagePath": "staticwebassets\\js\\Skills.js"
     },

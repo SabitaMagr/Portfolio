@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D0yBTk3R7IH+y9nFQY2AYvqR4c5FQ+ENBbkcdN1eh/U=",
+  "Hash": "tXiOtyLuwe2gB6OEd1QYcZhR4jDsOe0uGkRbBKipFug=",
   "Source": "Portfolio",
   "BasePath": "_content/Portfolio",
   "Mode": "Default",
@@ -262,6 +262,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\ProfileDetails.js"
+    },
+    {
+      "Identity": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\ProjectDetails.js",
+      "SourceId": "Portfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\",
+      "BasePath": "_content/Portfolio",
+      "RelativePath": "js/ProjectDetails.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ProjectDetails.js"
     },
     {
       "Identity": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\site.js",

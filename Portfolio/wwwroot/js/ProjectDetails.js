@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     // Initialize DataTable
-    new DataTable('#projectDtl', {
+    new DataTable('#ProjectDtl', {
         ajax: {
             url: '/Home/GetProjectDtl',
             type: 'GET',
@@ -11,15 +11,23 @@
         scroller: true,
         columns: [
             { data: 'id' },
-            { data: 'institution' },
-            { data: 'location' },
-            { data: 'degree' },
-            { data: 'grade' },
-            { data: 'fieldStudy' },
-            { data: 'specialization' },
-            { data: 'startDt' },
-            { data: 'endDt' },
-            { data: 'summary' },
+            { data: 'name' },
+            { data: 'description' },
+            { data: 'gitLink' },
+            { data: 'deployLink' },
+            {
+                data: 'imageUrl',
+                render: function (data, type, row) {
+                    if (!data) {
+                        return '';
+                    }
+                    return `
+                        <a href="${data}" target="_blank">
+                            <img src="${data}" alt="Project Image" style="width: 80px; height: 28px; object-fit: cover;">
+                        </a>
+                    `;
+                },
+            },
             {
                 data: 'id',
                 title: 'Action',
@@ -40,7 +48,7 @@
                 type: 'POST',
                 success: function (response) {
                     if (response) {
-                        $('#projectDtl').DataTable().ajax.reload();
+                        $('#ProjectDtl').DataTable().ajax.reload();
 
                     } else {
                         console.error('Failed to fetch skill data.');

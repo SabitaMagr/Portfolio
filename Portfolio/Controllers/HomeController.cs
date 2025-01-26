@@ -568,7 +568,20 @@ namespace Portfolio.Controllers
             if (id.HasValue)
             {
                 var data = _user.GetProjectDetailById(id);
-
+                string uploadsFolder = Path.Combine("wwwroot", "Images", "Project");
+                if (!string.IsNullOrEmpty(data.ImageName))
+                    {
+                    string physicalPath = Path.Combine(uploadsFolder, data.ImageName);
+                    if (System.IO.File.Exists(physicalPath))
+                    {
+                        data.ImageUrl = $"{Request.Scheme}://{Request.Host}/Images/Project/{data.ImageName}";
+                    }
+                    else
+                    {
+                        data.ImageUrl = null;
+                    }
+                }
+                
                 if (data == null)
                 {
                     ViewData["MessageType"] = "Failure";
@@ -600,13 +613,14 @@ namespace Portfolio.Controllers
                     // Handle file upload
                     if (data.ImageFile != null)
                     {
-                        string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images","Project");
+                        string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images","Project");
                         if (!Directory.Exists(uploadsFolder))
                         {
                             Directory.CreateDirectory(uploadsFolder);
                         }
                         string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                        string uniqueFileName = $"{timestamp}_{Guid.NewGuid()}_{data.ImageFile.FileName}"; string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        string uniqueFileName = $"{timestamp}_{Guid.NewGuid().ToString("N")}.png";
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                         using (var fileStream = new FileStream(filePath, FileMode.Create))
                         {
                             data.ImageFile.CopyTo(fileStream);
@@ -649,6 +663,18 @@ namespace Portfolio.Controllers
                     return Json(new { data = new List<object>() });
                 }
                 var data = _user.GetProjectDtl(token);
+                string uploadsFolder = Path.Combine("wwwroot", "Images", "Project");
+                foreach (var project in data)
+                {
+                    if(!string.IsNullOrEmpty(project.ImageName))
+                    {
+                        string physicalPath = Path.Combine(uploadsFolder, project.ImageName);
+                        if (System.IO.File.Exists(physicalPath))
+                        {
+                            project.ImageUrl = $"{Request.Scheme}://{Request.Host}/Images/Project/{project.ImageName}";
+                        }
+                      }
+                }
                 return Json(new { data });
             }
             catch (Exception)
@@ -686,6 +712,44 @@ namespace Portfolio.Controllers
                 return RedirectToAction("Project", "Home");
             }
         }
+        [HttpPost]
+        public IActionResult DeleteImage(string imageUrl)
+        {
+            if (string.IsNullOrEmpty(imageUrl))
+            {
+                return Json(new { success = false, message = "Invalid image URL" });
+            }
+
+            try
+            {
+                Uri imageUri = new Uri(imageUrl);
+
+                string relativePath = imageUri.AbsolutePath.TrimStart('/');
+
+                string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", relativePath.Replace('/', Path.DirectorySeparatorChar));
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    // Delete the file
+                    System.IO.File.Delete(filePath);
+                    return Json(new { success = true, message = "File deleted successfully." });
+                }
+                if (System.IO.File.Exists(relativePath))
+                {
+                    System.IO.File.Delete(relativePath);
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    return Json(new { success = false, message = "File not found" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
         #endregion
         public string GenerateToken(UserTbl data)
         {

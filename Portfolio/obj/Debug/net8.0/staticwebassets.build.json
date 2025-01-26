@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tXiOtyLuwe2gB6OEd1QYcZhR4jDsOe0uGkRbBKipFug=",
+  "Hash": "hlFFa2CXdTHSAdJ6i33P4or+4GVS/MYmSftIjnDXrhg=",
   "Source": "Portfolio",
   "BasePath": "_content/Portfolio",
   "Mode": "Default",
@@ -167,6 +167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\logo.png"
+    },
+    {
+      "Identity": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\Images\\Project\\20250126_230220_6fc22fa400c7428ca34e18e9bf256c86.png",
+      "SourceId": "Portfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\",
+      "BasePath": "_content/Portfolio",
+      "RelativePath": "Images/Project/20250126_230220_6fc22fa400c7428ca34e18e9bf256c86.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Project\\20250126_230220_6fc22fa400c7428ca34e18e9bf256c86.png"
     },
     {
       "Identity": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\Alert.js",

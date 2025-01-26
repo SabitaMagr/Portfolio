@@ -41,11 +41,27 @@
                 <input asp-for="DeployLink" class="form-control" id="DeployLink" />
                 <span asp-validation-for="DeployLink" class="text-danger"></span>
             </div>
+
+            <!-- Image Section -->
             <div class="col-md-4">
                 <label for="ImageUpload" class="form-label">Upload Image</label>
-                <input asp-for="ImageFile" class="form-control" type="file" id="ImageUpload" accept="image/*">
-                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                <div id="imageUploadContainer" class="@(!string.IsNullOrEmpty(Model?.ImageUrl) ? "hidden" : "")">
+                    <input asp-for="ImageFile" class="form-control" type="file" id="ImageUpload" accept="image/*">
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+
+                <!-- Image Preview Section -->
+                @if (!string.IsNullOrEmpty(Model?.ImageUrl))
+                {
+                    <div class="image-preview-container" style="position: relative;" id="imagePreviewContainer">
+                        <a href="@Url.Content(Model.ImageUrl)" target="_blank">
+                            <img src="@Url.Content(Model.ImageUrl)" alt="Project Image" class="img-fluid" id="imagePreview" style="height: 40px; width: 100px; border: 1px solid #ced4da;" />
+                        </a>
+                        <button type="button" class="btn btn-danger" id="deleteImageBtn" style="position: absolute; top: 10px; right: 10px;">&#10005;</button>
+                    </div>
+                }
             </div>
+
         </div>
 
         <div class="row mb-3">
@@ -63,5 +79,46 @@
             </div>
         </div>
     </form>
-
 </div>
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageUploadContainer = document.getElementById("imageUploadContainer");
+            const imagePreviewContainer = document.getElementById("imagePreviewContainer");
+            const imagePreview = document.getElementById("imagePreview");
+            const deleteImageBtn = document.getElementById("deleteImageBtn");
+
+            // Delete Image Button Click Handler
+            if (deleteImageBtn) {
+                deleteImageBtn.addEventListener("click", function () {
+                    const deleteUrl = `/Home/DeleteImage?imageUrl=${imagePreview.src}`;
+                    fetch(deleteUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error("Failed to delete the image");
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.success) {
+                                imagePreviewContainer.style.display = 'none';
+                                imageUploadContainer.classList.remove("hidden");
+                            } else {
+                                alert(data.message || "Image deletion failed.");
+                            }
+                        })
+                        .catch(error => {
+                            alert("Error: " + error.message);
+                        });
+                });
+            }
+        });
+    </script>
+}
+
+

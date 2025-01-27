@@ -14,6 +14,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -66,14 +67,14 @@ namespace Portfolio.Infrastructure.Repository
             return null;
         }
         #region Skills
-        public bool AddSkills(List<string> skills,string token)
+        public bool AddSkills(List<string> skills,int userId)
         {
             using (var transaction = _dbContext.Database.BeginTransaction())
             {
                 try
                 {
                     string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                    int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                    
                     foreach (var data in skills)
                     {
                         if (!string.IsNullOrEmpty(data))
@@ -101,11 +102,11 @@ namespace Portfolio.Infrastructure.Repository
                 }
             }
         }
-        public List<SkillDetail> getSkills( string token)
+        public List<SkillDetail> getSkills( int userId)
         {
             try
             {
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 var skills=_dbContext.Skills
                     .Where(s=>s.Created_by==userId && s.Status=="E")
                     .Join(_dbContext.UserTbl,
@@ -127,12 +128,12 @@ namespace Portfolio.Infrastructure.Repository
             }
 
         }
-        public bool UpdateSkills(int id,string token)
+        public bool UpdateSkills(int id,int userId)
         {
             try
             {
                 string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 var skill = _dbContext.Skills.Find(id);
                 if (skill == null)
                 {
@@ -167,12 +168,12 @@ namespace Portfolio.Infrastructure.Repository
             }
         }
 
-        public bool UpdateSkillbyId(List<string> skills, string token,int id)
+        public bool UpdateSkillbyId(List<string> skills, int userId,int id)
         {
             try
             {
                 string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 var skill = _dbContext.Skills.Find(id);
                 foreach (var data in skills)
                 {
@@ -193,12 +194,12 @@ namespace Portfolio.Infrastructure.Repository
         }
         #endregion Skills
         #region Personal Details
-        public bool AddData(PersonalDtl data,string token)
+        public bool AddData(PersonalDtl data,int userId)
         {
             try
             {
                 string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 if (data.UserId== 0)
                 {
                     int maxId = GetMaxId<PersonalDetails>("UserId");
@@ -244,11 +245,11 @@ namespace Portfolio.Infrastructure.Repository
                 return false;
             }
         }
-        public List<PersonalDtl> GetPersonalDtl(string token)
+        public List<PersonalDtl> GetPersonalDtl(int userId)
         {
             try
             {
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 var data = _dbContext.PersonalDetails
                     .Where(s => s.Created_by == userId && s.Status == "E")
                     .Join(_dbContext.UserTbl,
@@ -274,12 +275,12 @@ namespace Portfolio.Infrastructure.Repository
             }
 
         }
-        public bool DeletePersonalData(int id, string token)
+        public bool DeletePersonalData(int id, int userId)
         {
             try
             {
                 string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 var data = _dbContext.PersonalDetails.Find(id);
                 if (data == null)
                 {
@@ -323,12 +324,12 @@ namespace Portfolio.Infrastructure.Repository
         }
         #endregion Personal Details
         #region Education
-        public bool AddEducationData(EducationDtl data, string token)
+        public bool AddEducationData(EducationDtl data, int userId)
         {
             try
             {
                 string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 if (data.Id == 0)
                 {
                     int maxId = GetMaxId<EducationDetail>("Id");
@@ -395,11 +396,11 @@ namespace Portfolio.Infrastructure.Repository
                 return false;
             }
         }
-        public List<EducationDtl> GetEducationDtl(string token)
+        public List<EducationDtl> GetEducationDtl(int userId)
         {
             try
             {
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 var data = _dbContext.EducationDetail
                     .Where(s => s.Created_by == userId && s.Status == "E")
                     .Join(_dbContext.UserTbl,
@@ -427,12 +428,12 @@ namespace Portfolio.Infrastructure.Repository
             }
 
         }
-        public bool DeleteEducationData(int id, string token)
+        public bool DeleteEducationData(int id, int userId)
         {
             try
             {
                 string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 var data = _dbContext.EducationDetail.Find(id);
                 if (data == null)
                 {
@@ -480,12 +481,12 @@ namespace Portfolio.Infrastructure.Repository
         }
         #endregion
         #region Experience
-        public bool AddExperienceData(ExperienceDtl data, string token)
+        public bool AddExperienceData(ExperienceDtl data, int userId)
         {
             try
             {
                 string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 if (data.Id == 0)
                 {
                     int maxId = GetMaxId<ExperienceDetail>("Id");
@@ -549,11 +550,11 @@ namespace Portfolio.Infrastructure.Repository
                 return false;
             }
         }
-        public List<ExperienceDtl> GetExperienceDtl(string token)
+        public List<ExperienceDtl> GetExperienceDtl(int userId)
         {
             try
             {
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 var data = _dbContext.ExperienceDetail
                     .Where(s => s.Created_by == userId && s.Status == "E")
                     .Join(_dbContext.UserTbl,
@@ -580,12 +581,12 @@ namespace Portfolio.Infrastructure.Repository
             }
 
         }
-        public bool DeleteExperienceData(int id, string token)
+        public bool DeleteExperienceData(int id, int userId)
         {
             try
             {
                 string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 var data = _dbContext.ExperienceDetail.Find(id);
                 if (data == null)
                 {
@@ -632,12 +633,11 @@ namespace Portfolio.Infrastructure.Repository
         }
         #endregion
         #region Project
-        public bool AddProjectData(ProjectDtl data, string token)
+        public bool AddProjectData(ProjectDtl data, int userId)
         {
             try
             {
                 string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
                 if (data.Id == 0)
                 {
                     int maxId = GetMaxId<ProjectDetails>("Id");
@@ -679,11 +679,11 @@ namespace Portfolio.Infrastructure.Repository
                 return false;
             }
         }
-        public List<ProjectDtl> GetProjectDtl(string token)
+        public List<ProjectDtl> GetProjectDtl(int userId)
         {
             try
             {
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 var data = _dbContext.ProjectDetails
                     .Where(s => s.Created_by == userId && s.Status == "E")
                     .Join(_dbContext.UserTbl,
@@ -707,12 +707,12 @@ namespace Portfolio.Infrastructure.Repository
             }
 
         }
-        public bool DeleteProjectData(int id, string token)
+        public bool DeleteProjectData(int id, int userId)
         {
             try
             {
                 string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                int userId = int.TryParse(StaticHelper.GetDetail(token, "Id"), out var parsedId) ? parsedId : 0;
+                
                 var data = _dbContext.ProjectDetails.Find(id);
                 if (data == null)
                 {
@@ -753,6 +753,47 @@ namespace Portfolio.Infrastructure.Repository
                 // Handle exceptions appropriately (logging, error handling, etc.)
                 throw new Exception("Error fetching data by ID", ex);
             }
+        }
+        #endregion
+        #region Change Password
+        public bool checkOldPassword(string oldPassword,int userId)
+        {
+            try
+            {
+                var user = _dbContext.UserTbl.FirstOrDefault(u => u.Id == userId);
+
+                if (user == null)
+                {
+                    return false;  // User not found
+                }
+                string hashPassword = StaticHelper.DecryptString(user.Password);
+                return hashPassword == oldPassword;
+            }
+            catch(Exception )
+            {
+                return false;
+            }
+
+        }
+        public bool changePassword(string NewPassword, int userId)
+        {
+            try
+            {
+                string hashPassword = StaticHelper.DecryptString(NewPassword);
+                var user = _dbContext.UserTbl.FirstOrDefault(u => u.Id == userId);
+                if (user == null)
+                {
+                    return false;  
+                }
+                user.Password = hashPassword; 
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
         }
         #endregion
         public int GetMaxId<T>(string columnName) where T : class

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hlFFa2CXdTHSAdJ6i33P4or+4GVS/MYmSftIjnDXrhg=",
+  "Hash": "jO/apzcKAtjF87QQbtDkUhtSLpSWXxyJLdy0bmETwzI=",
   "Source": "Portfolio",
   "BasePath": "_content/Portfolio",
   "Mode": "Default",
@@ -169,12 +169,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\logo.png"
     },
     {
-      "Identity": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\Images\\Project\\20250126_230220_6fc22fa400c7428ca34e18e9bf256c86.png",
+      "Identity": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\Images\\Project\\20250126_231757_5ac2784389bc4f2394ebe0d3dbea2b08.png",
       "SourceId": "Portfolio",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\",
       "BasePath": "_content/Portfolio",
-      "RelativePath": "Images/Project/20250126_230220_6fc22fa400c7428ca34e18e9bf256c86.png",
+      "RelativePath": "Images/Project/20250126_231757_5ac2784389bc4f2394ebe0d3dbea2b08.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -185,7 +185,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Project\\20250126_230220_6fc22fa400c7428ca34e18e9bf256c86.png"
+      "OriginalItemSpec": "wwwroot\\Images\\Project\\20250126_231757_5ac2784389bc4f2394ebe0d3dbea2b08.png"
+    },
+    {
+      "Identity": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\Images\\Project\\20250127_200422_5bc914c4057f4bc3afd301c8c5319871.png",
+      "SourceId": "Portfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\",
+      "BasePath": "_content/Portfolio",
+      "RelativePath": "Images/Project/20250127_200422_5bc914c4057f4bc3afd301c8c5319871.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Project\\20250127_200422_5bc914c4057f4bc3afd301c8c5319871.png"
     },
     {
       "Identity": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\js\\Alert.js",

@@ -4,6 +4,7 @@ using Portfolio.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,39 +28,39 @@ namespace Portfolio.Application.Business
             return _repo.ValidateUser(model);
         }
         #region Skills
-        public bool AddSkills(List<string> skills,string token)
+        public bool AddSkills(List<string> skills,int userId)
         {
-            return _repo.AddSkills(skills,token);
+            return _repo.AddSkills(skills,userId);
         }
-        public List<SkillDetail> getSkills(string token)
+        public List<SkillDetail> getSkills(int userId)
         {
-            return _repo.getSkills(token);
+            return _repo.getSkills(userId);
         }
-        public bool UpdateSkills(int id, string token)
+        public bool UpdateSkills(int id, int userId)
         {
-            return _repo.UpdateSkills(id, token);
+            return _repo.UpdateSkills(id, userId);
         }
         public Skills GetSkillById(int id)
         {
             return _repo.GetSkillById(id);
         }
-        public bool UpdateSkillbyId(List<string> skills, string token,int id)
+        public bool UpdateSkillbyId(List<string> skills, int userId,int id)
         {
-            return _repo.UpdateSkillbyId(skills, token,id);
+            return _repo.UpdateSkillbyId(skills, userId,id);
         }
         #endregion
         #region Personal Details
-        public bool AddData(PersonalDtl data, string token)
+        public bool AddData(PersonalDtl data, int userId)
         {
-            return _repo.AddData(data,token);
+            return _repo.AddData(data,userId);
         }
-        public List<PersonalDtl> GetPersonalDtl(string token)
+        public List<PersonalDtl> GetPersonalDtl(int userId)
         {
-            return _repo.GetPersonalDtl(token);
+            return _repo.GetPersonalDtl(userId);
         }
-        public bool DeletePersonalData(int id, string token)
+        public bool DeletePersonalData(int id, int userId)
         {
-            return _repo.DeletePersonalData(id, token);
+            return _repo.DeletePersonalData(id, userId);
         }
         public PersonalDtl GetPersonalDtById(int? id)
         {
@@ -67,17 +68,17 @@ namespace Portfolio.Application.Business
         }
         #endregion
         #region Education
-        public bool AddEducationData(EducationDtl data, string token)
+        public bool AddEducationData(EducationDtl data, int userId)
         {
-            return _repo.AddEducationData(data, token);
+            return _repo.AddEducationData(data, userId);
         }
-        public List<EducationDtl> GetEducationDtl(string token)
+        public List<EducationDtl> GetEducationDtl(int userId)
         {
-            return _repo.GetEducationDtl(token);
+            return _repo.GetEducationDtl(userId);
         }
-        public bool DeleteEducationData(int id, string token)
+        public bool DeleteEducationData(int id, int userId)
         {
-            return _repo.DeleteEducationData(id, token);
+            return _repo.DeleteEducationData(id, userId);
         }
         public EducationDtl GetEducationDtById(int? id)
         {
@@ -85,17 +86,17 @@ namespace Portfolio.Application.Business
         }
         #endregion
         #region Experience
-        public bool AddExperienceData(ExperienceDtl data, string token)
+        public bool AddExperienceData(ExperienceDtl data, int userId)
         {
-            return _repo.AddExperienceData(data, token);
+            return _repo.AddExperienceData(data, userId);
         }
-        public List<ExperienceDtl> GetExperienceDtl(string token)
+        public List<ExperienceDtl> GetExperienceDtl(int userId)
         {
-            return _repo.GetExperienceDtl(token);
+            return _repo.GetExperienceDtl(userId);
         }
-        public bool DeleteExperienceData(int id, string token)
+        public bool DeleteExperienceData(int id, int userId)
         {
-            return _repo.DeleteExperienceData(id, token);
+            return _repo.DeleteExperienceData(id, userId);
         }
         public ExperienceDtl GetExperienceDtById(int? id)
         {
@@ -103,21 +104,31 @@ namespace Portfolio.Application.Business
         }
         #endregion
         #region Project
-        public bool AddProjectData(ProjectDtl data, string token)
+        public bool AddProjectData(ProjectDtl data, int userId)
         {
-            return _repo.AddProjectData(data, token);
+            return _repo.AddProjectData(data, userId);
         }
-        public List<ProjectDtl> GetProjectDtl(string token)
+        public List<ProjectDtl> GetProjectDtl(int userId)
         {
-            return _repo.GetProjectDtl(token);
+            return _repo.GetProjectDtl(userId);
         }
-        public bool DeleteProjectData(int id, string token)
+        public bool DeleteProjectData(int id, int userId)
         {
-            return _repo.DeleteProjectData(id, token);
+            return _repo.DeleteProjectData(id, userId);
         }
         public ProjectDtl GetProjectDetailById(int? id)
         {
             return _repo.GetProjectDetailById(id);
+        }
+        #endregion
+        #region Change Password
+        public bool checkOldPassword(string oldPassword,int userId)
+        {
+            return _repo.checkOldPassword(oldPassword, userId);
+        }
+        public bool changePassword(string NewPassword, int userId)
+        {
+            return _repo.changePassword(NewPassword, userId);
         }
         #endregion
     }

@@ -13,7 +13,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Portfolio.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
         Iuser _user;
@@ -119,7 +119,7 @@ namespace Portfolio.Controllers
                 {
                     return RedirectToAction("LogIn");
                 }
-                var userName = StaticHelper.GetDetail(token, ClaimTypes.Name);
+                var userName = StaticHelper.GetDetail(token, "Full_name");
                 ViewData["UserName"] = userName;
                 return View();
             }catch(Exception )
@@ -161,12 +161,7 @@ namespace Portfolio.Controllers
                 }
                 if (ModelState.IsValid)
                 {
-                    var token = HttpContext.Request.Cookies["AuthToken"];
-                    if (string.IsNullOrEmpty(token))
-                    {
-                        return View();
-                    }
-                    bool result=_user.AddData(data,token);
+                    bool result=_user.AddData(data,userId);
                     if(result)
                     {
                         ViewData["MessageType"] = "Success";
@@ -192,12 +187,7 @@ namespace Portfolio.Controllers
         {
             try
             {
-                var token = HttpContext.Request.Cookies["AuthToken"];
-                if (string.IsNullOrEmpty(token))
-                {
-                    return Json(new { data = new List<object>() });
-                }
-                var data = _user.GetPersonalDtl(token);
+                var data = _user.GetPersonalDtl(userId);
                 return Json(new { data });
             }
             catch (Exception)
@@ -210,12 +200,7 @@ namespace Portfolio.Controllers
         {
             try
             {
-                var token = HttpContext.Request.Cookies["AuthToken"];
-                if (string.IsNullOrEmpty(token))
-                {
-                    return RedirectToAction("Skills", "Home");
-                }
-                bool data = _user.DeletePersonalData(id, token);
+                bool data = _user.DeletePersonalData(id, userId);
                 if (data)
                 {
                     ViewData["MessageType"] = "Success";
@@ -270,12 +255,7 @@ namespace Portfolio.Controllers
                 }
                 if (ModelState.IsValid)
                 {
-                    var token = HttpContext.Request.Cookies["AuthToken"];
-                    if (string.IsNullOrEmpty(token))
-                    {
-                        return View();
-                    }
-                    bool result = _user.AddEducationData(data, token);
+                    bool result = _user.AddEducationData(data, userId);
                     if (result)
                     {
                         ViewData["MessageType"] = "Success";
@@ -301,12 +281,7 @@ namespace Portfolio.Controllers
         {
             try
             {
-                var token = HttpContext.Request.Cookies["AuthToken"];
-                if (string.IsNullOrEmpty(token))
-                {
-                    return Json(new { data = new List<object>() });
-                }
-                var data = _user.GetEducationDtl(token);
+                var data = _user.GetEducationDtl(userId);
                 return Json(new { data });
             }
             catch (Exception)
@@ -319,12 +294,7 @@ namespace Portfolio.Controllers
         {
             try
             {
-                var token = HttpContext.Request.Cookies["AuthToken"];
-                if (string.IsNullOrEmpty(token))
-                {
-                    return RedirectToAction("Education", "Home");
-                }
-                bool data = _user.DeleteEducationData(id, token);
+                bool data = _user.DeleteEducationData(id, userId);
                 if (data)
                 {
                     ViewData["MessageType"] = "Success";
@@ -362,20 +332,15 @@ namespace Portfolio.Controllers
             }
             try
             {
-                var token = HttpContext.Request.Cookies["AuthToken"];
-                if (string.IsNullOrEmpty(token))
-                {
-                    return View();
-                }
                 if (id==0)
                 {
-                    bool result = _user.AddSkills(Skills, token);
+                    bool result = _user.AddSkills(Skills, userId);
                     ViewData["MessageType"] = "Success";
                     ViewData["Message"] = "Skill added successfully!";
                 }
                 else
                 {
-                    bool result = _user.UpdateSkillbyId(Skills,token,id);
+                    bool result = _user.UpdateSkillbyId(Skills, userId, id);
                     ViewData["MessageType"] = "Success";
                     ViewData["Message"] = "Skill updated successfully!";
                 }
@@ -394,12 +359,7 @@ namespace Portfolio.Controllers
         {
             try
             {
-                var token = HttpContext.Request.Cookies["AuthToken"];
-                if (string.IsNullOrEmpty(token))
-                {
-                    return Json(new { data = new List<object>() });
-                }
-                var data = _user.getSkills(token);
+                var data = _user.getSkills(userId);
                 return Json(new { data });
             }
             catch (Exception )
@@ -412,12 +372,7 @@ namespace Portfolio.Controllers
         {
             try
             {
-                var token = HttpContext.Request.Cookies["AuthToken"];
-                if (string.IsNullOrEmpty(token))
-                {
-                    return RedirectToAction("Skills","Home");
-                }
-                bool data = _user.UpdateSkills(id,token);
+                bool data = _user.UpdateSkills(id, userId);
                 if (data)
                 {
                     ViewData["MessageType"] = "Success";
@@ -482,12 +437,7 @@ namespace Portfolio.Controllers
                 }
                 if (ModelState.IsValid)
                 {
-                    var token = HttpContext.Request.Cookies["AuthToken"];
-                    if (string.IsNullOrEmpty(token))
-                    {
-                        return View();
-                    }
-                    bool result = _user.AddExperienceData(data, token);
+                    bool result = _user.AddExperienceData(data, userId);
                     if (result)
                     {
                         ViewData["MessageType"] = "Success";
@@ -513,12 +463,7 @@ namespace Portfolio.Controllers
         {
             try
             {
-                var token = HttpContext.Request.Cookies["AuthToken"];
-                if (string.IsNullOrEmpty(token))
-                {
-                    return Json(new { data = new List<object>() });
-                }
-                var data = _user.GetExperienceDtl(token);
+                var data = _user.GetExperienceDtl(userId);
                 return Json(new { data });
             }
             catch (Exception)
@@ -531,12 +476,7 @@ namespace Portfolio.Controllers
         {
             try
             {
-                var token = HttpContext.Request.Cookies["AuthToken"];
-                if (string.IsNullOrEmpty(token))
-                {
-                    return RedirectToAction("Education", "Home");
-                }
-                bool data = _user.DeleteExperienceData(id, token);
+                bool data = _user.DeleteExperienceData(id, userId);
                 if (data)
                 {
                     ViewData["MessageType"] = "Success";
@@ -604,12 +544,6 @@ namespace Portfolio.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    var token = HttpContext.Request.Cookies["AuthToken"];
-                    if (string.IsNullOrEmpty(token))
-                    {
-                        return View(data);
-                    }
-
                     // Handle file upload
                     if (data.ImageFile != null)
                     {
@@ -629,7 +563,7 @@ namespace Portfolio.Controllers
                         data.ImageName = uniqueFileName; // Save the relative path
                     }
 
-                    bool result = _user.AddProjectData(data, token);
+                    bool result = _user.AddProjectData(data, userId);
                     if (result)
                     {
                         ViewData["MessageType"] = "Success";
@@ -657,12 +591,7 @@ namespace Portfolio.Controllers
         {
             try
             {
-                var token = HttpContext.Request.Cookies["AuthToken"];
-                if (string.IsNullOrEmpty(token))
-                {
-                    return Json(new { data = new List<object>() });
-                }
-                var data = _user.GetProjectDtl(token);
+                var data = _user.GetProjectDtl(userId);
                 string uploadsFolder = Path.Combine("wwwroot", "Images", "Project");
                 foreach (var project in data)
                 {
@@ -687,12 +616,7 @@ namespace Portfolio.Controllers
         {
             try
             {
-                var token = HttpContext.Request.Cookies["AuthToken"];
-                if (string.IsNullOrEmpty(token))
-                {
-                    return RedirectToAction("Project", "Home");
-                }
-                bool data = _user.DeleteProjectData(id, token);
+                bool data = _user.DeleteProjectData(id, userId);
                 if (data)
                 {
                     ViewData["MessageType"] = "Success";
@@ -782,6 +706,35 @@ namespace Portfolio.Controllers
                 Expires = DateTimeOffset.UtcNow.AddDays(-1)
             });
             return RedirectToAction("LogIn", "Home");
+        }
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return PartialView("_ChangePassword");
+        }
+        [HttpPost]
+        public IActionResult ChangePassword(ChangePasswordModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return PartialView("_ChangePassword", model);
+            }
+            if (!_user.checkOldPassword(model.OldPassword, userId))
+            {
+                ViewData["MessageType"] = "Failure";
+                ViewData["Message"] = "Old password doesnot match!";
+                return View(model);
+            }
+            var result = _user.changePassword(model.NewPassword, userId);
+
+            if (result)
+            {
+                ViewData["MessageType"] = "Success";
+                ViewData["Message"] = "Password change successfully!";
+                return RedirectToAction("Dashboard");
+            }
+            ModelState.AddModelError("", "An error occurred while changing the password.");
+            return View(model);
         }
 
     }

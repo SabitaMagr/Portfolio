@@ -126,7 +126,7 @@
  *@            </main>
         </div>
     </div>
-    @await Html.PartialAsync("_ChangePassword")
+    @await Html.PartialAsync("PartialView/_ChangePassword")
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" asp-append-version="true"></script>
@@ -139,26 +139,13 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="/js/Alert.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-   @*  <script>
+    <script>
         $(document).ready(function () {
-            $('#changePasswordForm').on('submit', function (e) {
-                e.preventDefault();
-                const form = $(this);
-                $.ajax({
-                    url: form.attr('action'),
-                    method: form.attr('method'),
-                    data: form.serialize(),
-                    success: function (response) {
-                        $('#changePasswordModal').modal('hide');
-                        alert("Password changed successfully!");
-                    },
-                    error: function () {
-                        alert("Error while changing the password.");
-                    }
-                });
-            });
+            if ('@TempData["Modal"]' === 'changePasswordModal') {
+                $('#changePasswordModal').modal('show');
+            }
         });
-    </script> *@
+    </script>
 </body>
 </html>
 

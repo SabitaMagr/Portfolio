@@ -1,0 +1,38 @@
+﻿@model Portfolio.Domain.Entities.User.ChangePassword.UsernameModel;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (ViewData["Message"] != null)
+{
+    var messageType = ViewData["MessageType"]?.ToString();
+    if (messageType == "Success")
+    {
+        <div id="alertMessage" class="positiveAlert">
+            @ViewData["Message"]
+        </div>
+    }
+    else
+    {
+        <div id="alertMessage" class="negativeAlert">
+            @ViewData["Message"]
+        </div>
+    }
+}
+<div class="col-lg-6 bg-white userform">
+    <img src="/Images/logo.png" alt="Logo" class="logo-image" />
+        @using (Html.BeginForm("Index", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="custom-floating-label mb-3">
+            <div class="input-group">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                <input asp-for="Username" class="form-control name-field" id="Username" placeholder="" />
+                <label for="Username" style="left:3.1rem;">User Name</label>
+            </div>
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="container">
+            <button type="submit" class="btn btn-primary w-45">Login</button>
+        </div>
+    }
+</div>

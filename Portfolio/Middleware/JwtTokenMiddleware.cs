@@ -14,7 +14,7 @@ namespace Portfolio.Middleware
 
         public async Task InvokeAsync(HttpContext context)
         {
-            var token = context.Request.Cookies["JwtToken"];
+            var token = context.Request.Cookies["AuthToken"];
             if (!string.IsNullOrEmpty(token))
             {
                 try

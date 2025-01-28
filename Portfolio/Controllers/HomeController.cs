@@ -717,20 +717,21 @@ namespace Portfolio.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return PartialView("_ChangePassword", model);
+                TempData["Modal"] = "changePasswordModal";
+                return RedirectToAction("Dashboard",model);
             }
             if (!_user.checkOldPassword(model.OldPassword, userId))
             {
-                ViewData["MessageType"] = "Failure";
-                ViewData["Message"] = "Old password doesnot match!";
-                return View(model);
+                TempData["MessageType"] = "Failure";
+                TempData["Message"] = "Old password doesnot match!";
+                return RedirectToAction("Dashboard");
             }
             var result = _user.changePassword(model.NewPassword, userId);
 
             if (result)
             {
-                ViewData["MessageType"] = "Success";
-                ViewData["Message"] = "Password change successfully!";
+                TempData["MessageType"] = "Success";
+                TempData["Message"] = "Password change successfully!";
                 return RedirectToAction("Dashboard");
             }
             ModelState.AddModelError("", "An error occurred while changing the password.");

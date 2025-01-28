@@ -161,7 +161,7 @@ td {
 }
 .logo-image {
     display: block; /* Makes the image a block element */
-    margin: 0 auto; /* Centers the image horizontally */
+    margin: 0 -45px; /* Centers the image horizontally */
     width: 200px; /* Set a specific width */
     height: 52px; /* Set a specific height */
     object-fit: contain; /* Ensures the image fits within the width/height without distortion */

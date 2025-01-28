@@ -26,16 +26,7 @@ body {
 .logo-image {
     display: block; /* Makes the image a block element */
     margin: 0 auto; /* Centers the image horizontally */
-    margin-bottom:1rem!important;
-    width: 200px; /* Set a specific width */
-    height: 52px; /* Set a specific height */
-    object-fit: contain; /* Ensures the image fits within the width/height without distortion */
-    z-index: 2; /* Ensures it stays above the background */
-    position: relative;
-}
-.logo-image {
-    display: block; /* Makes the image a block element */
-    margin: 0 auto; /* Centers the image horizontally */
+    margin-bottom: 1rem !important;
     width: 200px; /* Set a specific width */
     height: 52px; /* Set a specific height */
     object-fit: contain; /* Ensures the image fits within the width/height without distortion */
@@ -60,6 +51,17 @@ body {
     padding-left: 3.1rem !important;
     padding-right: 3.1rem !important;
     border-radius: 15px 0px 0px 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+.userform {
+    border: none;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 3.1rem !important;
+    margin-left: 10rem;
+    padding-right: 3.1rem !important;
+    border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }

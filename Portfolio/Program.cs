@@ -17,6 +17,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<PortfolioDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 builder.Services.AddAuthentication(options =>
 {
@@ -59,6 +60,8 @@ builder.Services.AddCors(options =>
 });
 var app = builder.Build();
 
+// Add Middleware
+app.UseMiddleware<Portfolio.Middleware.JwtTokenMiddleware>();
 
 if (!app.Environment.IsDevelopment())
 {

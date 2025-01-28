@@ -779,7 +779,7 @@ namespace Portfolio.Infrastructure.Repository
         {
             try
             {
-                string hashPassword = StaticHelper.DecryptString(NewPassword);
+                string hashPassword = StaticHelper.EncryptString(NewPassword);
                 var user = _dbContext.UserTbl.FirstOrDefault(u => u.Id == userId);
                 if (user == null)
                 {

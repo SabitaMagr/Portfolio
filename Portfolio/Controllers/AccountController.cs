@@ -36,6 +36,13 @@ namespace Portfolio.Controllers
                         var toName = userDetails.FullName;
                         var code = new Random().Next(100000, 999999);
                         var expiryDate = DateTime.Now.AddDays(1);
+                        var codeData = new CodeModel
+                        {
+                            Code = code,
+                            UserId = userDetails.UserId,
+                            Expiry_date = expiryDate,
+                        };
+                        _changePassword.add(codeData);
                         if (string.IsNullOrEmpty(toEmail) || !IsValidEmail(toEmail))
                         {
                             throw new Exception("Receiver email is not set or valid.");
@@ -65,6 +72,46 @@ namespace Portfolio.Controllers
                         Console.WriteLine($"Error: {e.Message}");
                     }
                 }
+            }
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Code(string userdId)
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Code(CodeModel data)
+        {
+            int id = int.TryParse(RouteData.Values["id"]?.ToString(), out var parsedId) ? parsedId : 0;
+
+            if (!_changePassword.checkCode(data.Code))
+            {
+                TempData["MessageType"] = "Failure";
+                TempData["Message"] = "Code doesnot match!";
+                return View();
+            }
+            return RedirectToAction("",new {});
+        }
+        [HttpGet]
+        public IActionResult changePassword(string id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult changePassword(PasswordModel model)
+        {
+            int id = int.TryParse(RouteData.Values["id"]?.ToString(), out var parsedId) ? parsedId : 0;
+            bool result =_changePassword.updatePassword(model.ConfirmPassword,id);
+            if (result)
+            {
+                TempData["MessageType"] = "Success";
+                TempData["Message"] = "Password updated successfully!";
+            }
+            else
+            {
+                TempData["MessageType"] = "Failure";
+                TempData["Message"] = "Failed to update password!";
             }
             return View();
         }

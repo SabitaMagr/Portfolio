@@ -9,10 +9,11 @@ namespace Portfolio.Domain.Entities.User.ChangePassword
 {
     public class PasswordModel
     {
+        public int UserId { get; set; }
         [Required(ErrorMessage = "New Password is required.")]
         [DataType(DataType.Password)]
         [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&#])[A-Za-z\\d@$!%*?&#]{8,}$",
-    ErrorMessage = "New Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.")]
+        ErrorMessage = "New Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.")]
         public string NewPassword { get; set; }
 
         [Required(ErrorMessage = "Confirm Password is required.")]

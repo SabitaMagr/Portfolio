@@ -1,4 +1,5 @@
-﻿using Portfolio.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Portfolio.Domain.Entities;
 using Portfolio.Domain.Entities.User;
 using Portfolio.Domain.Entities.User.ChangePassword;
 using Portfolio.Domain.HelperClass;
@@ -44,8 +45,24 @@ namespace Portfolio.Infrastructure.Repository
             {
                 throw new ArgumentNullException("data");
             }
+            int maxId = GetMaxId<UserTbl>("Id");
+            data.Id = maxId;
             _dbContext.CodeDetails.Add(data);
             _dbContext.SaveChanges();
+        }
+        public int GetMaxId<T>(string columnName) where T : class
+        {
+            try
+            {
+                var maxId = _dbContext.Set<T>()
+                    .Max(e => EF.Property<int?>(e, columnName)) ?? 0;
+
+                return maxId + 1;
+            }
+            catch
+            {
+                return 1; // Default to 1 if an error occurs
+            }
         }
         public bool updatePassword(string password, int userId)
         {
@@ -57,7 +74,7 @@ namespace Portfolio.Infrastructure.Repository
                 {
                     return false;
                 }
-               user.Password= password;
+               user.Password=StaticHelper.EncryptString(password);
                 _dbContext.SaveChanges();
                 return true;
             }
@@ -67,7 +84,7 @@ namespace Portfolio.Infrastructure.Repository
                 throw new Exception("Error fetching data by ID", ex);
             }
         }
-        public bool checkCode(int code)
+        public CodeModel checkCode(int code)
         {
             try
             {
@@ -75,13 +92,12 @@ namespace Portfolio.Infrastructure.Repository
 
                 if (data == null)
                 {
-                    return false;
+                    return null;
                 }
-                return data.Code==code;
+                return data;
             }
             catch (Exception ex)
             {
-                return false;
                 throw new Exception("Error fetching data by ID", ex);
             }
         }

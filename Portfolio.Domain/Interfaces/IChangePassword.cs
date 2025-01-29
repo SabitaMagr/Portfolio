@@ -15,7 +15,7 @@ namespace Portfolio.Domain.Interfaces
         public PersonalDetails checkUsername(string username);
         public void add(CodeModel code);
         public bool updatePassword(string password,int userId);
-        public bool checkCode(int Code);
+        public CodeModel checkCode(int Code);
 
     }
 }

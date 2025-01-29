@@ -76,42 +76,43 @@ namespace Portfolio.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Code(string userdId)
+        public IActionResult Code(string UserId)
         {
             return View();
         }
         [HttpPost]
         public IActionResult Code(CodeModel data)
         {
-            int id = int.TryParse(RouteData.Values["id"]?.ToString(), out var parsedId) ? parsedId : 0;
-
-            if (!_changePassword.checkCode(data.Code))
+            var codeDetails = _changePassword.checkCode(data.Code);
+            if (data==null)
             {
                 TempData["MessageType"] = "Failure";
                 TempData["Message"] = "Code doesnot match!";
                 return View();
             }
-            return RedirectToAction("",new {});
+            return RedirectToAction("changePassword", new { codeDetails.UserId });
         }
         [HttpGet]
-        public IActionResult changePassword(string id)
+        public IActionResult changePassword(int UserId)
         {
+            ViewData["UserId"] = UserId;
             return View();
         }
         [HttpPost]
         public IActionResult changePassword(PasswordModel model)
         {
-            int id = int.TryParse(RouteData.Values["id"]?.ToString(), out var parsedId) ? parsedId : 0;
-            bool result =_changePassword.updatePassword(model.ConfirmPassword,id);
+            bool result =_changePassword.updatePassword(model.ConfirmPassword,model.UserId);
             if (result)
             {
                 TempData["MessageType"] = "Success";
                 TempData["Message"] = "Password updated successfully!";
+                return RedirectToAction("LogIn", "Home");
             }
             else
+
             {
-                TempData["MessageType"] = "Failure";
-                TempData["Message"] = "Failed to update password!";
+                ViewData["MessageType"] = "Failure";
+                ViewData["Message"] = "Failed to update password!";
             }
             return View();
         }

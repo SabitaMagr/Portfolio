@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Identity.Client;
 using Portfolio.Application.Business;
 using Portfolio.Domain.Interfaces;
 using Portfolio.Infrastructure.Repository;
@@ -16,6 +17,7 @@ namespace Portfolio.Infrastructure.Extensions
         {
             #region User
             services.AddTransient<Iuser, UserBusiness>();
+            services.AddTransient<IChangePassword, AccountRepository>();
             services.AddTransient<IUserRepo, UserRepository>();
             #endregion
             return services;

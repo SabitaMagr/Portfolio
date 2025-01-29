@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Portfolio.Domain.Entities.User.ChangePassword.CodeModel
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @if (ViewData["Message"] != null)
@@ -19,9 +20,8 @@
 }
 <div class="col-lg-6 bg-white userform">
     <img src="/Images/logo.png" alt="Logo" class="logo-image" />
-    @using (Html.BeginForm("changePassword", "Account", FormMethod.Post))
+    @using (Html.BeginForm("Code", "Account", FormMethod.Post))
     {
-        @Html.AntiForgeryToken()
         <div class="custom-floating-label mb-3">
             <div class="input-group">
                 <span class="input-group-text"><i class="fa fa-lock"></i></span>

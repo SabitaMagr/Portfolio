@@ -30,7 +30,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdownButton">
                                 <li class="border-bottom">
-                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+                                    <a class="dropdown-item" href="#" id="changePasswordButton" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
                                         <i class="fas fa-lock me-2"></i><span style="font-size: 0.85rem;">Change Password</span>
                                     </a>
                                 </li>
@@ -126,7 +126,7 @@
  *@            </main>
         </div>
     </div>
-    @await Html.PartialAsync("PartialView/_ChangePassword")
+    <div id="changePasswordModalContainer"></div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" asp-append-version="true"></script>
@@ -143,6 +143,26 @@
         $(document).ready(function () {
             if ('@TempData["Modal"]' === 'changePasswordModal') {
                 $('#changePasswordModal').modal('show');
+            }
+            // Open modal on button click
+            $("#changePasswordButton").click(function (e) {
+                e.preventDefault();
+                loadChangePasswordModal();
+            });
+
+            function loadChangePasswordModal() {
+                $.ajax({
+                    url: '@Url.Action("ChangePassword", "Home")',  // Ensure correct URL format
+                    type: 'GET',
+                    success: function (data) {
+                        $('#changePasswordModalContainer').html(data);
+                        $('#changePasswordModal').modal('show');
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error loading modal:", status, error); // Log detailed error
+                        alert("Failed to load change password modal.");
+                    }
+                });
             }
         });
     </script>

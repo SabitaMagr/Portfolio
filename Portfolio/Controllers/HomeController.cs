@@ -710,7 +710,8 @@ namespace Portfolio.Controllers
         [HttpGet]
         public IActionResult ChangePassword()
         {
-            return PartialView("_ChangePassword");
+            return PartialView("~/Views/Shared/PartialView/_changePassword.cshtml");
+            //return PartialView("_ChangePassword");
         }
         [HttpPost]
         public IActionResult ChangePassword(ChangePasswordModel model)
@@ -724,7 +725,7 @@ namespace Portfolio.Controllers
             {
                 TempData["MessageType"] = "Failure";
                 TempData["Message"] = "Old password doesnot match!";
-                return RedirectToAction("Dashboard");
+                return PartialView("~/Views/Shared/PartialView/_changePassword.cshtml");
             }
             var result = _user.changePassword(model.NewPassword, userId);
 

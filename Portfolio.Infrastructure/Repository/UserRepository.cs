@@ -30,27 +30,52 @@ namespace Portfolio.Infrastructure.Repository
 
         public bool AddUser(SignUpModel model)
         {
-            try
+            using (var transaction = _dbContext.Database.BeginTransaction()) // Start Transaction
             {
-                int maxId = GetMaxId<UserTbl>("Id");
-                string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
-                string hashPassword = StaticHelper.EncryptString(model.Password);
-                var newUser = new UserTbl
+                try
                 {
-                    Id  =maxId,
-                    Full_name = model.FullName,
-                    User_name = model.Username,
-                    Password = hashPassword,
-                    Created_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                    Status = "E"
-                };
-                _dbContext.UserTbl.Add(newUser);
-                _dbContext.SaveChanges();
-                return true;
+                    int maxId = GetMaxId<UserTbl>("Id");
+                    string formattedDate = DateTime.Now.ToString("dd-MMM-yyyy");
+                    string hashPassword = StaticHelper.EncryptString(model.Password);
+                    var newUser = new UserTbl
+                    {
+                        Id = maxId,
+                        Full_name = model.FullName,
+                        User_name = model.Username,
+                        Password = hashPassword,
+                        Created_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                        Status = "E"
+                    };
+                    _dbContext.UserTbl.Add(newUser);
+                    _dbContext.SaveChanges();
 
-            }catch(Exception )
-            {
-                 return false;
+                    // Add Personal Details
+                    var newData = new PersonalDetails()
+                    {
+                        UserId = maxId,
+                        FullName = model.FullName,
+                        MobileNo ="",
+                        Address ="",
+                        Email = "",
+                        Profile ="",
+                        About ="",
+                        Summary = "",
+                        Status = "E",
+                        Created_by = maxId, // Assuming Created_by should be the same as the UserId
+                        Created_dt = DateTime.ParseExact(formattedDate, "dd-MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture)
+                    };
+
+                    _dbContext.PersonalDetails.Add(newData);
+                    _dbContext.SaveChanges();
+                    transaction.Commit();
+                    return true;
+
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    return false;
+                }
             }
         }
         public UserTbl ValidateUser(LoginModel model)

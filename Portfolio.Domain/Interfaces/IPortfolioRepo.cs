@@ -8,5 +8,6 @@ namespace Portfolio.Domain.Interfaces
 {
     public interface IPortfolioRepo
     {
+        public Dictionary<string, object> GetAllDetails(int id);
     }
 }

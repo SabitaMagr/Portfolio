@@ -7,6 +7,7 @@ using Portfolio.Domain.Entities.User;
 using Portfolio.Domain.HelperClass;
 using Portfolio.Domain.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http;
 using System.Security.Claims;
 using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -18,16 +19,30 @@ namespace Portfolio.Controllers
         private readonly ILogger<HomeController> _logger;
         Iuser _user;
         IConfiguration _configuration;
-        public HomeController(ILogger<HomeController> logger, Iuser user, IConfiguration configuration)
+        private readonly HttpClient _httpClient;
+
+        public HomeController(ILogger<HomeController> logger, Iuser user, IConfiguration configuration, IHttpClientFactory httpClientFactory)
         {
             _logger = logger;
             _user = user;
-            _configuration = configuration; 
+            _configuration = configuration;
+            _httpClient = httpClientFactory.CreateClient();
+
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            int userId = 1; // Pass an appropriate user ID
+            var apiUrl = $"{_configuration["ApiBaseUrl"]}/api/Portfolio/{userId}";
+
+            var response = await _httpClient.GetAsync(apiUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsAsync<Dictionary<string, object>>();
+                return View(data);
+            }
+
+            return View(new Dictionary<string, object>());
         }
         public IActionResult LogIn()
         {

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css" asp-append-version="true">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" asp-append-version="true">
     <link rel="stylesheet" href="~/Portfolio.styles.css" asp-append-version="true" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -51,6 +52,11 @@
             <nav id="sidenav" class="col-md-3 col-lg-2 d-md-block sidebar">
                 <div class="position-sticky">
                     <ul class="nav flex-column">
+                        <li class="nav-item border-bottom">
+                            <a class="nav-link" asp-controller="Home" asp-action="Dashboard" onclick="setActive(this)">
+                                <i class="fa-solid fa-gauge fa-lg"></i>                                <span>Dashboard</span>
+                            </a>
+                        </li>
                         <li class="nav-item border-bottom">
                             <a class="nav-link" asp-controller="Home" asp-action="ProfileDetails" onclick="setActive(this)">
                                 <i class="fa-solid fa-person-circle-check fa-lg"></i>

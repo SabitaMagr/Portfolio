@@ -1,3 +1,101 @@
 ﻿@{
+    ViewData["Title"] = "Dashboard";
+
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+@model List<Portfolio.Domain.Entities.DataCountModel>
+<div class="custom-container mt-2 ">
+    <div class="heading-left border-bottom mb-2">
+        <i class="fa-solid fa-gauge fa-lg fa-lg me-2"></i>
+        Dashboard
+    </div>
+    <div class="row p-4">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-6 col-lg-3">
+                <div class="card" style="background-color: @item.Color;">
+                    <div class="card-body text-white">
+                        <div class="font">
+                            <i class="@item.Icon"></i>
+                        </div>
+                        <h4 class="mb-0">
+                            <span class="count"><b>@item.Count</b></span>
+                        </h4>
+                        <p style="font-weight: bold;">@item.Heading</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Charts -->
+    <div class="row p-4">
+        <div class="col-md-6">
+            <canvas id="barChart"></canvas>
+        </div>
+        <div class="col-md-6" >
+            <canvas id="pieChart" style="max-height: 280px;"></canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get data from the model
+    var labels = @Html.Raw(Json.Serialize(Model.Select(x => x.Heading)));
+    var dataValues = @Html.Raw(Json.Serialize(Model.Select(x => x.Count)));
+    var colors = @Html.Raw(Json.Serialize(Model.Select(x => x.Color)));
+
+    // Bar Chart
+    var ctxBar = document.getElementById("barChart").getContext("2d");
+    new Chart(ctxBar, {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Count",
+                backgroundColor: colors,
+                data: dataValues
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: "Categories", // X-axis label
+                        font: {
+                            size: 13,
+                            weight: "bold"
+                        },
+                        color: "#333"
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: "Count", // Y-axis label
+                        font: {
+                            size: 13,
+                            weight: "bold"
+                        },
+                        color: "#333"
+                    }
+                }
+            }
+        }
+    });
+
+
+    // Pie Chart
+    var ctxPie = document.getElementById("pieChart").getContext("2d");
+    new Chart(ctxPie, {
+        type: "pie",
+        data: {
+            labels: labels,
+            datasets: [{
+                backgroundColor: colors,
+                data: dataValues
+            }]
+        }
+    });
+</script>

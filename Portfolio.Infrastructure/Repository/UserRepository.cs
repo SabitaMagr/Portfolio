@@ -91,6 +91,24 @@ namespace Portfolio.Infrastructure.Repository
             }
             return null;
         }
+        public List<DataCountModel> getTotalData(int userId)
+        {
+            var sql = $@"
+        SELECT * FROM (
+            SELECT COUNT(*) AS Count, 'Projects' AS Heading, '#bbbbf0' AS Color, 'fa-solid fa-file-circle-plus fa-2x' AS Icon, 1 AS SortOrder FROM ProjectDetails WHERE Status='E and created_by={userId}'
+            UNION
+            SELECT COUNT(*) AS Count, 'Experience' AS Heading, '#f0bbee' AS Color, 'fa-solid fa-file fa-2x' AS Icon, 2 AS SortOrder FROM ExperienceDetails WHERE Status='E' and created_by={userId}
+            UNION 
+            SELECT COUNT(*) AS Count, 'Skills' AS Heading, '#f0d19c' AS Color, 'fa-solid fa-atom fa-2x' AS Icon, 3 AS SortOrder FROM Skills WHERE Status='E' and created_by={userId}
+            UNION
+            SELECT COUNT(*) AS Count, 'Education' AS Heading, '#d4fa93' AS Color, 'fa-solid fa-graduation-cap fa-2x' AS Icon, 4 AS SortOrder FROM EducationDetails WHERE Status='E' and created_by={userId}
+        ) AS temp ORDER BY SortOrder";
+
+            var result = _dbContext.DataCountModel.FromSqlRaw(sql).ToList();
+            return result;
+        }
+
+
         #region Skills
         public bool AddSkills(List<string> skills,int userId)
         {

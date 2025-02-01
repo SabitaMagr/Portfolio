@@ -38,8 +38,8 @@ namespace Portfolio.Controllers
             var response = await _httpClient.GetAsync(apiUrl);
             if (response.IsSuccessStatusCode)
             {
-                var data = await response.Content.ReadAsAsync<Dictionary<string, object>>();
-                return View(data);
+				var data = await response.Content.ReadFromJsonAsync<Dictionary<string, object>>();
+				return View(data);
             }
 
             return View(new Dictionary<string, object>());
@@ -135,8 +135,9 @@ namespace Portfolio.Controllers
                     return RedirectToAction("LogIn");
                 }
                 var userName = StaticHelper.GetDetail(token, "Full_name");
-                ViewData["UserName"] = userName;
-                return View();
+                TempData["UserName"] = userName;
+                var countData = _user.getTotalData(userId);
+                return View(countData);
             }catch(Exception )
             {
                 ViewData["Message"] = "An error occured !";

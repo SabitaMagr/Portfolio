@@ -5,14 +5,6 @@
       "PackagePath": "staticwebassets\\Portfolio.bundle.scp.css"
     },
     {
-      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\Images\\Project\\20250126_231757_5ac2784389bc4f2394ebe0d3dbea2b08.png",
-      "PackagePath": "staticwebassets\\Images\\Project\\20250126_231757_5ac2784389bc4f2394ebe0d3dbea2b08.png"
-    },
-    {
-      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\Images\\Project\\20250127_200422_5bc914c4057f4bc3afd301c8c5319871.png",
-      "PackagePath": "staticwebassets\\Images\\Project\\20250127_200422_5bc914c4057f4bc3afd301c8c5319871.png"
-    },
-    {
       "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\Images\\girl.png",
       "PackagePath": "staticwebassets\\Images\\girl.png"
     },
@@ -295,6 +287,486 @@
     {
       "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\css\\animate.css",
+      "PackagePath": "staticwebassets\\portfolio\\css\\animate.css"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\portfolio\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\portfolio\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\css\\flexslider.css",
+      "PackagePath": "staticwebassets\\portfolio\\css\\flexslider.css"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\css\\icomoon.css",
+      "PackagePath": "staticwebassets\\portfolio\\css\\icomoon.css"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\css\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\portfolio\\css\\owl.carousel.min.css"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\css\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\portfolio\\css\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\css\\style.css",
+      "PackagePath": "staticwebassets\\portfolio\\css\\style.css"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\css\\style.css.map",
+      "PackagePath": "staticwebassets\\portfolio\\css\\style.css.map"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\fonts\\bootstrap\\glyphicons-halflings-regular.eot",
+      "PackagePath": "staticwebassets\\portfolio\\fonts\\bootstrap\\glyphicons-halflings-regular.eot"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\fonts\\bootstrap\\glyphicons-halflings-regular.svg",
+      "PackagePath": "staticwebassets\\portfolio\\fonts\\bootstrap\\glyphicons-halflings-regular.svg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\fonts\\bootstrap\\glyphicons-halflings-regular.ttf",
+      "PackagePath": "staticwebassets\\portfolio\\fonts\\bootstrap\\glyphicons-halflings-regular.ttf"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\fonts\\bootstrap\\glyphicons-halflings-regular.woff",
+      "PackagePath": "staticwebassets\\portfolio\\fonts\\bootstrap\\glyphicons-halflings-regular.woff"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\fonts\\bootstrap\\glyphicons-halflings-regular.woff2",
+      "PackagePath": "staticwebassets\\portfolio\\fonts\\bootstrap\\glyphicons-halflings-regular.woff2"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\fonts\\icomoon\\icomoon.eot",
+      "PackagePath": "staticwebassets\\portfolio\\fonts\\icomoon\\icomoon.eot"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\fonts\\icomoon\\icomoon.svg",
+      "PackagePath": "staticwebassets\\portfolio\\fonts\\icomoon\\icomoon.svg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\fonts\\icomoon\\icomoon.ttf",
+      "PackagePath": "staticwebassets\\portfolio\\fonts\\icomoon\\icomoon.ttf"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\fonts\\icomoon\\icomoon.woff",
+      "PackagePath": "staticwebassets\\portfolio\\fonts\\icomoon\\icomoon.woff"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\about.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\about.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\blog-1.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\blog-1.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\blog-2.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\blog-2.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\blog-3.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\blog-3.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\blog-4.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\blog-4.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\cover_bg_1.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\cover_bg_1.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\img-1.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\img-1.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\img-2.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\img-2.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\img-3.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\img-3.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\img-4.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\img-4.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\img-5.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\img-5.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\img-6.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\img-6.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\img_bg_1.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\img_bg_1.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\img_bg_2.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\img_bg_2.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\img_bg_3.jpg",
+      "PackagePath": "staticwebassets\\portfolio\\images\\img_bg_3.jpg"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\images\\loc.png",
+      "PackagePath": "staticwebassets\\portfolio\\images\\loc.png"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\portfolio\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\js\\google_map.js",
+      "PackagePath": "staticwebassets\\portfolio\\js\\google_map.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\js\\jquery.countTo.js",
+      "PackagePath": "staticwebassets\\portfolio\\js\\jquery.countTo.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\js\\jquery.easing.1.3.js",
+      "PackagePath": "staticwebassets\\portfolio\\js\\jquery.easing.1.3.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\js\\jquery.flexslider-min.js",
+      "PackagePath": "staticwebassets\\portfolio\\js\\jquery.flexslider-min.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\portfolio\\js\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\js\\jquery.waypoints.min.js",
+      "PackagePath": "staticwebassets\\portfolio\\js\\jquery.waypoints.min.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\js\\main.js",
+      "PackagePath": "staticwebassets\\portfolio\\js\\main.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\js\\modernizr-2.6.2.min.js",
+      "PackagePath": "staticwebassets\\portfolio\\js\\modernizr-2.6.2.min.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\js\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\portfolio\\js\\owl.carousel.min.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\js\\respond.min.js",
+      "PackagePath": "staticwebassets\\portfolio\\js\\respond.min.js"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\_bootstrap-compass.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\_bootstrap-compass.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\_bootstrap-mincer.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\_bootstrap-mincer.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\_bootstrap-sprockets.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\_bootstrap-sprockets.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_alerts.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_alerts.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_badges.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_badges.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_breadcrumbs.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_breadcrumbs.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_button-groups.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_button-groups.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_buttons.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_buttons.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_carousel.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_carousel.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_close.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_close.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_code.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_code.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_component-animations.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_component-animations.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_dropdowns.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_dropdowns.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_forms.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_forms.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_glyphicons.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_glyphicons.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_grid.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_grid.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_input-groups.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_input-groups.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_jumbotron.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_jumbotron.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_labels.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_labels.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_list-group.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_list-group.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_media.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_media.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_mixins.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_mixins.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_modals.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_modals.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_navbar.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_navbar.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_navs.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_navs.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_normalize.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_normalize.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_pager.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_pager.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_pagination.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_pagination.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_panels.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_panels.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_popovers.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_popovers.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_print.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_print.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_progress-bars.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_progress-bars.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_responsive-embed.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_responsive-embed.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_responsive-utilities.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_responsive-utilities.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_scaffolding.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_scaffolding.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_tables.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_tables.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_theme.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_theme.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_thumbnails.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_thumbnails.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_tooltip.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_tooltip.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_type.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_type.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_utilities.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_utilities.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_variables.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_variables.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\_wells.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\_wells.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_alerts.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_alerts.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_background-variant.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_background-variant.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_border-radius.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_border-radius.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_buttons.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_buttons.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_center-block.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_center-block.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_clearfix.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_clearfix.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_forms.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_forms.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_gradients.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_gradients.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_grid-framework.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_grid-framework.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_grid.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_grid.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_hide-text.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_hide-text.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_image.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_image.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_labels.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_labels.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_list-group.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_list-group.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_nav-divider.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_nav-divider.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_nav-vertical-align.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_nav-vertical-align.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_opacity.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_opacity.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_pagination.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_pagination.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_panels.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_panels.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_progress-bar.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_progress-bar.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_reset-filter.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_reset-filter.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_reset-text.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_reset-text.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_resize.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_resize.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_responsive-visibility.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_responsive-visibility.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_size.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_size.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_tab-focus.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_tab-focus.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_table-row.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_table-row.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_text-emphasis.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_text-emphasis.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_text-overflow.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_text-overflow.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\bootstrap\\mixins\\_vendor-prefixes.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\bootstrap\\mixins\\_vendor-prefixes.scss"
+    },
+    {
+      "Id": "E:\\Desktop\\Dot Net\\Portfolio\\Portfolio\\wwwroot\\portfolio\\sass\\style.scss",
+      "PackagePath": "staticwebassets\\portfolio\\sass\\style.scss"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Portfolio.Microsoft.AspNetCore.StaticWebAssets.props",

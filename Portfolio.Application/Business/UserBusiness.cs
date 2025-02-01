@@ -27,6 +27,11 @@ namespace Portfolio.Application.Business
         {
             return _repo.ValidateUser(model);
         }
+        public List<DataCountModel> getTotalData(int userId)
+        {
+            return _repo.getTotalData(userId);
+        }
+
         #region Skills
         public bool AddSkills(List<string> skills,int userId)
         {

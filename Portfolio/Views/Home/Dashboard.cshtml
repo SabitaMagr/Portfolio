@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
-
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var userId = Context.Items["userId"]?.ToString();
 }
 @model List<Portfolio.Domain.Entities.DataCountModel>
 <div class="custom-container mt-2 ">
@@ -9,7 +9,12 @@
         <i class="fa-solid fa-gauge fa-lg fa-lg me-2"></i>
         Dashboard
     </div>
+    <button class="btn btn-secondary text-dark ms-4" onclick="generatePortfolioLink()">
+        Generate Link
+    </button>
+    <span id="generatedLink" class="ms-2"></span>
     <div class="row p-4">
+
         @foreach (var item in Model)
         {
             <div class="col-sm-6 col-lg-3">
@@ -98,4 +103,17 @@
             }]
         }
     });
+    function generatePortfolioLink() {
+        var userId = "@userId"; 
+        if (!userId) {
+            alert("User ID not found!");
+            return;
+        }
+
+        var baseUrl = `${window.location.protocol}//${window.location.host}`;
+        var link = `${baseUrl}/Home/Index?userId=${userId}`;
+
+        document.getElementById("generatedLink").innerHTML = `<a href="${link}" target="_blank">${link}</a>`;
+    }
+
 </script>

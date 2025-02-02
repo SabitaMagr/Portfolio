@@ -95,7 +95,7 @@ namespace Portfolio.Infrastructure.Repository
         {
             var sql = $@"
         SELECT * FROM (
-            SELECT COUNT(*) AS Count, 'Projects' AS Heading, '#bbbbf0' AS Color, 'fa-solid fa-file-circle-plus fa-2x' AS Icon, 1 AS SortOrder FROM ProjectDetails WHERE Status='E and created_by={userId}'
+            SELECT COUNT(*) AS Count, 'Projects' AS Heading, '#bbbbf0' AS Color, 'fa-solid fa-file-circle-plus fa-2x' AS Icon, 1 AS SortOrder FROM ProjectDetails WHERE Status='E' and created_by={userId}
             UNION
             SELECT COUNT(*) AS Count, 'Experience' AS Heading, '#f0bbee' AS Color, 'fa-solid fa-file fa-2x' AS Icon, 2 AS SortOrder FROM ExperienceDetails WHERE Status='E' and created_by={userId}
             UNION 

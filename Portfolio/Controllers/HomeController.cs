@@ -32,7 +32,18 @@ namespace Portfolio.Controllers
 
         public async Task<IActionResult> Index()
         {
-            int userId = 1; // Pass an appropriate user ID
+            int userId = 0;
+            if (Request.Query.ContainsKey("userId"))
+            {
+                // Try to parse 'userId' to an integer
+                int.TryParse(Request.Query["userId"], out userId);
+            }
+
+            // Validate userId to ensure it's a valid integer (not 0)
+            if (userId == 0)
+            {
+                return BadRequest("Invalid userId");
+            }
             var apiUrl = $"{_configuration["ApiBaseUrl"]}/api/Portfolio/{userId}";
 
             var response = await _httpClient.GetAsync(apiUrl);
@@ -69,8 +80,8 @@ namespace Portfolio.Controllers
                             SameSite = SameSiteMode.Strict,
                             Expires = DateTime.UtcNow.AddHours(1)
                         });
+                        TempData["MessageType"] = "Success";
                         TempData["Message"] = "Login successfully !";
-                        TempData["UserName"] =data.User_name;
                         return RedirectToAction("Dashboard");
                     }
                     else

@@ -20,6 +20,8 @@ namespace Portfolio.Infrastructure.Extensions
             services.AddTransient<IChangePassword, AccountRepository>();
             services.AddTransient<IUserRepo, UserRepository>();
             #endregion
+            services.AddScoped<IPortfolioRepo, PortfolioRepository>();
+
             return services;
         }
     }

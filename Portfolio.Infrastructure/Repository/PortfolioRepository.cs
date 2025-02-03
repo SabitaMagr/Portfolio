@@ -17,41 +17,36 @@ namespace Portfolio.Infrastructure.Repository
             _dbContext = dbContext;
         }
 
-        public Dictionary<string, object> GetAllDetails(int id) {
-            var result = new Dictionary<string, object>();
-            var personalDetails = getPersonalDetails(id);
-            var skills = getSkiilsData(id);
-            var projects = getProjectDetails(id);
-            var experience = getExperinceData(id);
-            var education = getEducationData(id);
-            result["PersonalDetails"] = personalDetails;
-            result["Skills"] = skills;
-            result["Projects"] = projects;
-            result["Experience"] = experience;
-            result["Education"] = education;
-
-            return result;
-        }
+		public PortfolioDetailsDto GetAllDetails(int id) {
+			return new PortfolioDetailsDto
+			{
+				PersonalDetails = getPersonalDetails(id),
+				Skills = getSkiilsData(id),
+				Projects = getProjectDetails(id),
+				Experience = getExperinceData(id),
+				Education = getEducationData(id)
+			};
+		}
 
         public List<PersonalDetails> getPersonalDetails(int id)
         {
-            return _dbContext.PersonalDetails.Where(p => p.UserId == id).ToList();
+            return _dbContext.PersonalDetails.Where(p => p.UserId == id && p.Status != null && p.Status == "E").ToList();
         }
         public List<Skills> getSkiilsData(int id)
         {
-            return _dbContext.Skills.Where(p => p.Created_by == id).ToList();
+            return _dbContext.Skills.Where(p => p.Created_by == id && p.Status != null && p.Status == "E").ToList();
         }
         public List<ProjectDetails> getProjectDetails(int id)
         {
-            return _dbContext.ProjectDetails.Where(p => p.Created_by == id).ToList();
+            return _dbContext.ProjectDetails.Where(p => p.Created_by == id && p.Status != null && p.Status == "E").ToList();
         }
         public List<ExperienceDetail> getExperinceData(int id)
         {
-            return _dbContext.ExperienceDetail.Where(p => p.Created_by == id).ToList();
+            return _dbContext.ExperienceDetail.Where(p => p.Created_by == id && p.Status != null && p.Status == "E").ToList();
         }
         public List<EducationDetail> getEducationData(int id)
         {
-            return _dbContext.EducationDetail.Where(p => p.Created_by == id).ToList();
+            return _dbContext.EducationDetail.Where(p => p.Created_by == id && p.Status != null && p.Status == "E").ToList();
         }
     }
 }

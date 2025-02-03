@@ -44,17 +44,24 @@ namespace Portfolio.Controllers
             {
                 return BadRequest("Invalid userId");
             }
-            var apiUrl = $"{_configuration["ApiBaseUrl"]}/api/Portfolio/{userId}";
+            string apiBaseUrl = $"{Request.Scheme}://{Request.Host}";
+
+            var apiUrl = $"{apiBaseUrl}/api/Portfolio/{userId}";
 
             var response = await _httpClient.GetAsync(apiUrl);
-            if (response.IsSuccessStatusCode)
-            {
-				var data = await response.Content.ReadFromJsonAsync<Dictionary<string, object>>();
-				return View(data);
-            }
+			if (response.IsSuccessStatusCode)
+			{
+				var jsonString = await response.Content.ReadAsStringAsync();
+				var data = System.Text.Json.JsonSerializer.Deserialize<PortfolioDetailsDto>(jsonString, new System.Text.Json.JsonSerializerOptions
+				{
+					PropertyNameCaseInsensitive = true
+				});
 
-            return View(new Dictionary<string, object>());
-        }
+				return View(data);
+			}
+
+			return View(new PortfolioDetailsDto());
+		}
         public IActionResult LogIn()
         {
             return View();

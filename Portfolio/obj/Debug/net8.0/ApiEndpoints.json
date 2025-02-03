@@ -2,20 +2,20 @@
   {
     "ContainingType": "Portfolio.Controllers.api.PortfolioController",
     "Method": "Index",
-    "RelativePath": "api/Portfolio",
-    "HttpMethod": "",
+    "RelativePath": "api/Portfolio/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "Portfolio.Domain.Entities.PortfolioDetailsDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

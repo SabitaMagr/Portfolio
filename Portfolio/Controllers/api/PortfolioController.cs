@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Portfolio.Domain.Entities;
 using Portfolio.Domain.Interfaces;
 
 namespace Portfolio.Controllers.api
@@ -11,10 +12,11 @@ namespace Portfolio.Controllers.api
         public PortfolioController(IPortfolioRepo portfolioRepo) { 
             _portfolioRepo = portfolioRepo;
         }
-        public Dictionary<string,object> Index(int id)
+        [HttpGet("{id}")]
+        public PortfolioDetailsDto Index(int id)
         {
-          var  result=new Dictionary<string, object>();
-            result = _portfolioRepo.GetAllDetails(id);
+
+           var result = _portfolioRepo.GetAllDetails(id);
             return result;
         }
     }

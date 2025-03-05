@@ -3,7 +3,6 @@
 @{
 	Layout = null;
 	var fullName = Model.PersonalDetails.FirstOrDefault()?.FullName ?? "";
-
 }
 <!DOCTYPE HTML>
 <html>
@@ -12,20 +11,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Portfolio(@fullName)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
-	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
-
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
@@ -51,7 +36,7 @@
 <body>
 	<div id="colorlib-page">
 		<div class="container-wrap">
-@if (Model.PersonalDetails.Any())
+	@if (Model.PersonalDetails.Any())
 {
 				var detail = Model.PersonalDetails[0];
 			<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
@@ -223,200 +208,153 @@
 						</div>
 					</div>
 				</section>
-	@if (Model.Education.Any())
+				@if (Model.Education.Any())
 				{
 					<section class="colorlib-education" data-section="education">
 						<div class="colorlib-narrow-content">
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-								<span class="heading-meta">Education</span>
-								<h2 class="colorlib-heading animate-box">Education</h2>
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+									<span class="heading-meta">Education</span>
+									<h2 class="colorlib-heading animate-box">Education</h2>
+								</div>
 							</div>
-						</div>
-						<div class="row">
+							<div class="row">
+								@{
+									string[] animationEffects = { "fadeInLeft", "fadeInRight", "fadeInTop", "fadeInBottom" };
+									int index = 0; // Initialize index counter
+								}
 								@foreach (var edu in Model.Education)
 								{
-							<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-								<div class="fancy-collapse-panel">
-									<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingOne">
-												<h4 class="panel-title">
-													<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-														@edu.Degree
-													</a>
-												</h4>
-											</div>
-											<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-												<div class="panel-body">
-													<div class="row">
-														<div class="col-md-6">
+									var animationEffect = animationEffects[index % animationEffects.Length]; // Cycle through effects
+
+									<div class="col-md-12 animate-box" data-animate-effect="@animationEffect">
+										<div class="fancy-collapse-panel">
+											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+												<div class="panel panel-default">
+													<div class="panel-heading" role="tab" id="heading-@index">
+														<h4 class="panel-title">
+															<a data-toggle="collapse" data-parent="#accordion" href="#collapse-@index" aria-expanded="true" aria-controls="collapse-@index">
+																@edu.Degree
+															</a>
+														</h4>
+													</div>
+													<div id="collapse-@index" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-@index">
+														<div class="panel-body">
+															<div class="row">
+																<div class="col-md-6">
 																	<p>@(edu.StartDt?.ToString("yyyy-MM-dd") ?? "N/A") - @(edu.EndDt?.ToString("yyyy-MM-dd") ?? "N/A")</p>
 																</div>
-														<div class="col-md-6">
-															<p>@edu.Location</p>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-md-6">
-															<p>@edu.Institution</p>
-														</div>
-														<div class="col-md-6">
-															<p>@edu.Summary</p>
+																<div class="col-md-6">
+																	<p>@edu.Location</p>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-md-6">
+																	<p>@edu.Institution</p>
+																</div>
+																<div class="col-md-6">
+																	<p>@edu.Summary</p>
+																</div>
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-								}
-						</div>
-					</div>
-				</section>
-}
-	@if (Model.Experience.Any())
-				{
-				<section class="colorlib-experience" data-section="experience">
-					<div class="colorlib-narrow-content">
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-								<span class="heading-meta">Experience</span>
-								<h2 class="colorlib-heading animate-box">Work Experience</h2>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="timeline-centered">
-									<article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-										<div class="timeline-entry-inner">
 
-											<div class="timeline-icon color-1">
-												<i class="icon-pen2"></i>
-											</div>
-												@foreach (var exp in Model.Experience)
-												{
-											<div class="timeline-label">
-												<h2><a href="#">@exp.Position</a> <span>@exp.StartDt-@exp.EndDt</span></h2>
-												<p>@exp.JobDescription</p>
-											</div>
-												}
-										</div>
-									</article>
-								</div>
+									index++; // Increment index to cycle through animations
+								}
 							</div>
 						</div>
-					</div>
-				</section>
+					</section>
 				}
-				<section class="colorlib-work" data-section="work">
-					<div class="colorlib-narrow-content">
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-								<span class="heading-meta">My Work</span>
-								<h2 class="colorlib-heading animate-box">Recent Work</h2>
+
+				@if (Model.Experience.Any())
+				{
+					<section class="colorlib-experience" data-section="experience">
+						<div class="colorlib-narrow-content">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+									<span class="heading-meta">Experience</span>
+									<h2 class="colorlib-heading animate-box">Work Experience</h2>
+								</div>
+							</div>
+							<div class="row">
+								@{
+									string[] animationEffects = { "fadeInLeft", "fadeInRight", "fadeInTop", "fadeInBottom" };
+									int index = 0; // Initialize index counter
+								}
+								@foreach (var exp in Model.Experience)
+								{
+									var animationEffect = animationEffects[index % animationEffects.Length]; // Rotate effects
+									index++; // Increment index for next loop
+									<div class="col-md-12">
+										<div class="timeline-centered">
+											<article class="timeline-entry animate-box" data-animate-effect="@animationEffect">
+												<div class="timeline-entry-inner">
+													<div class="timeline-icon color-1">
+														<i class="icon-pen2"></i>
+													</div>
+													<div class="timeline-label">
+														<h2><a href="#">@exp.Position</a> <span>@exp.StartDt - @exp.EndDt</span></h2>
+														<p>@exp.JobDescription</p>
+													</div>
+												</div>
+											</article>
+										</div>
+									</div>
+								}
 							</div>
 						</div>
-						<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
-							<div class="col-md-12">
-								<p class="work-menu"><span><a href="#" class="active">Graphic Design</a></span> <span><a href="#">Web Design</a></span> <span><a href="#">Software</a></span> <span><a href="#">Apps</a></span></p>
+					</section>
+				}
+				@if (Model.Projects.Any())
+				{
+					<section class="colorlib-work" data-section="work">
+						<div class="colorlib-narrow-content">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+									<span class="heading-meta">My Work</span>
+									<h2 class="colorlib-heading animate-box">Recent Work</h2>
+								</div>
+							</div>
+							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="col-md-12">
+									<p class="work-menu">
+										<span><a href="#" class="active">Web Design</a></span>
+										<span><a href="#">Software</a></span>
+										<span><a href="#">Apps</a></span>
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								@{
+									string[] animationEffects = { "fadeInLeft", "fadeInRight", "fadeInTop", "fadeInBottom" };
+									int index = 0;
+								}
+								@foreach (var project in Model.Projects)
+								{
+									var animationEffect = animationEffects[index % animationEffects.Length]; // Assign animations
+									index++;
+									<div class="col-md-6 animate-box" data-animate-effect="@animationEffect">
+										<div class="project" style="background-image: url(/Images/girl.png);">
+											<div class="desc">
+												<div class="con">
+													<h3><a href="@project.GitLink">@project.Name</a></h3>
+@* 													<span>@project.Category</span>
+											*@													
+													<span>@project.Description</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								}
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="project" style="background-image: url(images/img-1.jpg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Work 01</a></h3>
-											<span>Website</span>
-											<p class="icon">
-												<span><a href="#"><i class="icon-share3"></i></a></span>
-												<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-												<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="project" style="background-image: url(images/img-2.jpg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Work 02</a></h3>
-											<span>Animation</span>
-											<p class="icon">
-												<span><a href="#"><i class="icon-share3"></i></a></span>
-												<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-												<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInTop">
-								<div class="project" style="background-image: url(images/img-3.jpg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Work 03</a></h3>
-											<span>Illustration</span>
-											<p class="icon">
-												<span><a href="#"><i class="icon-share3"></i></a></span>
-												<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-												<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInBottom">
-								<div class="project" style="background-image: url(images/img-4.jpg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Work 04</a></h3>
-											<span>Application</span>
-											<p class="icon">
-												<span><a href="#"><i class="icon-share3"></i></a></span>
-												<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-												<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="project" style="background-image: url(images/img-5.jpg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Work 05</a></h3>
-											<span>Graphic, Logo</span>
-											<p class="icon">
-												<span><a href="#"><i class="icon-share3"></i></a></span>
-												<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-												<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="project" style="background-image: url(images/img-6.jpg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Work 06</a></h3>
-											<span>Web Design</span>
-											<p class="icon">
-												<span><a href="#"><i class="icon-share3"></i></a></span>
-												<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-												<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+					</section>
+				}
+
 				@if (Model.PersonalDetails.Any())
 				{
 					var detail = Model.PersonalDetails[0];

@@ -947,10 +947,15 @@ body.offcanvas {
     -o-transition: 0.3s;
     transition: 0.3s; }
     .project .desc .con {
-      padding: 20px;
-      display: block;
-      position: relative;
-      height: 300px; }
+        display: block;
+        position: relative;
+        height: 250px;
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+        text-align: center; /* Center text */
+        padding: 50px; /* Optional padding */
+
+    }
       .project .desc .con .icon {
         position: absolute;
         bottom: 20px;

@@ -42,11 +42,11 @@ namespace Portfolio.Infrastructure.Repository
         }
         public List<ExperienceDetail> getExperinceData(int id)
         {
-            return _dbContext.ExperienceDetail.Where(p => p.Created_by == id && p.Status != null && p.Status == "E").ToList();
+            return _dbContext.ExperienceDetail.Where(p => p.Created_by == id && p.Status != null && p.Status == "E").OrderByDescending(p => p.StartDt).ToList();
         }
         public List<EducationDetail> getEducationData(int id)
         {
-            return _dbContext.EducationDetail.Where(p => p.Created_by == id && p.Status != null && p.Status == "E").ToList();
+            return _dbContext.EducationDetail.Where(p => p.Created_by == id && p.Status != null && p.Status == "E").OrderByDescending(p => p.StartDt).ToList();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Portfolio.Domain.Entities
         public string? GitLink { get; set; }
         public string? DeployLink {  get; set; }
         public string? ImageName { get; set; }
-        public string? Status { get; set; }
+		public string? Status { get; set; }
         public DateTime? Created_dt { get; set; }
         public int? Created_by { get; set; }
         public DateTime? Modified_dt { get; set; }

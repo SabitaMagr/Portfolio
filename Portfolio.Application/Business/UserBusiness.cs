@@ -27,7 +27,11 @@ namespace Portfolio.Application.Business
         {
             return _repo.ValidateUser(model);
         }
-        public List<DataCountModel> getTotalData(int userId)
+		public PersonalDtl fetchById(int id)
+		{
+			return _repo.fetchById(id);
+		}
+		public List<DataCountModel> getTotalData(int userId)
         {
             return _repo.getTotalData(userId);
         }

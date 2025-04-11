@@ -107,10 +107,29 @@ namespace Portfolio.Infrastructure.Repository
             var result = _dbContext.DataCountModel.FromSqlRaw(sql).ToList();
             return result;
         }
+        public PersonalDtl fetchById(int id)
+        {
+			try
+			{
+				var data = _dbContext.PersonalDetails
+					.Where(s => s.UserId == id)
+					.Select(s => new PersonalDtl
+					{
+						UserId = s.UserId,
+                        Email=s.Email
+					})
+					.FirstOrDefault();
+				return data;
+			}
+			catch (Exception ex)
+			{
+				// Handle exceptions appropriately (logging, error handling, etc.)
+				throw new Exception("Error fetching data by ID", ex);
+			}
+		}
 
-
-        #region Skills
-        public bool AddSkills(List<string> skills,int userId)
+		#region Skills
+		public bool AddSkills(List<string> skills,int userId)
         {
             using (var transaction = _dbContext.Database.BeginTransaction())
             {

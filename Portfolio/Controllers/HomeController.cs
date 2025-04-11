@@ -2,12 +2,14 @@ using AspNetCore.ReCaptcha;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using Portfolio.Domain.Entities;
 using Portfolio.Domain.Entities.User;
 using Portfolio.Domain.HelperClass;
 using Portfolio.Domain.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Security.Claims;
 using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -47,8 +49,8 @@ namespace Portfolio.Controllers
             string apiBaseUrl = $"{Request.Scheme}://{Request.Host}";
 
             var apiUrl = $"{apiBaseUrl}/api/Portfolio/{userId}";
-
-            var response = await _httpClient.GetAsync(apiUrl);
+			ViewBag.UserId = userId;
+			var response = await _httpClient.GetAsync(apiUrl);
 			if (response.IsSuccessStatusCode)
 			{
 				var jsonString = await response.Content.ReadAsStringAsync();
@@ -56,13 +58,63 @@ namespace Portfolio.Controllers
 				{
 					PropertyNameCaseInsensitive = true
 				});
-
 				return View(data);
 			}
-
 			return View(new PortfolioDetailsDto());
 		}
-        public IActionResult LogIn()
+		[HttpPost]
+		public IActionResult SendMail(PortfolioDetailsDto model)
+		{
+			int userId = model.Contact.UserId;
+
+			if (ModelState.IsValid)
+			{
+				var contact = model.Contact;
+				var toEmployee = _user.fetchById(userId);
+                var toEmail = toEmployee.Email;
+                try
+				{
+					if (string.IsNullOrEmpty(toEmail) || !IsValidEmail(toEmail))
+					{
+						throw new Exception("Receiver email is not set or valid.");
+					}
+					var mail = new MailMessage
+					{
+						To = { toEmail },
+						Subject =contact.Subject,
+						Body = $"{contact.Message} || {contact.Email}",
+						IsBodyHtml = true
+					};
+					var emailSent = EmailHelper.SendEmail(mail);
+
+					if (!emailSent)
+					{
+						throw new Exception("Failed to send email.");
+					}
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine($"Error: {e.Message}");
+				}
+				TempData["MessageType"] = "Success";
+				TempData["Message"] = "Message sent successfully!";
+				return RedirectToAction("Index");
+			}
+			return View("Index");
+		}
+		private static bool IsValidEmail(string email)
+		{
+			try
+			{
+				var addr = new System.Net.Mail.MailAddress(email);
+				return addr.Address == email;
+			}
+			catch
+			{
+				return false;
+			}
+		}
+		public IActionResult LogIn()
         {
             return View();
         }

@@ -1,9 +1,9 @@
 ﻿@model Portfolio.Domain.Entities.PortfolioDetailsDto
-
 @{
 	Layout = null;
 	var fullName = Model.PersonalDetails.FirstOrDefault()?.FullName ?? "";
 }
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -38,8 +38,8 @@
 <body>
 	<div id="colorlib-page">
 		<div class="container-wrap">
-	@if (Model.PersonalDetails.Any())
-{
+		@if (Model.PersonalDetails.Any())
+		{
 				var detail = Model.PersonalDetails[0];
 			<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
 				<div class="text-center">
@@ -376,31 +376,69 @@
 							</div>
 							<div class="col-md-7 col-md-push-1">
 								<div class="row">
-									<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInRight">
-										<form action="">
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Name">
-											</div>
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Email">
-											</div>
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Subject">
-											</div>
-											<div class="form-group">
-												<textarea name="" id="message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-											</div>
-											<div class="form-group">
-												<input type="submit" class="btn btn-primary btn-send-message" value="Send Message">
-											</div>
-										</form>
-									</div>
+									<div class="col-md-8 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInRight">
+											<form asp-action="SendMail" method="post" class="container px-3">
+												<input asp-for="Contact.UserId" type="hidden" value="@ViewBag.UserId" />
+												<div class="row mb-3">
+													<div class="col-md-6">
+														<label asp-for="Contact.Name" class="form-label"></label>
+														<input asp-for="Contact.Name" class="form-control" placeholder="Name" />
+														<span asp-validation-for="Contact.Name" class="text-danger"></span>
+													</div>
+												</div>
 
+												<div class="row mb-3">
+													<div class="col-md-6">
+														<label asp-for="Contact.Email" class="form-label">Email</label>
+														<input asp-for="Contact.Email" class="form-control" placeholder="Email" />
+														<span asp-validation-for="Contact.Email" class="text-danger"></span>
+													</div>
+												</div>
+
+												<div class="row mb-3">
+													<div class="col-md-6">
+														<label asp-for="Contact.Subject" class="form-label"></label>
+														<input asp-for="Contact.Subject" class="form-control" placeholder="Subject" />
+														<span asp-validation-for="Contact.Subject" class="text-danger"></span>
+													</div>
+												</div>
+
+												<div class="row mb-3">
+													<div class="col-md-6">
+														<label asp-for="Contact.Message" class="form-label"></label>
+														<textarea asp-for="Contact.Message" class="form-control" rows="5" placeholder="Message"></textarea>
+														<span asp-validation-for="Contact.Message" class="text-danger"></span>
+													</div>
+												</div>
+
+												<div class="row mb-3">
+													<div class="col-md-6 text-end">
+														<button type="submit" class="btn btn-primary btn-send-message">Send Message</button>
+													</div>
+												</div>
+											</form>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</section>
+					@if (TempData["Message"] != null)
+					{
+						var messageType = TempData["MessageType"]?.ToString();
+						if (messageType == "Success")
+						{
+							<div id="alertMessage" class="positiveAlert">
+								@TempData["Message"]
+							</div>
+						}
+						else
+						{
+							<div id="alertMessage" class="negativeAlert">
+								@TempData["Message"]
+							</div>
+						}
+					}
 }
 			</div><!-- end:colorlib-main -->
 		</div><!-- end:container-wrap -->

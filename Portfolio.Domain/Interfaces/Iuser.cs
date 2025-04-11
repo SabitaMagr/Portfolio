@@ -12,7 +12,8 @@ namespace Portfolio.Domain.Interfaces
     {
         bool AddUser(SignUpModel model);
         UserTbl ValidateUser(LoginModel model);
-        List<DataCountModel> getTotalData(int userId);
+        PersonalDtl fetchById (int userId);
+		List<DataCountModel> getTotalData(int userId);
         #region Skills
         bool AddSkills(List<string> skills,int userId);
         List<SkillDetail> getSkills(int userId);
